@@ -1,4 +1,3 @@
-Jenkinsfile (Declarative Pipeline)
 pipeline{
     node('build1'){  
         dir('/root/tengine'){
@@ -41,7 +40,7 @@ pipeline{
             stage(' Run Jenkins/test'){
             
                 sh '''#!/bin/bash
-                        pytest jenkins/test.py  --html=report/test.html --verbose
+                        pytest jenkins/test.py  --junitxml=report/test.xml --verbose
                 '''
     
             }
@@ -50,11 +49,7 @@ pipeline{
                     junit allowEmptyResults: true, keepLongStdio: true, testResults: '/root/tengine/report/test.xml'
                 }
             } 
-            post('Publish HTML results') {
-                always{
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/root/tengine/report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
-                }
-            }       
+    
             
             
         }
