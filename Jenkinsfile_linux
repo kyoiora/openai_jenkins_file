@@ -1,4 +1,3 @@
-
 node('build1'){  
     dir('/root/tengine'){
         sh "pwd"
@@ -40,17 +39,11 @@ node('build1'){
         stage(' Run Jenkins/test'){
         
             sh '''#!/bin/bash
-                    pytest jenkins/test.py  --junitxml=report/test.xml --verbose
-            '''
-
+                    pytest jenkins/test.py  --html=report/test.html --junit-xml=report/test.xml --verbose || true
+            ''' 
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '/root/tengine/report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
         }
-        post('Publish test results') {
-            always{
-                junit allowEmptyResults: true, keepLongStdio: true, testResults: '/root/tengine/report/test.xml'
-            }
-        } 
-
-        
-        
+   
     }
 }
