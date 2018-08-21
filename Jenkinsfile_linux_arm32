@@ -13,6 +13,7 @@ node('tinkerboard_linux'){
         
             sh '''#!/bin/bash
                     make -j4
+                    make install
             '''
           
         }
