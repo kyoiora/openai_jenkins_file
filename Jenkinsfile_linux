@@ -20,7 +20,7 @@ node('build1'){
         stage('Make example'){
         
             sh '''#!/bin/bash
-                   cd examples/build %% ../linux_build.sh && make -j4
+                   cd examples/build && ../linux_build.sh && make -j4
             '''
           
         }
