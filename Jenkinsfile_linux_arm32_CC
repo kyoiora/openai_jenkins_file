@@ -21,12 +21,9 @@ node('build1'){
         stage('Make example'){
         
             sh '''#!/bin/bash
-            mkdir -p build/examples
-            cd build/examples
-            pwd
-            cmake -DTENGINE_DIR=/root/test/tengine_arm32_cross -DCMAKE_TOOLCHAIN_FILE=/root/test/tengine_arm32_cross/arm32.toolchain.cmake ../../examples/ 
-            make -j4
-            cd ../../
+                mkdir -p build/examples
+                cd build/examples && cmake -DTENGINE_DIR=/root/test/tengine_arm32_cross -DCMAKE_TOOLCHAIN_FILE=/root/test/tengine_arm32_cross/arm32.toolchain.cmake ../../examples/ 
+                cd build/examples && make -j4
             '''
         }
 

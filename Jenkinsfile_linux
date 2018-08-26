@@ -20,7 +20,9 @@ node('build1'){
         stage('Make example'){
         
             sh '''#!/bin/bash
-                   ./jenkins/test_python.sh
+                mkdir -p build/examples
+                cd build/examples && cmake -DTENGINE_DIR=/root/tengine ../../examples/ 
+                cd build/examples && make -j4
             '''
           
         }
