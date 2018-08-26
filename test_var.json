@@ -1,10 +1,10 @@
 {
   "cc": {
-    "root_dir": "/root/cross_test/",
+    "root_dir": "/root/cross_test/"
 
   },
+  
   "onboard": {
-    "root_dir": "/root/tengine/",
-
+    "root_dir": "/root/tengine/"
   }
 }
