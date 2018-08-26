@@ -7,9 +7,9 @@ import pdb
 import subprocess
 
 
-def test_eval(testcase_dict,type_name,variables):
+def test_eval(testcase_dict,cmdopt,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
-    test_path=variables[type_name]['root_dir']
+    test_path=variables[cmdopt]['root_dir']
     try:
         subprocess.check_output(test_path+"/jenkins/test.sh %s"%id,shell=True)
         result=True

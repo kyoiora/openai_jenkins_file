@@ -11,6 +11,10 @@ def pytest_addoption(parser):
 	)
 
 
+@pytest.fixture
+def cmdopt(request):
+	return request.config.getoption("--cmdopt")
+
 
 def pytest_generate_tests(metafunc):
 	if 'testcase_dict' in metafunc.fixturenames:
@@ -27,5 +31,5 @@ def pytest_generate_tests(metafunc):
 			#pdb.set_trace()
 		pprint.pprint(dict(testcase_list.items()))
 		metafunc.parametrize("testcase_dict", testcase_list.keys())
-		metafunc.parametrize("type_name", metafunc.config.getoption('cmdopt'))
+		#metafunc.parametrize("type_name", metafunc.config.getoption('cmdopt'))
 		#pdb.set_trace()

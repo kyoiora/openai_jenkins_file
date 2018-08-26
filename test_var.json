@@ -1,16 +1,10 @@
 {
   "cc": {
     "root_dir": "/root/cross_test/",
-    "browser_version": "53.0",
-    "os": "Windows",
-    "os_version": "10",
-    "resolution": "1280x1024"
+
   },
   "onboard": {
     "root_dir": "/root/tengine/",
-    "browser_version": "53.0",
-    "os": "Windows",
-    "os_version": "10",
-    "resolution": "1280x1024"
+
   }
 }
