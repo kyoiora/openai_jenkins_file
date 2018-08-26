@@ -1,9 +1,19 @@
 node('tinkerboard_linux'){  
+    dir('/root/openai_jenkins_file'){
+        stage(' git pull jenkins file'){
+            sh "pwd"
+            sh '''#!/bin/bash
+                    git pull
+            ''' 
+
+        }
+    }
+    
     dir('/root/tengine'){
-        sh "pwd"
     
         stage('Git Pull'){
-        
+            sh "pwd"
+            sh "hostname" 
             sh '''#!/bin/bash
                     git pull
             '''
@@ -42,10 +52,9 @@ node('tinkerboard_linux'){
 
     }
     dir('/root/openai_jenkins_file'){
-        sh "pwd"
-    
         stage(' Run Jenkins/test'){
-        
+            sh "pwd"
+            sh "hostname" 
             sh '''#!/bin/bash
                     git pull
                     pytest test.py  --cmdopt="onboard"  --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true

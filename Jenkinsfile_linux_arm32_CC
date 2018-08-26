@@ -1,10 +1,20 @@
 
 node('build1'){  
+    dir('/root/openai_jenkins_file'){
+        stage(' git pull jenkins file'){
+            sh "pwd"
+            sh '''#!/bin/bash
+                    git pull
+            ''' 
+
+        }
+    }
+    
     dir('/root/test/tengine_arm32_cross'){
-        sh "pwd"
-        sh "hostname"
+
         stage('Git Pull'){
-        
+            sh "pwd"
+            sh "hostname" 
             sh '''#!/bin/bash
                     git pull
             '''
@@ -23,7 +33,7 @@ node('build1'){
         
             sh '''#!/bin/bash
                 mkdir -p build/examples
-                cd build/examples && cmake -DTENGINE_DIR=/root/test/tengine_arm32_cross -DCMAKE_TOOLCHAIN_FILE=/root/test/tengine_arm32_cross/arm32.toolchain.cmake ../../examples/ && make -j4
+                cd build/examples && cmake -DTENGINE_DIR=/root/test/tengine_arm32_cross -DCMAKE_TOOLCHAIN_FILE=/root/openai_jenkins_file/cross_toolchain/arm32.toolchain.cmake ../../examples/ && make -j4
             '''
         }
         stage('push file to tinkerboard'){
@@ -40,23 +50,29 @@ node('build1'){
 }
 
 node('tinkerboard_linux'){  
-    dir('/root/cross_test'){
+    dir('/root/test/tengine_arm32_cross'){
 
         stage(' Run SqueezeNet'){
-            sh "pwd"
-            sh "hostname"
+        
             sh '''#!/bin/bash
-                    ./bench_sqz -r1
+                    ./build/tests/bin/bench_sqz -r1
+            '''
+        }
+        
+        stage(' Run bench_mobilenet'){
+        
+            sh '''#!/bin/bash
+                    ./build/tests/bin/bench_mobilenet -r1
             '''
         }
         
 
     }
     dir('/root/openai_jenkins_file'){
-        sh "pwd"
     
         stage(' Run Jenkins/test'){
-        
+            sh "pwd"
+            sh "hostname" 
             sh '''#!/bin/bash
                     git pull
                     pytest test.py  --cmdopt="cc"  --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true

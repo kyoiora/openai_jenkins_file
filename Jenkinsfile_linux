@@ -1,13 +1,21 @@
 node('build1'){  
-    dir('/root/tengine'){
-        sh "pwd"
-    
+    dir('/root/openai_jenkins_file'){
+        stage(' git pull jenkins file'){
+            sh "pwd"
+            sh '''#!/bin/bash
+                    git pull
+            ''' 
+
+        }
+    }
+
+    dir('/root/tengine'){ 
         stage('Git Pull'){
-        
+            sh "pwd"
+            sh "hostname" 
             sh '''#!/bin/bash
                     git pull
             '''
-          
         }
         stage('Make'){
         
@@ -16,7 +24,6 @@ node('build1'){
                     make -j4
                     make install
             '''
-          
         }
         stage('Make example'){
         
@@ -24,7 +31,6 @@ node('build1'){
                 mkdir -p build/examples
                 cd build/examples && cmake -DTENGINE_DIR=/root/tengine ../../examples/ && make -j4
             '''
-          
         }
         stage(' Run SqueezeNet'){
         
@@ -42,10 +48,9 @@ node('build1'){
 
     }
     dir('/root/openai_jenkins_file'){
-        sh "pwd"
-    
         stage(' Run Jenkins/test'){
-        
+            sh "pwd"
+            sh "hostname" 
             sh '''#!/bin/bash
                     git pull
                     pytest test.py  --html=report/test.html --junit-xml=report/test.xml --verbose || true
