@@ -1,4 +1,7 @@
 import pytest
+import os
+import asciitable
+import collections
 
 
 def pytest_addoption(parser):
