@@ -10,24 +10,20 @@ import subprocess
 
 
 
-testcase_dict=collections.OrderedDict()
-for rec in testlist:
-    testcase_dict[rec[0]]=rec[1]
-    #pdb.set_trace()
-pprint.pprint(dict(testcase_dict.items()))
+
 
 #pdb.set_trace()
 
 
 def pytest_addoption(parser):
     parser.addoption(
-        "--type", action="store", default="onboard", help="my option: onboard or cc"
+        "--cmdopt", action="store", default="onboard", help="my option: onboard or cc"
     )
 
 
 @pytest.fixture
 def cmdopt(request):
-    return request.config.getoption("--type")
+    return request.config.getoption("--cmdopt")
 
 
 @pytest.mark.parametrize("id",testcase_dict.keys())
@@ -38,6 +34,11 @@ def test_eval(id,cmdopt):
         test_path2 = '/root/tengine/jenkins'
         print(test_path)
         testlist=asciitable.read(test_path+'/core_test.list')
+        testcase_dict=collections.OrderedDict()
+        for rec in testlist:
+            testcase_dict[rec[0]]=rec[1]
+            #pdb.set_trace()
+        pprint.pprint(dict(testcase_dict.items()))
         try:
             subprocess.check_output(test_path+"/test.sh %s"%id,shell=True)
             result=True
@@ -49,6 +50,11 @@ def test_eval(id,cmdopt):
         test_path2 = '/root/cross_test/jenkins'
         print(test_path)
         testlist=asciitable.read(test_path+'/core_test.list')
+        testcase_dict=collections.OrderedDict()
+        for rec in testlist:
+            testcase_dict[rec[0]]=rec[1]
+            #pdb.set_trace()
+        pprint.pprint(dict(testcase_dict.items()))
         try:
             subprocess.check_output(test_path+"/test.sh %s"%id,shell=True)
             result=True
