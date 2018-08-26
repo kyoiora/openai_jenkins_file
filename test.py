@@ -9,7 +9,14 @@ import subprocess
 
 
 
-
+test_path2 = '/root/tengine/jenkins'
+print(test_path)
+testlist=asciitable.read(test_path+'/core_test.list')
+testcase_dict=collections.OrderedDict()
+for rec in testlist:
+    testcase_dict[rec[0]]=rec[1]
+    #pdb.set_trace()
+pprint.pprint(dict(testcase_dict.items()))
 
 
 #pdb.set_trace()
@@ -31,14 +38,6 @@ def cmdopt(request):
 def test_eval(id,cmdopt):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
     if cmdopt == "onboard":
-        test_path2 = '/root/tengine/jenkins'
-        print(test_path)
-        testlist=asciitable.read(test_path+'/core_test.list')
-        testcase_dict=collections.OrderedDict()
-        for rec in testlist:
-            testcase_dict[rec[0]]=rec[1]
-            #pdb.set_trace()
-        pprint.pprint(dict(testcase_dict.items()))
         try:
             subprocess.check_output(test_path+"/test.sh %s"%id,shell=True)
             result=True
@@ -47,14 +46,6 @@ def test_eval(id,cmdopt):
             result=False
         assert result==True
     elif cmdopt == "cc":
-        test_path2 = '/root/cross_test/jenkins'
-        print(test_path)
-        testlist=asciitable.read(test_path+'/core_test.list')
-        testcase_dict=collections.OrderedDict()
-        for rec in testlist:
-            testcase_dict[rec[0]]=rec[1]
-            #pdb.set_trace()
-        pprint.pprint(dict(testcase_dict.items()))
         try:
             subprocess.check_output(test_path+"/test.sh %s"%id,shell=True)
             result=True
