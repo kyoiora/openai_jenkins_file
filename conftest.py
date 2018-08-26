@@ -27,4 +27,5 @@ def pytest_generate_tests(metafunc):
 			#pdb.set_trace()
 		pprint.pprint(dict(testcase_list.items()))
 		metafunc.parametrize("testcase_dict", testcase_list.keys())
+		metafunc.parametrize("cmdopt", metafunc.config.getoption('cmdopt'))
 		#pdb.set_trace()
