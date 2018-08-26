@@ -23,6 +23,7 @@ node('build1'){
             sh '''#!/bin/bash
             mkdir -p build/examples
             cd build/examples
+            pwd
             cmake -DTENGINE_DIR=/root/test/tengine_arm32_cross -DCMAKE_TOOLCHAIN_FILE=/root/test/tengine_arm32_cross/arm32.toolchain.cmake ../../examples/ 
             make -j4
             cd ../../
@@ -54,7 +55,7 @@ node('tinkerboard_linux'){
         
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py  --type='cc' --html=report/test.html --junit-xml=report/test.xml --verbose || true
+                    pytest test.py  --cmdopt="cc"  --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
             ''' 
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])

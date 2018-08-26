@@ -22,6 +22,7 @@ node('tinkerboard_linux'){
             sh '''#!/bin/bash
             mkdir -p build/examples
             cd build/examples
+            pwd
             cmake -DTENGINE_DIR=/root/tengine ../../examples/ 
             make -j4
             cd ../../
@@ -50,7 +51,7 @@ node('tinkerboard_linux'){
         
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py  --html=report/test.html --junit-xml=report/test.xml --verbose || true
+                    pytest test.py  --cmdopt="onboard"  --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
             ''' 
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
