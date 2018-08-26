@@ -9,12 +9,17 @@ def pytest_addoption(parser):
 	parser.addoption(
 		"--cmdopt", action="store", default="onboard", help="my option: onboard or cc"
 	)
-
+	parser.addoption(
+		"--targetdir", action="store", default="/root/tengine/", help="dir of target targetdir"
+	)
 
 @pytest.fixture
 def cmdopt(request):
 	return request.config.getoption("--cmdopt")
-
+	
+@pytest.fixture
+def targetdir(request):
+	return request.config.getoption("--targetdir")
 
 def pytest_generate_tests(metafunc):
 	if 'testcase_dict' in metafunc.fixturenames:

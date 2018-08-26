@@ -7,11 +7,10 @@ import pdb
 import subprocess
 
 
-def test_eval(testcase_dict,cmdopt,variables):
+def test_eval(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
-    test_path=variables[cmdopt]['root_dir']
     try:
-        subprocess.check_output(test_path+"/jenkins/test.sh %s"%testcase_dict,shell=True)
+        subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
         result=True
     except subprocess.CalledProcessError,ex:
         print ex.output # contains stdout and stderr together 

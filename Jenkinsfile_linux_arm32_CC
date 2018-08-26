@@ -23,7 +23,7 @@ node('build1'){
         stage('Make'){
         
             sh '''#!/bin/bash
-                    make clean
+                    #make clean
                     make -j4
                     make install
             '''
@@ -33,6 +33,7 @@ node('build1'){
         
             sh '''#!/bin/bash
                 mkdir -p build/examples
+                rm -rf build/examples/*
                 cd build/examples && cmake -DTENGINE_DIR=/root/test/tengine_arm32_cross -DCMAKE_TOOLCHAIN_FILE=/root/openai_jenkins_file/cross_toolchain/arm32.toolchain.cmake ../../examples/ && make -j4
             '''
         }
@@ -75,7 +76,7 @@ node('tinkerboard_linux'){
             sh "hostname" 
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py  --cmdopt="cc"  --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
+                    pytest test.py  --cmdopt="cc"  --targetdir="/root/test/tengine_arm32_cross" --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
             ''' 
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])

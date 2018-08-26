@@ -29,6 +29,7 @@ node('build1'){
         
             sh '''#!/bin/bash
                 mkdir -p build/examples
+                rm -rf build/examples/*
                 cd build/examples && cmake -DTENGINE_DIR=/root/tengine ../../examples/ && make -j4
             '''
         }
