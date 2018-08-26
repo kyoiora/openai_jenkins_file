@@ -26,7 +26,7 @@ def pytest_generate_tests(metafunc):
 		test_path = metafunc.config.getoption('targetdir')
 		testcase_list=collections.OrderedDict()
 		print(test_path)
-		testlist=asciitable.read(test_path+'/core_test.list')
+		testlist=asciitable.read(test_path+'/jenkins/core_test.list')
 
 		for rec in testlist:
 			testcase_list[rec[0]]=rec[1]
