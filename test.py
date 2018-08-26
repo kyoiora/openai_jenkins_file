@@ -5,9 +5,8 @@ import collections
 import pprint
 import pdb
 import subprocess
-test_path = '/root/tengine/jenkins'
-print(test_path)
-testlist=asciitable.read(test_path+'/core_test.list')
+
+
 
 
 
@@ -20,14 +19,40 @@ pprint.pprint(dict(testcase_dict.items()))
 #pdb.set_trace()
 
 
+def pytest_addoption(parser):
+    parser.addoption(
+        "--type", action="store", default="onboard", help="my option: onboard or cc"
+    )
+
+
+@pytest.fixture
+def cmdopt(request):
+    return request.config.getoption("--type")
+
+
 @pytest.mark.parametrize("id",testcase_dict.keys())
 #@pytest.mark.parametrize("id",testcase_dict.keys()[1:2])
-def test_eval(id):
+def test_eval(id,cmdopt):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
-    try:
-        subprocess.check_output(test_path+"/test.sh %s"%id,shell=True)
-        result=True
-    except subprocess.CalledProcessError,ex:
-        print ex.output # contains stdout and stderr together 
-        result=False
-    assert result==True
+    if cmdopt == "onboard":
+        test_path2 = '/root/tengine/jenkins'
+        print(test_path)
+        testlist=asciitable.read(test_path+'/core_test.list')
+        try:
+            subprocess.check_output(test_path+"/test.sh %s"%id,shell=True)
+            result=True
+        except subprocess.CalledProcessError,ex:
+            print ex.output # contains stdout and stderr together 
+            result=False
+        assert result==True
+    elif cmdopt == "cc":
+        test_path2 = '/root/cross_test/jenkins'
+        print(test_path)
+        testlist=asciitable.read(test_path+'/core_test.list')
+        try:
+            subprocess.check_output(test_path+"/test.sh %s"%id,shell=True)
+            result=True
+        except subprocess.CalledProcessError,ex:
+            print ex.output # contains stdout and stderr together 
+            result=False
+        assert result==True

@@ -1,7 +1,8 @@
-node('tinkerboard_linux'){  
-    dir('/root/tengine'){
+
+node('build1'){  
+    dir('/root/test/tengine_arm32_cross'){
         sh "pwd"
-    
+        sh "hostname"
         stage('Git Pull'){
         
             sh '''#!/bin/bash
@@ -22,25 +23,28 @@ node('tinkerboard_linux'){
             sh '''#!/bin/bash
             mkdir -p build/examples
             cd build/examples
-            cmake -DTENGINE_DIR=/root/tengine ../../examples/ 
+            cmake -DTENGINE_DIR=/root/test/tengine_arm32_cross -DCMAKE_TOOLCHAIN_FILE=/root/test/tengine_arm32_cross/arm32.toolchain.cmake ../../examples/ 
             make -j4
             cd ../../
             '''
-          
         }
+
+    }
+   
+
+}
+
+node('tinkerboard_linux'){  
+    dir('/root/cross_test'){
+
         stage(' Run SqueezeNet'){
-        
+            sh "pwd"
+            sh "hostname"
             sh '''#!/bin/bash
-                    ./build/tests/bin/bench_sqz -r1
+                    ./bench_sqz -r1
             '''
         }
         
-        stage(' Run bench_mobilenet'){
-        
-            sh '''#!/bin/bash
-                    ./build/tests/bin/bench_mobilenet -r1
-            '''
-        }
 
     }
     dir('/root/openai_jenkins_file'){
@@ -50,7 +54,7 @@ node('tinkerboard_linux'){
         
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py  --html=report/test.html --junit-xml=report/test.xml --verbose || true
+                    pytest test.py  --type='cc' --html=report/test.html --junit-xml=report/test.xml --verbose || true
             ''' 
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
