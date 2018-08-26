@@ -16,17 +16,14 @@ def pytest_addoption(parser):
 @pytest.fixture
 def cmdopt(request):
 	return request.config.getoption("--cmdopt")
-	
+
 @pytest.fixture
 def targetdir(request):
 	return request.config.getoption("--targetdir")
 
 def pytest_generate_tests(metafunc):
 	if 'testcase_dict' in metafunc.fixturenames:
-		if metafunc.config.getoption('cmdopt') == "onboard":
-			test_path = '/root/tengine/jenkins'
-		elif metafunc.config.getoption('cmdopt') == "cc":
-			test_path = '/root/cross_test/jenkins'
+		test_path = metafunc.config.getoption('targetdir')
 		testcase_list=collections.OrderedDict()
 		print(test_path)
 		testlist=asciitable.read(test_path+'/core_test.list')
