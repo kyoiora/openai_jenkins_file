@@ -7,30 +7,29 @@ import pdb
 import subprocess
 
 
-
-
-test_path2 = '/root/tengine/jenkins'
-print(test_path)
-testlist=asciitable.read(test_path+'/core_test.list')
 testcase_dict=collections.OrderedDict()
-for rec in testlist:
-    testcase_dict[rec[0]]=rec[1]
-    #pdb.set_trace()
-pprint.pprint(dict(testcase_dict.items()))
+
+def common_setup(cmdopt)
+    global testcase_dict
+    if cmdopt == "onboard":
+        test_path = '/root/tengine/jenkins'
+    elif cmdopt == "cc":
+        test_path = '/root/cross_test'
+    print(test_path)
+    testlist=asciitable.read(test_path+'/core_test.list')
+    
+    for rec in testlist:
+        testcase_dict[rec[0]]=rec[1]
+        #pdb.set_trace()
+    pprint.pprint(dict(testcase_dict.items()))
+
+
 
 
 #pdb.set_trace()
 
 
-def pytest_addoption(parser):
-    parser.addoption(
-        "--cmdopt", action="store", default="onboard", help="my option: onboard or cc"
-    )
 
-
-@pytest.fixture
-def cmdopt(request):
-    return request.config.getoption("--cmdopt")
 
 
 @pytest.mark.parametrize("id",testcase_dict.keys())
