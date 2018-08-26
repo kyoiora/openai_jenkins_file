@@ -9,7 +9,7 @@ import subprocess
 
 testcase_dict=collections.OrderedDict()
 
-def common_setup(cmdopt)
+def common_setup(cmdopt):
     global testcase_dict
     if cmdopt == "onboard":
         test_path = '/root/tengine/jenkins'
