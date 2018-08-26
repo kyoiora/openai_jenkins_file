@@ -40,8 +40,8 @@ node('build1'){
         stage('push file to tinkerboard'){
         
             sh '''#!/bin/bash
-                scp -r ./install root@192.168.50.207:/root/test/tengine_arm32_cross
-                scp -r ./build root@192.168.50.207:/root/test/tengine_arm32_cross
+                scp -r ./install root@tinkerboard:/root/test/tengine_arm32_cross
+                scp -r ./build root@tinkerboard:/root/test/tengine_arm32_cross
                
             '''
         }
