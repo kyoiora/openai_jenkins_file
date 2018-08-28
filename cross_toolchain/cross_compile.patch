@@ -1,0 +1,80 @@
+diff --git a/Makefile b/Makefile
+index aeaea84..8596a9e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,19 +1,19 @@
+ ###     cross compile for ARM64
+ #CROSS_COMPILE=aarch64-linux-gnu-
+ ###     cross compile for ARM32
+-#CROSS_COMPILE=arm-linux-gnueabihf-
+-SYSROOT:=$(shell pwd)/sysroot/ubuntu_rootfs
++CROSS_COMPILE=arm-linux-gnueabihf-
++SYSROOT=$(shell pwd)/sysroot/debian_rootfs
+ 
+-ifeq ($(CROSS_COMPILE),"aarch64-linux-gnu-")
++ifeq ($(CROSS_COMPILE),aarch64-linux-gnu-)
+    SYSROOT_FLAGS:=--sysroot=$(SYSROOT) 
+    SYSROOT_LDFLAGS:=-L/usr/lib/aarch64-linux-gnu -L/lib/aarch64-linux-gnu
+    PKG_CONFIG_PATH:=$(SYSROOT)/usr/lib/aarch64-linux-gnu/pkgconfig
+    export PKG_CONFIG_PATH
+ endif
+-ifeq ($(CROSS_COMPILE),"arm-linux-gnueabihf-")
+-   SYSROOT_FLAGS:=--sysroot=$(SYSROOT)32 
++ifeq ($(CROSS_COMPILE),arm-linux-gnueabihf-)
++   SYSROOT_FLAGS:=--sysroot=$(SYSROOT)32
+    SYSROOT_LDFLAGS:=-L/usr/lib/arm-linux-gnueabihf -L/lib/arm-linux-gnueabihf
+-   PKG_CONFIG_PATH:=$(SYSROOT)/usr/lib/arm-linux-gnueabihf/pkgconfig
++   PKG_CONFIG_PATH:=$(SYSROOT)32/usr/lib/arm-linux-gnueabihf/pkgconfig
+    export PKG_CONFIG_PATH
+ endif
+ 
+diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
+index 46c297b..cd8cafa 100644
+--- a/examples/CMakeLists.txt
++++ b/examples/CMakeLists.txt
+@@ -4,8 +4,9 @@ set(LIBRARY_OUTPUT_PATH_ROOT ${CMAKE_BINARY_DIR} CACHE PATH "root for library ou
+ get_filename_component(CMAKE_TOOLCHAIN_FILE_NAME ${CMAKE_TOOLCHAIN_FILE} NAME)
+ find_file(CMAKE_TOOLCHAIN_FILE ${CMAKE_TOOLCHAIN_FILE_NAME} PATHS ${CMAKE_SOURCE_DIR} NO_DEFAULT_PATH)
+ message(STATUS "CMAKE_TOOLCHAIN_FILE = ${CMAKE_TOOLCHAIN_FILE}")
++message(STATUS "CMAKE_BINARY_DIR = ${CMAKE_BINARY_DIR}")
+ endif()
+-
++message(STATUS "pre_ CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}")
+ if(NOT DEFINED CMAKE_INSTALL_PREFIX)
+ set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "Installation Directory")
+ endif()
+diff --git a/examples/caffe_wrapper/mtcnn/CMakeLists.txt b/examples/caffe_wrapper/mtcnn/CMakeLists.txt
+index 6859fa7..d58ce19 100644
+--- a/examples/caffe_wrapper/mtcnn/CMakeLists.txt
++++ b/examples/caffe_wrapper/mtcnn/CMakeLists.txt
+@@ -4,7 +4,7 @@ project(CAFFE_MTCNN)
+ 
+ set( TENGINE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../ )
+ set( INSTALL_DIR ${TENGINE_DIR}/install/ )
+-set( TENGINE_LIBS wrapper tengine )
++set( TENGINE_LIBS wrapper tengine boost_thread)
+ set( CAFFE_MTCNN_SRCS test_caffe_mtcnn.cpp caffe_mtcnn.cpp caffe_mtcnn_utils.cpp )
+ 
+ #flag
+diff --git a/examples/linux_build.sh b/examples/linux_build.sh
+index 725c307..4da85b2 100755
+--- a/examples/linux_build.sh
++++ b/examples/linux_build.sh
+@@ -1,4 +1,4 @@
+ #!/bin/bash
+ 
+-cmake -DTENGINE_DIR=/home/usr/tengine \
++cmake -DTENGINE_DIR=/root/test/tengine_arm32_cross -DCMAKE_TOOLCHAIN_FILE=/root/test/tengine_arm32_cross/arm32.toolchain.cmake \
+       ..
+diff --git a/sysroot/config.debian b/sysroot/config.debian
+index 0419eaa..10b677a 100644
+--- a/sysroot/config.debian
++++ b/sysroot/config.debian
+@@ -8,5 +8,6 @@ aptsources=Debian
+ [Debian]
+ packages=libopencv-dev libprotobuf-dev libblas3 liblapack3 libboost-thread-dev libgoogle-glog-dev libopenblas-dev libatlas-base-dev
+ source=http://ftp.debian.org/debian
++#source=https://mirrors.ustc.edu.cn/debian
+ keyring=debian-archive-keyring
+-suite=buster
++suite=stretch
