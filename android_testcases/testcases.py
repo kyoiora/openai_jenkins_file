@@ -28,19 +28,18 @@ def push():
 
 
 def Classify1(android_ip):
+	target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
 	a = AdbWrapper() # Auto Find adb in system PATH or Environment
 	a.connect(android_ip)
 	#pdb.set_trace()
 	a.device=android_ip
-
-
-	res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
-	print(res[0])
-
-	res=a.shell("\'cd %s &&  ./Classify -i cat.jpg \'"%(TARGET_DIR_ON_BOARD+'android_pack/'))
-
+    a.shell("export LD_LIBRARY_PATH=%s"%target_dir)
+	#res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
+	#print(res[0])
+	#res=a.shell("\'cd %s &&  ./Classify -i cat.jpg \'"%(TARGET_DIR_ON_BOARD+'android_pack/'))
+	res=a.shell("%s/Classify -i %s/cat.jpg "%(target_dir,target_dir))
 	#pdb.set_trace()
-	print(res[0])
+	print(res)
 
 def Classify2(android_ip):
 	pass
