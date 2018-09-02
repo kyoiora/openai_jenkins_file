@@ -1,7 +1,7 @@
 import os,pdb
-
+import sys
+test_path = (os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(test_path + '/libs')
-
 from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
 import argparse
 ROOT_DIR='/root/tengine_armv8/android_pack/'
@@ -11,13 +11,17 @@ def push():
     a.connect("192.168.50.114")
     #pdb.set_trace()
     a.device='192.168.50.114'
-    a.push(ROOT_DIR, TARGET_DIR_ON_BOARD)
+
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/*.so'))
-    
+
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/Classify'))
+
+
+    a.push(ROOT_DIR, TARGET_DIR_ON_BOARD)
+
     print(res[0])
-    res=a.shell("cd %s && chmod u+x Classify "%(TARGET_DIR_ON_BOARD+'android_pack/'))
+    res=a.shell("\'cd %s && chmod u+x Classify\' "%(TARGET_DIR_ON_BOARD+'android_pack/'))
 
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     
