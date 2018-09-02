@@ -1,0 +1,58 @@
+node('build1'){  
+    dir('/root/tengine_armv8'){
+        sh "pwd"
+
+        stage('Git Pull'){
+        
+            sh '''#!/bin/bash
+                    git pull
+            '''
+          
+        }
+        stage('Make'){
+        
+           sh '''#!/bin/bash
+                   cd build && make -j4 && make install
+            '''
+          
+        }
+        stage('Make example'){
+        
+            sh '''#!/bin/bash
+                   cd examples/build && make -j4
+            '''
+          
+        }
+        stage('android_pack'){
+        
+            sh '''#!/bin/bash
+                   ./android_pack.sh
+                   cp examples/build/imagenet_classification/Classify ./android_pack
+                   ls -al ./android_pack
+            '''
+          
+        }
+
+    dir('/root/openai_jenkins_file'){
+
+
+        stage('push file to android'){
+        
+            sh '''#!/bin/bash
+                    python push_android.py -f push
+            '''
+        }
+
+        stage(' Run Jenkins/test'){
+            sh "pwd"
+            sh "hostname" 
+            sh '''#!/bin/bash
+                    git pull
+                    pytest test.py -k "test_eval_android" --cmdopt="adb" --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
+            ''' 
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
+        }
+    }
+    }
+}
