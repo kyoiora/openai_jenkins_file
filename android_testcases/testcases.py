@@ -33,7 +33,8 @@ def Classify1(android_ip):
 	a.connect(android_ip)
 	#pdb.set_trace()
 	a.device=android_ip
-    a.shell("export LD_LIBRARY_PATH=%s"%target_dir)
+	
+	a.shell("export LD_LIBRARY_PATH=%s"%target_dir)
 	#res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
 	#print(res[0])
 	#res=a.shell("\'cd %s &&  ./Classify -i cat.jpg \'"%(TARGET_DIR_ON_BOARD+'android_pack/'))
