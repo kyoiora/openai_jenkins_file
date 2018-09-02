@@ -196,7 +196,7 @@ class BaseWrapper(object):
             if not self.logger.handlers:
                 logging.getLogger().setLevel(logging.DEBUG)
                 stream_hdl = logging.StreamHandler()
-                stream_hdl.setLevel(logging.DEBUG)
+                stream_hdl.setLevel(logging.INFO)
                 stream_hdl.setFormatter(logging.Formatter('%(asctime)s %(levelname)-8s [%(funcName)s:%(lineno)d] %(message)s'))
                 self.logger.addHandler(stream_hdl)
         self.logger.info("%s: init start", self.__class__)
@@ -398,7 +398,6 @@ class BaseWrapper(object):
             stdout_t.join()
             stderr_t.join()
         _cmdlist = self._cmdlist_convert(cmdlist)
-        self.logger.info("_cmdlist: %s"%_cmdlist)
         stdout_str, stderr_str = u'', u''
         start_time = time.time()
         try:
