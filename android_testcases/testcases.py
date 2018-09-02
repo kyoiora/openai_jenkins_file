@@ -37,7 +37,7 @@ def Classify1(android_ip):
 	res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
 	print(res[0])
 
-	res=a.shell("cd %s &&  ./Classify -i cat.jpg "%(TARGET_DIR_ON_BOARD+'android_pack/'))
+	res=a.shell("\'cd %s &&  ./Classify -i cat.jpg \'"%(TARGET_DIR_ON_BOARD+'android_pack/'))
 
 	#pdb.set_trace()
 	print(res[0])
