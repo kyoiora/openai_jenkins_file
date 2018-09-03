@@ -1,4 +1,15 @@
 node('build1'){  
+
+    dir('/root/openai_jenkins_file'){
+        stage(' git pull jenkins file'){
+            sh "pwd"
+            sh '''#!/bin/bash
+                    git pull
+            ''' 
+
+        }
+    }
+    
     dir('/root/tengine_armv8'){
         sh "pwd"
 

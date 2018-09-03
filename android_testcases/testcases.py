@@ -104,7 +104,7 @@ def imagenet_resnet50(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n resnet50 "%(target_dir,target_dir,target_dir))
+    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n resnet50 -i %s/tests/images/bike.jpg"%(target_dir,target_dir,target_dir,target_dir))
     #pdb.set_trace()
     print(res[0])
     assert "0.9239 - \"n03792782" in res[0]
@@ -116,7 +116,7 @@ def imagenet_vgg16(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n vgg16 "%(target_dir,target_dir,target_dir))
+    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n vgg16 -i %s/tests/images/bike.jpg"%(target_dir,target_dir,target_dir,target_dir))
     #pdb.set_trace()
     print(res[0])
     assert "0.4998 - \"n03792782" in res[0]
