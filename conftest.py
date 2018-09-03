@@ -4,9 +4,7 @@ import asciitable
 import collections
 import pprint
 import pdb
-test_path = (os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(test_path + '/android_testcases')
-import testcases
+
 
 android_testlist=['imagenet_sqz','imagenet_alexnet','imagenet_googlenet','imagenet_mobilenet']
 
