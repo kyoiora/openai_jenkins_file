@@ -194,9 +194,9 @@ class BaseWrapper(object):
         else:
             self.logger = logging.getLogger('adb')
             if not self.logger.handlers:
-                logging.getLogger().setLevel(logging.DEBUG)
+                logging.getLogger().setLevel(logging.ERROR)
                 stream_hdl = logging.StreamHandler()
-                stream_hdl.setLevel(logging.INFO)
+                stream_hdl.setLevel(logging.ERROR)
                 stream_hdl.setFormatter(logging.Formatter('%(asctime)s %(levelname)-8s [%(funcName)s:%(lineno)d] %(message)s'))
                 self.logger.addHandler(stream_hdl)
         self.logger.info("%s: init start", self.__class__)
