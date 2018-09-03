@@ -11,6 +11,8 @@ def push():
     a.connect("192.168.50.114")
     #pdb.set_trace()
     a.device='192.168.50.114'
+    a.root()
+
 
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/*.so'))
@@ -33,7 +35,7 @@ def push():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-f", "--func", help="call function", required=False)
+    parser.add_argument("-f", "--func", help="call function", required=False,default='push')
     args = parser.parse_args()
     if args.func=="push":
         push()
