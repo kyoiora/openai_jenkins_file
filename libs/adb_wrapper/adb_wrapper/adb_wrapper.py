@@ -688,7 +688,7 @@ class AdbWrapper(BaseWrapper):
             raise AdbNoDevice
         except SubprocessException as err:
             if err.msg == TIMEOUT:
-                self.logger.info("root: timeout,need to conncet again. %s", error)
+                self.logger.info("root: timeout,need to conncet again. %s", err)
                 self.connect(device)
                 #raise AdbTimeout(err.msg, err.stdout, err.stderr)
             else:
