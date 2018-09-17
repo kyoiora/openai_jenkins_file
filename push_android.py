@@ -6,11 +6,11 @@ from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
 import argparse
 ROOT_DIR='/root/tengine_armv8/android_pack/'
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
-def push():
+def push(ip_addr=ip_addr):
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
-    a.connect("192.168.50.114")
+    a.connect(ip_addr)
     #pdb.set_trace()
-    a.device='192.168.50.114'
+    a.device=ip_addr
     a.root()
 
 
@@ -36,6 +36,7 @@ def push():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--func", help="call function", required=False,default='push')
+    parser.add_argument("-ip", "--ip_addr", help="ip of device", required=True)
     args = parser.parse_args()
     if args.func=="push":
-        push()
+        push(ip_addr=args.ip_addr)
