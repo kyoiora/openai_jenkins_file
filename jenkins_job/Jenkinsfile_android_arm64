@@ -50,7 +50,7 @@ node('build1'){
         stage('push file to android'){
         
             sh '''#!/bin/bash
-                    python push_android.py -f push -ip '192.168.50.114'
+                    python push_android.py -f push -ip '192.168.8.135'
             '''
         }
 
@@ -59,7 +59,7 @@ node('build1'){
             sh "hostname" 
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_android" --cmdopt="adb" --ip='192.168.50.114' --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
+                    pytest test.py -k "test_eval_android" --cmdopt="adb" --ip='192.168.8.135' --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
             ''' 
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
