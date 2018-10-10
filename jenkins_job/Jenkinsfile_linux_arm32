@@ -39,6 +39,7 @@ node('tinkerboard_linux'){
         stage(' Run SqueezeNet'){
         
             sh '''#!/bin/bash
+                    ifconfig
                     ./build/tests/bin/bench_sqz -r1
             '''
         }
