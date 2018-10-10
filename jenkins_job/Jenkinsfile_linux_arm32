@@ -49,12 +49,12 @@ node('tinkerboard_linux'){
                     ./build/tests/bin/bench_mobilenet -r1
             '''
         }
-        stage(' Run Covert'){
-            sh '''#!/bin/bash
-                    rm -rf models/*.tmfile
-#                   ./build/tools/bin/convert_model_to_tm -f caffe -p models/sqz.prototxt -m models/squeezenet_v1.1.caffemodel -o models/squeezenet.tmfile
-            '''
-        }
+       stage(' Create convert'){
+
+                   sh '''#!/bin/bash
+                           rm -rf /models/*.tmfile
+                   '''
+               }
 
     }
 
