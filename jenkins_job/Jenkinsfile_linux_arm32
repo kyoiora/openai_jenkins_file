@@ -52,7 +52,7 @@ node('tinkerboard_linux'){
        stage(' Create convert'){
 
             sh '''#!/bin/bash
-                    rm -rf models/squeezenet.tmfile
+                    rm models/squeezenet.tmfile
             '''
         }
 
