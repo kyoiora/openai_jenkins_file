@@ -50,15 +50,13 @@ node('tinkerboard_linux'){
             '''
         }
 
-    }
-    dir('/root/tengine'){
             stage(' Run Covert'){
-                sh "pwd"
-                sh "hostname"
                 sh '''#!/bin/bash
                         rm -rf *.tmfile
                         ./build/tools/bin/convert_model_to_tm -f caffe -p models/sqz.prototxt -m models/squeezenet_v1.1.caffemodel -o models/squeezenet.tmfile
+            ...
         }
+
     }
 
     dir('/root/openai_jenkins_file'){
