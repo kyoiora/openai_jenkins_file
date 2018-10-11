@@ -47,12 +47,12 @@ pipeline{
             }
             post('Publish test results') {
                 always{
-                    junit allowEmptyResults: true, keepLongStdio: true, testResults: '/root/tengine/report/test.xml'
+                    junit allowEmptyResults: true, keepLongStdio: true, testResults: '/home/rk/tengine/report/test.xml'
                 }
             } 
             post('Publish HTML results') {
                 always{
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/root/tengine/report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
+                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/home/rk/tengine/report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
                 }
             }       
             
