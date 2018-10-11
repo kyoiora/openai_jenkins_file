@@ -30,7 +30,7 @@ node('ROCK360'){
             sh '''#!/bin/bash
                 mkdir -p build/examples
                 rm -rf build/examples/*
-                cd build/examples && cmake -DTENGINE_DIR=/root/tengine ../../examples/ && make -j4
+                cd build/examples && cmake -DTENGINE_DIR=/home/rk/tengine ../../examples/ && make -j4
             '''
         }
         stage(' Run SqueezeNet'){
@@ -47,6 +47,13 @@ node('ROCK360'){
             '''
         }
 
+        stage(' Create Convate'){
+            print 'Create squeezenet'
+            sh '''#!/bin/bash
+                    rm -rf models/*.tmfile
+
+            '''
+        }
     }
     dir('/root/openai_jenkins_file'){
         stage(' Run Jenkins/test'){
