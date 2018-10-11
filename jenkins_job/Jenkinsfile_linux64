@@ -84,11 +84,13 @@ node('ROCK360'){
                     ./build/tools/bin/convert_model_to_tm -f caffe -p models/alex_deploy.prototxt -m models/alexnet.caffemodel -o models/alexnet.tmfile
 
             '''
-             print 'Create vgg16'
-             sh '''#!/bin/bash
-                    ./build/tools/bin/convert_model_to_tm -f caffe -p models/vgg16.prototxt -m models/vgg16.caffemodel -o models/vgg16.tmfile
+#             print 'Create vgg16'
+#             sh '''#!/bin/bash
+#                    ./build/tools/bin/convert_model_to_tm -f caffe -p models/vgg16.prototxt -m models/vgg16.caffemodel -o models/vgg16.tmfile
 
             '''
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
         }
     }
     dir('/home/rk/peter/openai_jenkins_file'){
