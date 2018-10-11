@@ -92,6 +92,55 @@ node('ROCK360'){
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
         }
+        stage(' Run Convate'){
+                    sh '''#!/bin/bash
+                    make install
+                    cd examples/tengine_model/classification
+                    cmake -DTENGINE_DIR=/home/rk/tengine .
+                    make
+
+                    '''
+                    print 'Run squeezenet'
+                    sh '''#!/bin/bash
+                           ./examples/tengine_model/classification/tm_classify -n squeezenet
+                    '''
+                     print 'Run mobilenet'
+                     sh '''#!/bin/bash
+                            ./examples/tengine_model/classification/tm_classify -n mobilenet
+
+                    '''
+                     print 'Run resnet50'
+                     sh '''#!/bin/bash
+                            ./examples/tengine_model/classification/tm_classify -n mobilenet
+
+                    '''
+                     print 'Run googlenet'
+                     sh '''#!/bin/bash
+                            ./examples/tengine_model/classification/tm_classify -n googlenet
+
+                    '''
+                     print 'Run inception_v4'
+                     sh '''#!/bin/bash
+                            ./examples/tengine_model/classification/tm_classify -n inception_v4
+
+                     '''
+                     print 'Run inception_v3'
+                     sh '''#!/bin/bash
+                            ./examples/tengine_model/classification/tm_classify -n inception_v3
+                    '''
+                     print 'Run alexnet'
+                     sh '''#!/bin/bash
+                            ./examples/tengine_model/classification/tm_classify -n alexnet
+
+                    '''
+                     print 'Run vgg16'
+                     sh '''#!/bin/bash
+        #                   ./examples/tengine_model/classification/tm_classify -n vgg16 -i tests/images/bike.jpg
+
+                    '''
+                    junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
+                    publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
+                }
     }
     dir('/home/rk/peter/openai_jenkins_file'){
         stage(' Run Jenkins/test'){
