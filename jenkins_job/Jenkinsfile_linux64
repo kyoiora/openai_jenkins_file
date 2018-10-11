@@ -9,7 +9,7 @@ node('ROCK360'){
         }
     }
 
-    dir('/root/tengine'){ 
+    dir('/home/rk/tengine'){
         stage('Git Pull'){
             sh "pwd"
             sh "hostname" 
