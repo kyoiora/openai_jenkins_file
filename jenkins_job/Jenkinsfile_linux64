@@ -1,5 +1,5 @@
 node('ROCK360'){
-    dir('/root/openai_jenkins_file'){
+    dir('/home/rk/peter/openai_jenkins_file'){
         stage(' git pull jenkins file'){
             sh "pwd"
             sh '''#!/bin/bash
