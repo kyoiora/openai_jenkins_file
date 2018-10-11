@@ -76,7 +76,7 @@ node('ROCK360'){
              '''
              print 'Create inception_v3'
              sh '''#!/bin/bash
-                    ./build/tools/bin/convert_model_to_tm -f caffe -p models/deploy_inceptionV3.prototxt -m models/deploy_inceptionV3.caffemodel -o models/inception_V3.tmfile
+                    ./build/tools/bin/convert_model_to_tm -f caffe -p models/deploy_inceptionV3.prototxt -m models/deploy_inceptionV3.caffemodel -o models/inception_v3.tmfile
 
             '''
              print 'Create alexnet'
