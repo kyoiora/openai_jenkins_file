@@ -12,6 +12,7 @@ sys.path.append(test_path + '/libs')
 sys.path.append(test_path + '/linux_testcases')
 
 import testcases
+import converttest
 import adb_wrapper.adb_wrapper.adb_wrapper
 
 #Linux testcase calling old test function in test.sh
@@ -20,8 +21,9 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
 
     #eval testcases from linux_testcases.converttest.py
     print "testcase_dict=%s"%testcase_dict
-    tc="converttest.%s(%s)"%(testcase_dict,android_ip)
+    tc="converttest.%s(%s)"%(testcase_dict,cmdopt)
     print tc
+    test=eval(tc)
 
     try:
         subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
