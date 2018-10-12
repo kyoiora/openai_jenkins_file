@@ -172,5 +172,6 @@ node('ROCK360'){
                      ./Classify -n squeezenet -r 100&sleep 2&./top.sh | grep 'Cpu' | head -7
 
             '''
+      }
     }
 }
