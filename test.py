@@ -21,7 +21,7 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
 
     #eval testcases from linux_testcases.converttest.py
     print "testcase_dict=%s"%testcase_dict
-    tc="converttest.%s(%s)"%(testcase_dict,cmdopt)
+    tc="converttest.%s(%s)"%(testcase_dict)
     print tc
     test=eval(tc)
 
