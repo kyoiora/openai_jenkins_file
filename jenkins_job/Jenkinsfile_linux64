@@ -171,7 +171,7 @@ node('ROCK360'){
         stage(' squeezenet_FP32_1xA72_CPU'){
 
 			sh '''#!/bin/bash
-				./Classify -n squeezenet -r 100&./top.sh | grep 'Cpu'
+				./Classify -n squeezenet -r 100&sleep0.5&./top.sh | grep 'Cpu'
 
 			'''
 		}
