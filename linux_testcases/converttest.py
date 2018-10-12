@@ -40,10 +40,10 @@ stage(' Create Convate'){
 #                    ./build/tools/bin/convert_model_to_tm -f caffe -p models/vgg16.prototxt -m models/vgg16.caffemodel -o models/vgg16.tmfile
 
             '''
-            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
+
         }
-        stage(' Run Convate'){
+
+stage(' Run Convate'){
                     sh '''#!/bin/bash
                     make install
                     cd examples/tengine_model/classification
