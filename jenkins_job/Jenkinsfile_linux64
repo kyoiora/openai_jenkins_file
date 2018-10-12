@@ -154,6 +154,16 @@ node('ROCK360'){
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
         }
     }
-   
+    dir('/home/rk/tengine/examples/build/imagenet_classification/'){
 
+        stage(' squeezenet_FP32_1xA72'){
+
+            sh '''#!/bin/bash
+                    export TENGINE_CPU_LIST=5
+                    export CONV_INT_PRIO=2000
+                    ./Classify -n suqeezenet -r 100
+
+            '''
+        }
+    }
 }
