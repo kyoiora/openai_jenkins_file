@@ -158,7 +158,7 @@ node('ROCK360'){
     }
     dir('/home/rk/tengine/examples/build/imagenet_classification/'){
 
-        stage(' squeezenet_FP32_1xA72'){
+        stage(' Performance squeezenet_FP32_1xA72'){
 
 			sh '''#!/bin/bash
 				export TENGINE_CPU_LIST=5
@@ -166,14 +166,28 @@ node('ROCK360'){
 				./Classify -n squeezenet -r 100
 
 			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+
+            '''
+
 		}
 
-        stage(' squeezenet_FP32_1xA72_CPU'){
+        stage(' Performance squeezenet_Int8_1xA72'){
 
 			sh '''#!/bin/bash
-				./Classify -n squeezenet -r 100&sleep0.5&./top.sh | grep 'Cpu'
+				export CONV_INT_PRIO=200
+				./Classify -n squeezenet -r 100
 
 			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n squeezenet -r 100&sleep0.5&./top.sh | grep 'Cpu'
+
+            '''
+
 		}
+
 	}
 }
