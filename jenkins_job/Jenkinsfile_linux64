@@ -167,8 +167,9 @@ node('ROCK360'){
 
 			'''
 			print 'CPU'
-			sh '''#!/bin/bash
-                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+			sh '''
+#                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+                 ./test.sh
 
             '''
 
@@ -188,6 +189,96 @@ node('ROCK360'){
             '''
 
 		}
+
+        stage(' Performance squeezenet_FP32_2xA72'){
+
+			sh '''#!/bin/bash
+				export TENGINE_CPU_LIST=4,5
+				export CONV_INT_PRIO=2000
+				./Classify -n squeezenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+
+            '''
+
+		}
+        stage(' Performance squeezenet_Int8_2xA72'){
+
+			sh '''#!/bin/bash
+				export CONV_INT_PRIO=200
+				./Classify -n squeezenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+
+            '''
+
+		}
+
+        stage(' Performance squeezenet_FP32_1xA53'){
+
+			sh '''#!/bin/bash
+				export TENGINE_CPU_LIST=2
+				export CONV_INT_PRIO=2000
+				./Classify -n squeezenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+
+            '''
+
+		}
+        stage(' Performance squeezenet_Int8_1xA53'){
+
+			sh '''#!/bin/bash
+				export CONV_INT_PRIO=200
+				./Classify -n squeezenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+
+            '''
+
+		}
+        stage(' Performance squeezenet_FP32_4xA53'){
+
+			sh '''#!/bin/bash
+				export TENGINE_CPU_LIST=0,1,2,3
+				export CONV_INT_PRIO=2000
+				./Classify -n squeezenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+
+            '''
+
+		}
+        stage(' Performance squeezenet_Int8_4xA53'){
+
+			sh '''#!/bin/bash
+				export CONV_INT_PRIO=200
+				./Classify -n squeezenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+
+            '''
+
+		}
+
 
 	}
 }
