@@ -1,3 +1,7 @@
+import converttest
+sys.path.append(test_path + '/libs')
+sys.path.append(test_path + '/linux_testcases')
+
 node('ROCK360'){
     dir('/home/rk/peter/openai_jenkins_file'){
         stage(' git pull jenkins file'){
@@ -46,7 +50,9 @@ node('ROCK360'){
                     ./build/tests/bin/bench_mobilenet -r1
             '''
         }
-
+        tc="converttest.%s(%s)"%(testcase_dict)
+        print tc
+        test=eval(tc)
 
     }
     dir('/home/rk/peter/openai_jenkins_file'){

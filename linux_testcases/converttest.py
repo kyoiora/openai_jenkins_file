@@ -1,7 +1,11 @@
 
+stage(' Create Convate'){
+            print 'Create squeezenet'
+            sh '''#!/bin/bash
                     rm -rf models/*.tmfile
                     ./build/tools/bin/convert_model_to_tm -f caffe -p models/sqz.prototxt -m models/squeezenet_v1.1.caffemodel -o models/squeezenet.tmfile
 
+            '''
              print 'Create mobilenet'
              sh '''#!/bin/bash
                     ./build/tools/bin/convert_model_to_tm -f caffe -p models/mobilenet_deploy.prototxt -m models/mobilenet.caffemodel -o models/mobilenet.tmfile

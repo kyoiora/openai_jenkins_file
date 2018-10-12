@@ -19,12 +19,6 @@ import adb_wrapper.adb_wrapper.adb_wrapper
 def test_eval(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
 
-    #eval testcases from linux_testcases.converttest.py
-    print "testcase_dict=%s"%testcase_dict
-    tc="converttest.%s(%s)"%(testcase_dict)
-    print tc
-    test=eval(tc)
-
     try:
         subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
         result=True
