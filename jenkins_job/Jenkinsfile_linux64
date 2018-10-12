@@ -4,7 +4,7 @@ node('ROCK360'){
             sh "pwd"
             sh '''#!/bin/bash
                     git pull
-            ''' 
+            '''
 
         }
     }
@@ -12,13 +12,13 @@ node('ROCK360'){
     dir('/home/rk/tengine'){
         stage('Git Pull'){
             sh "pwd"
-            sh "hostname" 
+            sh "hostname"
             sh '''#!/bin/bash
  #                   git pull
             '''
         }
         stage('Make'){
-        
+
             sh '''#!/bin/bash
                     #make clean
                     make -j4
@@ -26,7 +26,7 @@ node('ROCK360'){
             '''
         }
         stage('Make example'){
-        
+
             sh '''#!/bin/bash
                 mkdir -p build/examples
                 rm -rf build/examples/*
@@ -34,14 +34,14 @@ node('ROCK360'){
             '''
         }
         stage(' Run SqueezeNet'){
-        
+
             sh '''#!/bin/bash
                     ./build/tests/bin/bench_sqz -r1
             '''
         }
-        
+
         stage(' Run bench_mobilenet'){
-        
+
             sh '''#!/bin/bash
                     ./build/tests/bin/bench_mobilenet -r1
             '''
@@ -92,64 +92,66 @@ node('ROCK360'){
         }
 
         stage(' Run Convate'){
-                    sh '''#!/bin/bash
-                    make install
-                    cd examples/tengine_model/classification
-                    cmake -DTENGINE_DIR=/home/rk/tengine .
-                    make
+			sh '''#!/bin/bash
+				make install
+				cd examples/tengine_model/classification
+				cmake -DTENGINE_DIR=/home/rk/tengine .
+				make
 
-                    '''
-                    print 'Run squeezenet'
-                    sh '''#!/bin/bash
-                           ./examples/tengine_model/classification/tm_classify -n squeezenet
-                    '''
-                     print 'Run mobilenet'
-                     sh '''#!/bin/bash
-                            ./examples/tengine_model/classification/tm_classify -n mobilenet
+			'''
+			print 'Run squeezenet'
+			sh '''#!/bin/bash
+				./examples/tengine_model/classification/tm_classify -n squeezenet
 
-                    '''
-                     print 'Run resnet50'
-                     sh '''#!/bin/bash
-                            ./examples/tengine_model/classification/tm_classify -n mobilenet
+			'''
+			print 'Run mobilenet'
+			sh '''#!/bin/bash
+				./examples/tengine_model/classification/tm_classify -n mobilenet
 
-                    '''
-                     print 'Run googlenet'
-                     sh '''#!/bin/bash
-                            ./examples/tengine_model/classification/tm_classify -n googlenet
+			'''
+			print 'Run resnet50'
+			sh '''#!/bin/bash
+				./examples/tengine_model/classification/tm_classify -n mobilenet
 
-                    '''
-                     print 'Run inception_v4'
-                     sh '''#!/bin/bash
-                            ./examples/tengine_model/classification/tm_classify -n inception_v4
+			'''
+			print 'Run googlenet'
+			sh '''#!/bin/bash
+				./examples/tengine_model/classification/tm_classify -n googlenet
 
-                     '''
-                     print 'Run inception_v3'
-                     sh '''#!/bin/bash
-                            ./examples/tengine_model/classification/tm_classify -n inception_v3
-                    '''
-                     print 'Run alexnet'
-                     sh '''#!/bin/bash
-                            ./examples/tengine_model/classification/tm_classify -n alexnet
+			'''
+			print 'Run inception_v4'
+			sh '''#!/bin/bash
+				./examples/tengine_model/classification/tm_classify -n inception_v4
 
-                    '''
-                     print 'Run vgg16'
-                     sh '''#!/bin/bash
-        #                   ./examples/tengine_model/classification/tm_classify -n vgg16 -i tests/images/bike.jpg
+			'''
+			print 'Run inception_v3'
+			sh '''#!/bin/bash
+				./examples/tengine_model/classification/tm_classify -n inception_v3
 
-                    '''
+			'''
+			print 'Run alexnet'
+			sh '''#!/bin/bash
+				./examples/tengine_model/classification/tm_classify -n alexnet
 
-                }
+			'''
+			print 'Run vgg16'
+			sh '''#!/bin/bash
+#           	./examples/tengine_model/classification/tm_classify -n vgg16 -i tests/images/bike.jpg
+
+			'''
+
+		}
 
     }
 
     dir('/home/rk/peter/openai_jenkins_file'){
         stage(' Run Jenkins/test'){
             sh "pwd"
-            sh "hostname" 
+            sh "hostname"
             sh '''#!/bin/bash
                     git pull
                     pytest test.py -k "not test_eval_android" --cmdopt="onboard" --targetdir="/home/rk/tengine" --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
-            ''' 
+            '''
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
         }
@@ -158,22 +160,20 @@ node('ROCK360'){
 
         stage(' squeezenet_FP32_1xA72'){
 
-            sh '''#!/bin/bash
-                    export TENGINE_CPU_LIST=5
-                    export CONV_INT_PRIO=2000
-                    ./Classify -n squeezenet -r 100
+			sh '''#!/bin/bash
+				export TENGINE_CPU_LIST=5
+				export CONV_INT_PRIO=2000
+				./Classify -n squeezenet -r 100
 
-
-            '''
-        }
+			'''
+		}
 
         stage(' squeezenet_FP32_1xA72_CPU'){
 
-            sh '''#!/bin/bash
-                    ./Classify -n squeezenet -r 100&./top.sh | grep 'Cpu'
+			sh '''#!/bin/bash
+				./Classify -n squeezenet -r 100&./top.sh | grep 'Cpu'
 
-
-            '''
-        }
-      }
-    }
+			'''
+		}
+	}
+}
