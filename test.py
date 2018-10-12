@@ -9,10 +9,9 @@ import sys
 test_path = (os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(test_path + '/android_testcases')
 sys.path.append(test_path + '/libs')
-sys.path.append(test_path + '/linux_testcases')
+
 
 import testcases
-import converttest
 import adb_wrapper.adb_wrapper.adb_wrapper
 
 
