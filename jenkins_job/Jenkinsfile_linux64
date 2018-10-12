@@ -162,6 +162,9 @@ node('ROCK360'){
                     export TENGINE_CPU_LIST=5
                     export CONV_INT_PRIO=2000
                     ./Classify -n squeezenet -r 100
+                    top
+                    1
+                    ./Classify -n squeezenet -r 100
 
             '''
         }
