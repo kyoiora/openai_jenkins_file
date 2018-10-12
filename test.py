@@ -15,6 +15,7 @@ import testcases
 import converttest
 import adb_wrapper.adb_wrapper.adb_wrapper
 
+
 #Linux testcase calling old test function in test.sh
 def test_eval(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
@@ -45,3 +46,10 @@ def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
     #     print ex.output # contains stdout and stderr together 
     #     result=False
     # assert result==True
+
+def test_eval_convert(testcase_dict,cmdopt,targetdir,variables):
+    #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
+
+    tc="converttest.%s(%s)"%(testcase_dict)
+    print tc
+    test=eval(tc)
