@@ -167,9 +167,9 @@ node('ROCK360'){
 
 			'''
 			print 'CPU'
-			sh '''#!/bin/sh
-#                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
-                 ./test.sh
+
+			sh '''#!/bin/bash
+                 ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
 
             '''
 
