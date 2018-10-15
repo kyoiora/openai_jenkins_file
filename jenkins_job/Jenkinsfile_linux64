@@ -165,7 +165,7 @@ node('ROCK360'){
 				export CONV_INT_PRIO=2000
 				sleep 2
                 ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
-                sleep 10
+                sleep 50
 
 			'''
 		}
@@ -176,7 +176,7 @@ node('ROCK360'){
 				export CONV_INT_PRIO=200
 				sleep 2
 				./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
-				sleep 10
+				sleep 50
 
 			'''
 
