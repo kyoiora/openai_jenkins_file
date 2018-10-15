@@ -166,6 +166,7 @@ node('ROCK360'){
                 ./Classify -n squeezenet -r 100 & sleep 1 & mpstat -P ALL 1 5
                 sleep 10
                 ./Classify -n squeezenet -r 100
+
 			'''
 
 
@@ -192,9 +193,6 @@ node('ROCK360'){
 				./Classify -n squeezenet -r 100
 
 			'''
-
-
-            '''
 
 		}
         stage(' Performance squeezenet_Int8_2xA72'){
