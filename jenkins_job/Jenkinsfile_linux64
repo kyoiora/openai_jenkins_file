@@ -168,8 +168,8 @@ node('ROCK360'){
 			'''
 			print 'CPU'
 
-			sh '''#!/bin/sh -l
-                  ./top.sh
+			sh '''#!/bin/sh
+                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
 
             '''
 
