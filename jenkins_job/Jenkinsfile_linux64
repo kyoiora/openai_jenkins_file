@@ -172,6 +172,7 @@ node('ROCK360'){
         stage('squeezenet_Int8_1xA72'){
 
 			sh '''#!/bin/bash
+			    export TENGINE_CPU_LIST=5
 				export CONV_INT_PRIO=200
 				./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
 				sleep 20
