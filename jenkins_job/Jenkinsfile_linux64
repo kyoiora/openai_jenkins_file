@@ -184,7 +184,7 @@ node('ROCK360'){
 			'''
 			print 'CPU'
 			sh '''#!/bin/bash
-                ./Classify -n squeezenet -r 100&sleep0.5&./top.sh | grep 'Cpu'
+                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
 
             '''
 
@@ -200,7 +200,7 @@ node('ROCK360'){
 			'''
 			print 'CPU'
 			sh '''#!/bin/bash
-                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
 
             '''
 
@@ -214,7 +214,7 @@ node('ROCK360'){
 			'''
 			print 'CPU'
 			sh '''#!/bin/bash
-                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
 
             '''
 
@@ -230,7 +230,7 @@ node('ROCK360'){
 			'''
 			print 'CPU'
 			sh '''#!/bin/bash
-                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
 
             '''
 
@@ -244,7 +244,7 @@ node('ROCK360'){
 			'''
 			print 'CPU'
 			sh '''#!/bin/bash
-                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
 
             '''
 
@@ -259,7 +259,7 @@ node('ROCK360'){
 			'''
 			print 'CPU'
 			sh '''#!/bin/bash
-                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
 
             '''
 
@@ -273,12 +273,131 @@ node('ROCK360'){
 			'''
 			print 'CPU'
 			sh '''#!/bin/bash
-                ./Classify -n squeezenet -r 100 & sleep 0.5 & ./top.sh | grep 'Cpu'
+                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
+
+            '''
+
+		}
+        stage(' Performance mobilenet_FP32_1xA72'){
+
+			sh '''#!/bin/bash
+				export TENGINE_CPU_LIST=5
+				export CONV_INT_PRIO=2000
+				./Classify -n mobilenet -r 100
+
+			'''
+			print 'CPU'
+
+			sh '''#!/bin/sh
+                ./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
 
             '''
 
 		}
 
+        stage(' Performance mobilenet_Int8_1xA72'){
+
+			sh '''#!/bin/bash
+				export CONV_INT_PRIO=200
+				./Classify -n mobilenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
+
+            '''
+
+		}
+
+        stage(' Performance mobilenet_FP32_2xA72'){
+
+			sh '''#!/bin/bash
+				export TENGINE_CPU_LIST=4,5
+				export CONV_INT_PRIO=2000
+				./Classify -n mobilenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n mobileenet -r 100 & mpstat -P ALL 1 5
+
+            '''
+
+		}
+        stage(' Performance mobilenet_Int8_2xA72'){
+
+			sh '''#!/bin/bash
+				export CONV_INT_PRIO=200
+				./Classify -n mobilenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
+
+            '''
+
+		}
+
+        stage(' Performance mobilenet_FP32_1xA53'){
+
+			sh '''#!/bin/bash
+				export TENGINE_CPU_LIST=2
+				export CONV_INT_PRIO=2000
+				./Classify -n mobilenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
+
+            '''
+
+		}
+        stage(' Performance mobilenet_Int8_1xA53'){
+
+			sh '''#!/bin/bash
+				export CONV_INT_PRIO=200
+				./Classify -n mobilenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
+
+            '''
+
+		}
+        stage(' Performance mobilenet_FP32_4xA53'){
+
+			sh '''#!/bin/bash
+				export TENGINE_CPU_LIST=0,1,2,3
+				export CONV_INT_PRIO=2000
+				./Classify -n mobilenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
+
+            '''
+
+		}
+        stage(' Performance mobilenet_Int8_4xA53'){
+
+			sh '''#!/bin/bash
+				export CONV_INT_PRIO=200
+				./Classify -n mobilenet -r 100
+
+			'''
+			print 'CPU'
+			sh '''#!/bin/bash
+                ./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
+
+            '''
+
+		}
 
 	}
 }
