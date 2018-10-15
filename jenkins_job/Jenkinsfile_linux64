@@ -163,8 +163,8 @@ node('ROCK360'){
 			sh '''#!/bin/bash
 				export TENGINE_CPU_LIST=5
 				export CONV_INT_PRIO=2000
-                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
-
+                ./Classify -n squeezenet -r 100 & sleep 1 & mpstat -P ALL 1 5
+                ./Classify -n squeezenet -r 100
 			'''
 			print 'CPU'
 
