@@ -169,7 +169,7 @@ node('ROCK360'){
 
 			'''
 		}
-
+        sleep 10
         stage('squeezenet_Int8_1xA72'){
 
 			sh '''#!/bin/bash
