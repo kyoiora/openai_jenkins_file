@@ -96,7 +96,7 @@ node('ROCK960'){
 			sh '''#!/bin/bash
 				make install
 				cd examples/tengine_model/classification
-				cmake -DTENGINE_DIR=/home/rk/tengine .
+				./../../linux_build.sh
 				make
 
 			'''
