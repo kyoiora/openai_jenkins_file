@@ -10,8 +10,7 @@ node('bananapi_android'){
         }
     }
     
-    dir('/root/tengine_armv8'){
-        sh "pwd"
+    dir('/root/tengine_arm7/tengine'){
 
         stage('Git Pull'){
         
@@ -23,14 +22,21 @@ node('bananapi_android'){
         stage('Make'){
         
            sh '''#!/bin/bash
-                   cd build && make -j4 && make install
+                   rm -rf build && mkdir build
+                   cd build
+                   ../android_build_armv7.sh
+                   make -j4 && make install
             '''
           
         }
         stage('Make example'){
         
             sh '''#!/bin/bash
-                   cd examples/build && make -j4
+                   cd examples
+                   rm -rf build && mkdir build
+                   cd build
+                   ../android_build_armv7.sh
+                   make -j4
             '''
           
         }
@@ -38,6 +44,7 @@ node('bananapi_android'){
         
             sh '''#!/bin/bash
                    ./android_pack.sh
+                   cp -rf ./tests/images/ ./android_pack
                    cp examples/build/imagenet_classification/Classify ./android_pack
                    ls -al ./android_pack
             '''
