@@ -86,7 +86,7 @@ node('ROCK960'){
             '''
              print 'Create vgg16'
              sh '''#!/bin/bash
-                    ./build/tools/bin/convert_model_to_tm -f caffe -p models/vgg16.prototxt -m models/vgg16.caffemodel -o models/vgg16.tmfile
+ #                   ./build/tools/bin/convert_model_to_tm -f caffe -p models/vgg16.prototxt -m models/vgg16.caffemodel -o models/vgg16.tmfile
 
             '''
 
@@ -137,7 +137,7 @@ node('ROCK960'){
 			'''
 			print 'Run vgg16'
 			sh '''#!/bin/bash
-              	./examples/tengine_model/classification/tm_classify -n vgg16 -i tests/images/bike.jpg
+ #             	./examples/tengine_model/classification/tm_classify -n vgg16 -i tests/images/bike.jpg
 
 			'''
 
