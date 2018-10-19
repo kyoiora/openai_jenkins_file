@@ -57,15 +57,8 @@ node('bananapi_android'){
         stage('push file to android'){
         
             sh '''#!/bin/bash
-                adb push ../tengine_arm7/tengine/android_pack/ /data/local/tmp/
-                adb root
-                adb shell
-                cd /data/local/tmp/android_pack
-                chmod u+x Classify
-                export LD_LIBRARY_PATH=.
-                ./Classify -i cat.jpg
 
-#                    python push_android_arm7.py -f push -ip '192.168.8.248'
+                python push_android_arm7.py -f push -ip '192.168.8.248'
             '''
         }
 
