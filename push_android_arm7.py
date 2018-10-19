@@ -7,7 +7,7 @@ import argparse
 ROOT_DIR='/root/tengine_arm7/tengine/android_pack/'
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
 def push(ip_addr):
-    a = AdbWrapper(timeout=3600) # Auto Find adb in system PATH or Environment
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(ip_addr)
     #pdb.set_trace()
     a.device=ip_addr
