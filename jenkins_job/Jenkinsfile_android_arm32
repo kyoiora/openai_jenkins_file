@@ -57,7 +57,7 @@ node('bananapi_android'){
         stage('push file to android'){
         
             sh '''#!/bin/bash
-                adb push ../tengine_arm7/tengine/android_pack/ / /data/local/tmp/
+                adb push ../tengine_arm7/tengine/android_pack/ /data/local/tmp/
                 adb root
                 adb shell
                 cd /data/local/tmp/android_pack
