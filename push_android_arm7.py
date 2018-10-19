@@ -19,7 +19,7 @@ def push(ip_addr):
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/Classify'))
     print res
     print 'push to board'
-    a.push(ROOT_DIR, TARGET_DIR_ON_BOARD)
+    a.push(ROOT_DIR,TARGET_DIR_ON_BOARD)
     print 'push ok'
     print(res[0])
     res=a.shell("\'cd %s && chmod u+x Classify\' "%(TARGET_DIR_ON_BOARD+'android_pack/'))
@@ -38,4 +38,4 @@ if __name__ == "__main__":
     parser.add_argument("-ip", "--ip_addr", help="ip of device", required=True)
     args = parser.parse_args()
     if args.func=="push":
-        push(args.ip_addr)
+        push(ip_addr=args.ip_addr)
