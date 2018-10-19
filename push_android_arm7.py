@@ -10,6 +10,7 @@ def push(ip_addr):
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(ip_addr)
     #pdb.set_trace()
+    a.timeout=3600
     a.device=ip_addr
     a.root()
 
