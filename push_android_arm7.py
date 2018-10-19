@@ -18,7 +18,7 @@ def push(ip_addr):
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/Classify'))
     print res
     print 'push to board'
-    a.push(ROOT_DIR,TARGET_DIR_ON_BOARD)
+    a.push(ROOT_DIR,TARGET_DIR_ON_BOARD,timeout=3600)
     print 'push ok'
     print(res[0])
     res=a.shell("\'cd %s && chmod u+x Classify\' "%(TARGET_DIR_ON_BOARD+'android_pack/'))
