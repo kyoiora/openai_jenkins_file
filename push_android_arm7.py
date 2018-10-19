@@ -19,7 +19,6 @@ def push(ip_addr):
 
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/Classify'))
 
-
     a.push(ROOT_DIR, TARGET_DIR_ON_BOARD)
 
     print(res[0])
