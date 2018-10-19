@@ -38,4 +38,4 @@ if __name__ == "__main__":
     parser.add_argument("-ip", "--ip_addr", help="ip of device", required=True)
     args = parser.parse_args()
     if args.func=="push":
-        push(ip_addr=args.ip_addr)
+        push(args.ip_addr)
