@@ -69,7 +69,7 @@ def ssd():
     while res.readline():
         if  res.readline() ==  "detect result":
             return 0
-        elif res.readline() =  "%":
+        elif res.readline() ==  "%":
             arr=(res.readline())
             NAME={arr[0]}
             res.readline()
