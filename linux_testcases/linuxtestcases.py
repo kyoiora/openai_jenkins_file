@@ -67,19 +67,19 @@ def ssd():
     out=res.read()
     print(out)
     while res.readline():
-        if $res.readline() = ~ "detect result":
+        if  res.readline() = ~ "detect result":
             return 0
-        elif $res.readline() = ~ "%":
-            arr=($res.readline())
-            NAME=${arr[0]}
+        elif res.readline() = ~ "%":
+            arr=(res.readline())
+            NAME={arr[0]}
             res.readline()
-            arr=($res.readline())
-            X0=${arr[1]}
-            Y0=${arr[3]}
-            X1=${arr[5]}
-            Y1=${arr[7]}
-            if $NAME in car):
-                if $X0 < 465:
+            arr=(res.readline())
+            X0={arr[1]}
+            Y0={arr[3]}
+            X1={arr[5]}
+            Y1={arr[7]}
+            if NAME in car):
+                if X0 < 465:
                     return 0
         else:
         return 1
