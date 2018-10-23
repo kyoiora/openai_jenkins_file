@@ -68,3 +68,4 @@ def ssd():
     print(out)
     arr=res.readlines(12)
     print arr
+    assert BOX:( 470 , 84.4493 ),( 696.54 , 171.894 ) in arr
