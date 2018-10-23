@@ -68,7 +68,7 @@ def ssd():
     print(out)
     while res.readline():
         if  res.readline() ==  "detect result":
-            return 0
+            return False
         elif res.readline() ==  "%":
             arr=(res.readline())
             NAME={arr[0]}
@@ -79,6 +79,7 @@ def ssd():
             X1={arr[5]}
             Y1={arr[7]}
             if NAME in car:
-                assert X0 < 469
+                if X0 < 469
+                return False
         else:
-            return 1
+            return Ture
