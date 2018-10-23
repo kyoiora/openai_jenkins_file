@@ -24,13 +24,13 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
     tc="testcases.%s(%s)"%(id,testcase_dict[id])
     print tc
 
-#     try:
-#        subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
-#        result=True
-#    except subprocess.CalledProcessError,ex:
-#        print ex.output # contains stdout and stderr together
-#        result=False
-#    assert result==True
+    #try:
+    #subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
+    #result=True
+    #except subprocess.CalledProcessError,ex:
+    #print ex.output # contains stdout and stderr together
+    #result=False
+    #assert result==True
 
 #android testcase using adb to execute code in Android board
 def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
