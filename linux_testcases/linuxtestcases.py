@@ -11,5 +11,5 @@ def imagenet_sqz():
     print(out)
     assert "0.2763 - \"n02123045" in out
 
-imagenet_sqz()
-print "OK"
+#imagenet_sqz()
+#print "OK"

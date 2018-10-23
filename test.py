@@ -23,6 +23,9 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
     print "testcase_dict=%s"%testcase_dict
     ltc=os.system("python /home/rk/peter/openai_jenkins_file/linux_testcases/linuxtestcases.py")
     print ltc
+    tc="linuxtestcases.%s()"%(testcase_dict)
+    print tc
+    test=eval(tc)
 
 """
     #try:
