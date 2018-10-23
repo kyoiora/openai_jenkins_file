@@ -67,8 +67,14 @@ def ssd():
     out=res.read()
     print(out)
     arr=res.readlines()
+    NAME=arr[0]
     X0=arr[1]
     Y0=arr[3]
     X1=arr[5]
     Y1=arr[7]
-    assert X0>465 in out
+    if X0<465:
+        print(car box x0<465)
+    elif X0>475:
+        print(car box x0>475)
+    else:
+        print(ok)
