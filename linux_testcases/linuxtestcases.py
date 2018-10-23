@@ -66,6 +66,20 @@ def ssd():
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-    str=res.readlines(11)
-    arr = str.split(',')
-    assert "arr[0] > 465" in out
+    while read out:
+        if $line = ~ "detect result":
+            return 0
+        elif $line = ~ "%":
+            arr=($line)
+            NAME=${arr[0]}
+            read line
+            arr=($line)
+            X0=${arr[1]}
+            Y0=${arr[3]}
+            X1=${arr[5]}
+            Y1=${arr[7]}
+            if $NAME in car):
+                if $X0 < 465:
+                    return 0
+        else:
+        return 1
