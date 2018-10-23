@@ -66,7 +66,7 @@ def ssd():
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-    while read line:
+    while readline():
         if $line = ~ "detect result":
             return 0
         elif $line = ~ "%":
