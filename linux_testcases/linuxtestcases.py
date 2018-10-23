@@ -68,9 +68,3 @@ def ssd():
     print(out)
     arr=res.readlines(12)
     print arr
-    NAME=arr[0]
-    X0=arr[1]
-    Y0=arr[3]
-    X1=arr[5]
-    Y1=arr[7]
-    print X0
