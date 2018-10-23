@@ -13,12 +13,10 @@ TARGET_DIR_ON_BOARD='/home/rk/tengine/examples/build/imagenet_classification'
 
 linux_testlist=['sqz']
 
-def sqz():
+def sqz(self):
     target_dir=TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
-
-sqz()
 print "OK"
