@@ -67,13 +67,13 @@ def ssd():
     out=res.read()
     print(out)
     while res.readline():
-        if $line = ~ "detect result":
+        if $res.readline() = ~ "detect result":
             return 0
-        elif $line = ~ "%":
-            arr=($line)
+        elif $res.readline() = ~ "%":
+            arr=($res.readline())
             NAME=${arr[0]}
-            read line
-            arr=($line)
+            res.readline()
+            arr=($res.readline())
             X0=${arr[1]}
             Y0=${arr[3]}
             X1=${arr[5]}
