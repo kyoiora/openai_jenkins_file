@@ -4,7 +4,7 @@ import pdb
 import sys
 TARGET_DIR_ON_BOARD='/home/rk/tengine/examples/imagenet_classification'
 
-def imagenet_sqz():
+def imagenet_sqz(board_ip):
     target_dir=TARGET_DIR_ON_BOARD
     res=shell("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet "%(target_dir,target_dir,target_dir))
     print(res[0])
