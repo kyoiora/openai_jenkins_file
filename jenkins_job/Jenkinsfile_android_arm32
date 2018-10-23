@@ -43,7 +43,7 @@ node('bananapi_android'){
         stage('android_pack'){
         
             sh '''#!/bin/bash
-                   rm -rf android_pack
+                   rm -rf android_pack/
                    ./android_pack.sh
                    cp -rf ./tests/images/ ./android_pack
                    cp examples/build/imagenet_classification/Classify ./android_pack
