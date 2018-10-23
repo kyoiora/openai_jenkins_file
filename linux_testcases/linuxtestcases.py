@@ -71,5 +71,4 @@ def ssd():
     Y0=arr[3]
     X1=arr[5]
     Y1=arr[7]
-
-    assert >=465 in X0
+    assert X0>465 in out
