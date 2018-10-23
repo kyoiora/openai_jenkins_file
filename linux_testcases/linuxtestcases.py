@@ -66,4 +66,10 @@ def ssd():
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-    assert "0.3094 - \"n02124075" in out
+    arr=res.readlines()
+    x0=arr[1]
+    Y0=arr[3]
+    X1=arr[5]
+    Y1=arr[7]
+
+    assert >=465 in arr[1]
