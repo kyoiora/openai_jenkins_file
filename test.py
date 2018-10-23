@@ -21,7 +21,7 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
 
     #eval testcases from linux_testcases.linuxtestcases.py
     print "testcase_dict=%s"%testcase_dict
-    ltc=os.system("python /home/peter/openai_jenkins_file/linux_testcases/linuxtestcases.py")
+    ltc=os.system("python /home/rk/peter/openai_jenkins_file/linux_testcases/linuxtestcases.py")
     print ltc
 
 """
@@ -34,14 +34,14 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
     #assert result==True
 """
 #android testcase using adb to execute code in Android board
-def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
-    #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
-    android_ip="\'%s\'" %ip
-    
-    #eval testcases from android_testcases.testcases.py
-    print "testcase_dict=%s"%testcase_dict
-    tc="testcases.%s(%s)"%(testcase_dict,android_ip)
-    print tc
+            def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
+                #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
+                android_ip="\'%s\'" %ip
+
+                #eval testcases from android_testcases.testcases.py
+                print "testcase_dict=%s"%testcase_dict
+                tc="testcases.%s(%s)"%(testcase_dict,android_ip)
+                print tc
 
     test=eval(tc)
     # try:
