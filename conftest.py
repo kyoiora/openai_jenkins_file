@@ -5,11 +5,13 @@ import collections
 import pprint
 import pdb
 
-
-#android_testlist=['imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
+'''
+android_testlist=['imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
                   'imagenet_mobilenet','imagenet_inception_v3',
                   'imagenet_inception_v4',
                   'imagenet_resnet50','imagenet_vgg16']
+
+'''
 android_testlist=['imagenet_sqz']
 def pytest_addoption(parser):
 	parser.addoption(
