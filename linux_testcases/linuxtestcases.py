@@ -66,7 +66,7 @@ def ssd():
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-    arr=res.readlines()
+    arr=res.readlines(4)
     NAME=arr[0]
     X0=arr[1]
     Y0=arr[3]
