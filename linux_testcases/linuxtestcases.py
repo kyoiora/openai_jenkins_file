@@ -55,7 +55,7 @@ def imagenet_alexnet():
 
 def imagenet_vgg16():
     target_dir=TARGET_DIR_ON_BOARD
-    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n vgg16 -i %s/tests/images/bike.jpg"%(target_dir,target_dir,target_dir,target_dir),"r")
+    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n vgg16 -i %s/home/rk/tengine/tests/images/bike.jpg"%(target_dir,target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.4998 - \"n03792782" in out
