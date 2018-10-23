@@ -1,7 +1,14 @@
+import pytest
 import os
-import argparse
+import asciitable
+import collections
+import pprint
 import pdb
+import subprocess
 import sys
+test_path = (os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(test_path + '/libs')
+
 TARGET_DIR_ON_BOARD='/home/rk/tengine/examples/build/imagenet_classification'
 
 def sqz():
