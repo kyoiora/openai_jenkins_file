@@ -24,6 +24,7 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
     ltc=os.system("python linuxtestcase.py")
     print ltc
 
+"""
     #try:
     #subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
     #result=True
@@ -31,7 +32,7 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
     #print ex.output # contains stdout and stderr together
     #result=False
     #assert result==True
-
+"""
 #android testcase using adb to execute code in Android board
 def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
