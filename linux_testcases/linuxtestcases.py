@@ -2,7 +2,7 @@ import os
 import argparse
 import pdb
 import sys
-TARGET_DIR_ON_BOARD='/home/rk/tengine/examples/imagenet_classification'
+TARGET_DIR_ON_BOARD='/home/rk/tengine/examples/build/imagenet_classification'
 
 def imagenet_sqz():
     target_dir=TARGET_DIR_ON_BOARD
