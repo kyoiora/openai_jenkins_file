@@ -43,7 +43,7 @@ def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
     tc="testcases.%s(%s)"%(testcase_dict,android_ip)
     print tc
 
-test=eval(tc)
+    test=eval(tc)
     # try:
     #     subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
     #     result=True
