@@ -21,9 +21,8 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
 
     #eval testcases from linux_testcases.linuxtestcases.py
     print "testcase_dict=%s"%testcase_dict
-    ltc="linuxtestcases.%s(%s)"%()
+    ltc=os.system("python linuxtestcase.py")
     print ltc
-    test=eval(ltc)
 
     #try:
     #subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
