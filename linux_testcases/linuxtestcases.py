@@ -4,7 +4,6 @@ import pdb
 import sys
 
 
-
 def imagenet_sqz():
     res=shell("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet "%(target_dir,target_dir,target_dir))
     print(res[0])
