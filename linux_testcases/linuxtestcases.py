@@ -72,9 +72,10 @@ def ssd():
     Y0=arr[3]
     X1=arr[5]
     Y1=arr[7]
+    print X0
     if X0<465:
-        print(car box x0<465)
+        print("car box x0<465")
     elif X0>475:
-        print(car box x0>475)
+        print("car box x0>475")
     else:
         print(ok)
