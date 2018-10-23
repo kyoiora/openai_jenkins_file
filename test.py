@@ -19,13 +19,17 @@ import adb_wrapper.adb_wrapper.adb_wrapper
 def test_eval(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
 
-    try:
-        subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
+    #eval testcases from linux_testcases.testcases.py
+    print "testcase_dict=%s"%testcase_dict
+    tc="testcases.%s(%s)"%(id,testcase_dict[id])
+    print tc
+#     try:
+#        subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
         result=True
-    except subprocess.CalledProcessError,ex:
-        print ex.output # contains stdout and stderr together 
-        result=False
-    assert result==True
+#    except subprocess.CalledProcessError,ex:
+#        print ex.output # contains stdout and stderr together
+#        result=False
+#    assert result==True
 
 #android testcase using adb to execute code in Android board
 def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
