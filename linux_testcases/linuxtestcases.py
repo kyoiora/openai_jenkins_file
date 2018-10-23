@@ -67,9 +67,9 @@ def ssd():
     out=res.read()
     print(out)
     arr=res.readlines()
-    x0=arr[1]
+    X0=arr[1]
     Y0=arr[3]
     X1=arr[5]
     Y1=arr[7]
 
-    assert >=465 in arr[1]
+    assert >=465 in X0
