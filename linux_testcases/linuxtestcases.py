@@ -66,6 +66,6 @@ def ssd():
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-    arr=res.readlines(12)
-    print arr
-    assert "BOX:( 470 , 84.4493 ),( 696.54 , 171.894 )" in arr
+    str=res.readlines(11)
+    arr = str.split(',')
+    assert "arr[0] > 465" in out
