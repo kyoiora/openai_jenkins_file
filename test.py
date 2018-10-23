@@ -34,16 +34,16 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
     #assert result==True
 """
 #android testcase using adb to execute code in Android board
-            def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
-                #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
-                android_ip="\'%s\'" %ip
+def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
+    #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
+    android_ip="\'%s\'" %ip
 
-                #eval testcases from android_testcases.testcases.py
-                print "testcase_dict=%s"%testcase_dict
-                tc="testcases.%s(%s)"%(testcase_dict,android_ip)
-                print tc
+    #eval testcases from android_testcases.testcases.py
+    print "testcase_dict=%s"%testcase_dict
+    tc="testcases.%s(%s)"%(testcase_dict,android_ip)
+    print tc
 
-    test=eval(tc)
+test=eval(tc)
     # try:
     #     subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
     #     result=True
