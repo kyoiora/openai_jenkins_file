@@ -23,9 +23,10 @@ def test_eval(testcase_dict,cmdopt,targetdir,variables):
     print "testcase_dict=%s"%testcase_dict
     tc="testcases.%s(%s)"%(id,testcase_dict[id])
     print tc
+
 #     try:
 #        subprocess.check_output(targetdir+"/jenkins/test.sh %s"%testcase_dict,shell=True)
-        result=True
+#        result=True
 #    except subprocess.CalledProcessError,ex:
 #        print ex.output # contains stdout and stderr together
 #        result=False
