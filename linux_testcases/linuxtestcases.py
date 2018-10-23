@@ -79,7 +79,7 @@ def ssd():
             X1={arr[5]}
             Y1={arr[7]}
             if NAME in car:
-                if X0 < 473
-                return False
+                if X0 < 473:
+                    return False
         else:
             return True
