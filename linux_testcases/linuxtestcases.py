@@ -61,7 +61,7 @@ def imagenet_vgg16():
     print(out)
     assert "0.4998 - \"n03792782" in out
 
-def imagenet_alexnet():
+def ssd():
     target_dir=ROOT_DIR+'build/examples/ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
