@@ -5,7 +5,7 @@ import sys
 TARGET_DIR_ON_BOARD='/home/rk/tengine/examples/build/imagenet_classification'
 
 def imagenet_sqz():
-    target_dir=targetdir+'/examples/build/imagenet_classification'
+    target_dir=TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -20,7 +20,7 @@ def imagenet_mobilenet():
 
 def imagenet_resnet50():
     target_dir=TARGET_DIR_ON_BOARD
-    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n resnet50 -i %s/tests/images/bike.jpg"%(target_dir,target_dir,target_dir,target_dir),"r")
+    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n resnet50 -i %s/home/rk/tengine/tests/images/bike.jpg"%(target_dir,target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.9239 - \"n03792782" in out
