@@ -71,5 +71,6 @@ def ssd():
     a=re.findall(r"\d+\.?\d*", arr[9])
     print a[0]
     x=int(a[0])
+    print x
     assert(x<465)
     assert(x>475)
