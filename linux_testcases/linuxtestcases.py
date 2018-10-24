@@ -69,4 +69,4 @@ def ssd():
     print(out)
     arr=out.splitlines()
     X=re.findall(r"\d+\.?\d*", arr[11])
-    assertTure(X[0]<474)
+    assertTrue(X[0]<474)
