@@ -69,4 +69,4 @@ def ssd():
     print(out)
     arr=out.splitlines()
     X=re.findall(r"\d+\.?\d*", arr[11])
-    self.assertLess(X[0],174)
+    self.assertLess(X[0],474)
