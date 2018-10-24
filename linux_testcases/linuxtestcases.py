@@ -60,8 +60,7 @@ def imagenet_vgg16():
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n vgg16 -i %s/tests/images/bike.jpg"%(target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir),"r")
     out=res.read()
     print(out)
-    assert "0.3094- \"n03792782" in out
-    #assert "0.4998 - \"n03792782" in out
+    assert "0.4998 - \"n03792782" in out
 
 def ssd():
     target_dir=ROOT_DIR+'build/examples/ssd/'
@@ -70,9 +69,4 @@ def ssd():
     print(out)
     arr=out.splitlines()
     X=re.findall(r"\d+\.?\d*", arr[11])
-    print X[0]
-    if X[0] < 465:
-        print "error :Box X[0] < 465"
-        system.exit(0)
-    else:
-        print "check BOX ok"
+    assert X[0] < 465 in out
