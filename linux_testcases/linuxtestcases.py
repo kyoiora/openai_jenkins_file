@@ -68,8 +68,8 @@ def ssd():
     out=res.read()
     print(out)
     arr=out.splitlines()
-    a=re.findall(r"\d+\.?\d*", arr[12])
+    a=re.findall(r"\d+\.?\d*", arr[9])
     print a[0]
     x=int(a[0])
-    assert(X<465)
-    assert(X>475)
+    assert(x<465)
+    assert(x>475)
