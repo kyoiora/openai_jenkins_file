@@ -1,5 +1,6 @@
 import os
 import argparse
+import re
 import pdb
 import sys
 ROOT_DIR='/home/rk/tengine/'
@@ -66,20 +67,6 @@ def ssd():
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-    while res.readline():
-        if  res.readline() ==  "detect result":
-            return False
-        elif res.readline() ==  "%":
-            arr=(res.readline())
-            NAME={arr[0]}
-            res.readline()
-            arr=(res.readline())
-            X0={arr[1]}
-            Y0={arr[3]}
-            X1={arr[5]}
-            Y1={arr[7]}
-            if NAME in car:
-                if X0 < 473:
-                    return False
-        else:
-            return True
+    arr=out.splitlines()
+    X=re.findall(r"\d+\.?\d*", arr[11])
+    assert X0 < 474
