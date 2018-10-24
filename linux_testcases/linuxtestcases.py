@@ -69,4 +69,8 @@ def ssd():
     print(out)
     arr=out.splitlines()
     X=re.findall(r"\d+\.?\d*", arr[11])
-    assert X[0]< 465 in X[0]
+    print X[0]
+    if X[0] < 465:
+        print "error :Box X[0] < 465"
+    else:
+        print "check BOX ok"
