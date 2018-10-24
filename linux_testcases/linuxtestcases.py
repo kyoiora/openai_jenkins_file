@@ -72,6 +72,6 @@ def ssd():
     print X[0]
     if X[0] < 465:
         print "error :Box X[0] < 465"
-        return
+        system.exit(0)
     else:
         print "check BOX ok"
