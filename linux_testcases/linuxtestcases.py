@@ -70,5 +70,5 @@ def ssd():
     arr=out.splitlines()
     a=re.findall(r"\d+\.?\d*", arr[12])
     x=int(a[0])
-    assert X<465,"car X[0] is small"
-    assert X>475,"car X[0] is big"
+    assert(X<465)
+    assert(X>475)
