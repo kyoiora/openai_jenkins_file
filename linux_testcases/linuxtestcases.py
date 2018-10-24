@@ -72,5 +72,5 @@ def ssd():
     print a[0]
     x=int(a[0])
     print x
-    assert(x<465)
-    assert(x>475)
+    assert(x<476)
+    assert(x>464)
