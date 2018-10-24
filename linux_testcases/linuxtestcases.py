@@ -69,4 +69,4 @@ def ssd():
     print(out)
     arr=out.splitlines()
     X=re.findall(r"\d+\.?\d*", arr[11])
-    assert X[0] < 474
+    assert X[0] < 465
