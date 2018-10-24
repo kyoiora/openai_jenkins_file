@@ -68,7 +68,7 @@ def ssd():
     out=res.read()
     print(out)
     arr=out.splitlines()
-    a=re.findall(r"\d+\.?\d*", arr[11])
+    a=re.findall(r"\d+\.?\d*", arr[12])
     x=int(a[0])
     assert X<465,"car X[0] is small"
     assert X>475,"car X[0] is big"
