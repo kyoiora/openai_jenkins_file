@@ -1,6 +1,7 @@
 import os
 import argparse
 import re
+import arr
 import pdb
 import sys
 ROOT_DIR='/home/rk/tengine/'
@@ -68,17 +69,6 @@ def ssd():
     out=res.read()
     print(out)
     arr=out.splitlines()
-    def number():
-        for char in arr:
-            if "car" in char:
-                char_arr=char.splitlines()
-                carNumber=arr.index(char_arr[0])+1
-            if "bicycle" in char:
-                char_arr=char.splitlines()
-                bicycleNumber=arr.index(char_arr[0])+1
-            if "dog" in char:
-                char_arr=char.splitlines()
-                dogNumber=arr.index(char_arr[0])+1
     #check the car
     a=re.findall(r"\d+\.?\d*", arr[9])
     x0=float(a[0])
@@ -122,6 +112,17 @@ def ssd():
     assert(y1<539),"dog y1 more than 538"
     assert(y1>527),"dog y1 less than 528"
 
+def number():
+    for char in arr:
+        if "car" in char:
+            char_arr=char.splitlines()
+            carNumber=arr.index(char_arr[0])+1
+        if "bicycle" in char:
+            char_arr=char.splitlines()
+            bicycleNumber=arr.index(char_arr[0])+1
+        if "dog" in char:
+            char_arr=char.splitlines()
+            dogNumber=arr.index(char_arr[0])+1
 
 def mssd():
     target_dir=ROOT_DIR+'build/examples/mobilenet_ssd/'
