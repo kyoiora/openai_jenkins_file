@@ -1,7 +1,6 @@
 import os
 import argparse
 import re
-import arr
 import pdb
 import sys
 ROOT_DIR='/home/rk/tengine/'
