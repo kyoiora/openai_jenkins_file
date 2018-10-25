@@ -69,8 +69,18 @@ def ssd():
     out=res.read()
     print(out)
     arr=out.splitlines()
+    for char in arr:
+        if "car" in char:
+            char_arr=char.splitlines()
+            carNumber=arr.index(char_arr[0])+1
+        if "bicycle" in char:
+            char_arr=char.splitlines()
+            bicycleNumber=arr.index(char_arr[0])+1
+        if "dog" in char:
+            char_arr=char.splitlines()
+            dogNumber=arr.index(char_arr[0])+1
     #check the car
-    a=re.findall(r"\d+\.?\d*", arr[9])
+    a=re.findall(r"\d+\.?\d*", arr[carNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
@@ -84,7 +94,7 @@ def ssd():
     assert(y1<177),"car y1 more than 176"
     assert(y1>165),"car y1 less than 166"
     #check the bicycle
-    a=re.findall(r"\d+\.?\d*", arr[11])
+    a=re.findall(r"\d+\.?\d*", arr[bicycleNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
@@ -98,7 +108,7 @@ def ssd():
     assert(y1<510),"bicycle y1 more than 509"
     assert(y1>498),"bicycle y1 less than 499"
     #check the dog
-    a=re.findall(r"\d+\.?\d*", arr[13])
+    a=re.findall(r"\d+\.?\d*", arr[dogNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
@@ -112,7 +122,12 @@ def ssd():
     assert(y1<539),"dog y1 more than 538"
     assert(y1>527),"dog y1 less than 528"
 
-def number():
+def mssd():
+    target_dir=ROOT_DIR+'build/examples/mobilenet_ssd/'
+    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+    arr=out.splitlines()
     for char in arr:
         if "car" in char:
             char_arr=char.splitlines()
@@ -123,15 +138,6 @@ def number():
         if "dog" in char:
             char_arr=char.splitlines()
             dogNumber=arr.index(char_arr[0])+1
-
-def mssd():
-    target_dir=ROOT_DIR+'build/examples/mobilenet_ssd/'
-    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir),"r")
-    out=res.read()
-    print(out)
-    arr=out.splitlines()
-    number()
-
     #check the car
     a=re.findall(r"\d+\.?\d*", arr[carNumber])
     x0=float(a[0])
