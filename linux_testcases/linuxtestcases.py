@@ -176,3 +176,62 @@ def mssd():
     assert(x1>319),"dog x1 less than 320"
     assert(y1<549),"dog y1 more than 548"
     assert(y1>537),"dog y1 less than 538"
+
+  def yolov2():
+      target_dir=ROOT_DIR+'build/examples/yolov2/'
+      res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./YOLOV2 "%(target_dir,target_dir,target_dir),"r")
+      out=res.read()
+      print(out)
+      arr=out.splitlines()
+      for char in arr:
+          if "car" in char:
+              char_arr=char.splitlines()
+              carNumber=arr.index(char_arr[0])+1
+          if "bicycle" in char:
+              char_arr=char.splitlines()
+              bicycleNumber=arr.index(char_arr[0])+1
+          if "dog" in char:
+              char_arr=char.splitlines()
+              dogNumber=arr.index(char_arr[0])+1
+      #check the car
+      a=re.findall(r"\d+\.?\d*", arr[carNumber])
+      x0=float(a[0])
+      y0=float(a[1])
+      x1=float(a[2])
+      y1=float(a[3])
+      assert(x0<450),"car x0 more than 450"
+      assert(x0>440),"car x0 less than 440"
+      assert(y0<78),"car y0 more than 78"
+      assert(y0>68),"car y0 less than 68"
+      assert(x1<680),"car x1 more than 680"
+      assert(x1>670),"car x1 less than 670"
+      assert(y1<181),"car y1 more than 181"
+      assert(y1>171),"car y1 less than 171"
+      #check the bicycle
+      a=re.findall(r"\d+\.?\d*", arr[bicycleNumber])
+      x0=float(a[0])
+      y0=float(a[1])
+      x1=float(a[2])
+      y1=float(a[3])
+      assert(x0<124),"bicycle x0 more than 124"
+      assert(x0>114),"bicycle x0 less than 114"
+      assert(y0<184),"bicycle y0 more than 184"
+      assert(y0>174),"bicycle y0 less than 174"
+      assert(x1<328),"bicycle x1 more than 328"
+      assert(x1>318),"bicycle x1 less than 318"
+      assert(y1<550),"bicycle y1 more than 550"
+      assert(y1>540),"bicycle y1 less than 540"
+      #check the dog
+      a=re.findall(r"\d+\.?\d*", arr[dogNumber])
+      x0=float(a[0])
+      y0=float(a[1])
+      x1=float(a[2])
+      y1=float(a[3])
+      assert(x0<144),"dog x0 more than 143"
+      assert(x0>132),"dog x0 less than 133"
+      assert(y0<215),"dog y0 more than 214"
+      assert(y0>203),"dog y0 less than 204"
+      assert(x1<330),"dog x1 more than 329"
+      assert(x1>319),"dog x1 less than 320"
+      assert(y1<549),"dog y1 more than 548"
+      assert(y1>537),"dog y1 less than 538"
