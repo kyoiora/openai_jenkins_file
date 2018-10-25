@@ -120,9 +120,15 @@ def mssd():
     for char in arr:
         if "car" in char:
             char_arr=char.splitlines()
-            elementNumber=arr.index(char_arr[0])+1
+            carNumber=arr.index(char_arr[0])+1
+        elif "bicycle" in char:
+            char_arr=char.splitlines()
+            bicycleNumber=arr.index(char_arr[0])+1
+        else:
+            char_arr=char.splitlines()
+            dogNumber=arr.index(char_arr[0])+1
     #check the car
-    a=re.findall(r"\d+\.?\d*", arr[elementNumber])
+    a=re.findall(r"\d+\.?\d*", arr[carNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
@@ -136,7 +142,7 @@ def mssd():
     assert(y1<177),"car y1 more than 176"
     assert(y1>165),"car y1 less than 166"
     #check the bicycle
-    a=re.findall(r"\d+\.?\d*", arr[13])
+    a=re.findall(r"\d+\.?\d*", arr[bicycleNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
@@ -150,7 +156,7 @@ def mssd():
     assert(y1<421),"bicycle y1 more than 420"
     assert(y1>410),"bicycle y1 less than 411"
     #check the dog
-    a=re.findall(r"\d+\.?\d*", arr[9])
+    a=re.findall(r"\d+\.?\d*", arr[dogNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
