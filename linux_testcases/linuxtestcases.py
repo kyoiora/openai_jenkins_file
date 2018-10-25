@@ -77,3 +77,7 @@ def ssd():
     assert(x0>464),"car x0 less than 465"
     assert(y0<91),"car y0 more than 90"
     assert(y0>79),"car y0 less than 80"
+    assert(x1<702),"car x1 more than 701"
+    assert(x1>690),"car x1 less than 691"
+    assert(y1<177),"car y1 more than 176"
+    assert(y1>165),"car y1 less than 166"
