@@ -121,10 +121,10 @@ def mssd():
         if "car" in char:
             char_arr=char.splitlines()
             carNumber=arr.index(char_arr[0])+1
-        elif "bicycle" in char:
+        if "bicycle" in char:
             char_arr=char.splitlines()
             bicycleNumber=arr.index(char_arr[0])+1
-        else "dog" in char:
+        if "dog" in char:
             char_arr=char.splitlines()
             dogNumber=arr.index(char_arr[0])+1
     #check the car
