@@ -72,5 +72,5 @@ def ssd():
     print a[0]
     x=int(a[0])
     print x
-    assert(x<476)
-    assert(x>464)
+    assert(x<476),"car x0 more than 475"
+    assert(x>464),"car x0 less than 465"
