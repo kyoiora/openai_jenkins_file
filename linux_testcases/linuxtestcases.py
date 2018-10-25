@@ -227,11 +227,11 @@ def yolov2():
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<126),"dog x0 more than 126"
-    assert(x0>116),"dog x0 less than 116"
-    assert(y0<148),"dog y0 more than 148"
-    assert(y0>138),"dog y0 less than 138"
-    assert(x1<562),"dog x1 more than 562"
-    assert(x1>552),"dog x1 less than 552"
-    assert(y1<445),"dog y1 more than 445"
-    assert(y1>435),"dog y1 less than 435"
+    assert(x0<124),"dog x0 more than 124"
+    assert(x0>114),"dog x0 less than 114"
+    assert(y0<184),"dog y0 more than 184"
+    assert(y0>174),"dog y0 less than 174"
+    assert(x1<328),"dog x1 more than 328"
+    assert(x1>318),"dog x1 less than 318"
+    assert(y1<550),"dog y1 more than 550"
+    assert(y1>540),"dog y1 less than 540"
