@@ -88,11 +88,11 @@ def ssd():
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<149),"car x0 more than 148"
-    assert(x0>137),"car x0 less than 138"
-    assert(y0<144),"car y0 more than 143"
-    assert(y0>132),"car y0 less than 133"
-    assert(x1<585),"car x1 more than 584"
-    assert(x1>573),"car x1 less than 574"
-    assert(y1<510),"car y1 more than 509"
-    assert(y1>498),"car y1 less than 499"
+    assert(x0<149),"bicycle x0 more than 148"
+    assert(x0>137),"bicycle x0 less than 138"
+    assert(y0<144),"bicycle y0 more than 143"
+    assert(y0>132),"bicycle y0 less than 133"
+    assert(x1<585),"bicycle x1 more than 584"
+    assert(x1>573),"bicycle x1 less than 574"
+    assert(y1<510),"bicycle y1 more than 509"
+    assert(y1>498),"bicycle y1 less than 499"
