@@ -98,7 +98,7 @@ def ssd():
     assert(y1<510),"bicycle y1 more than 509"
     assert(y1>498),"bicycle y1 less than 499"
     #check the dog
-    a=re.findall(r"\d+\.?\d*", arr[11])
+    a=re.findall(r"\d+\.?\d*", arr[13])
     print a
     x0=float(a[0])
     y0=float(a[1])
