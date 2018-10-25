@@ -227,11 +227,11 @@ def mssd():
       y0=float(a[1])
       x1=float(a[2])
       y1=float(a[3])
-      assert(x0<144),"dog x0 more than 143"
-      assert(x0>132),"dog x0 less than 133"
-      assert(y0<215),"dog y0 more than 214"
-      assert(y0>203),"dog y0 less than 204"
-      assert(x1<330),"dog x1 more than 329"
-      assert(x1>319),"dog x1 less than 320"
-      assert(y1<549),"dog y1 more than 548"
-      assert(y1>537),"dog y1 less than 538"
+      assert(x0<126),"dog x0 more than 126"
+      assert(x0>116),"dog x0 less than 116"
+      assert(y0<148),"dog y0 more than 148"
+      assert(y0>138),"dog y0 less than 138"
+      assert(x1<562),"dog x1 more than 562"
+      assert(x1>552),"dog x1 less than 552"
+      assert(y1<445),"dog y1 more than 445"
+      assert(y1>435),"dog y1 less than 435"
