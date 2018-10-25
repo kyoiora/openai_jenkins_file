@@ -117,8 +117,12 @@ def mssd():
     out=res.read()
     print(out)
     arr=out.splitlines()
+    for char in arr:
+        if "car" in char:
+            char_arr=char.splitlines()
+            elementNumber=arr.index(char_arr[0])+1
     #check the car
-    a=re.findall(r"\d+\.?\d*", arr[11])
+    a=re.findall(r"\d+\.?\d*", arr[elementNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
