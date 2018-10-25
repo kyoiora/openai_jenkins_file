@@ -69,10 +69,10 @@ def ssd():
     print(out)
     arr=out.splitlines()
     a=re.findall(r"\d+\.?\d*", arr[9])
-    x0=int(a[0])
-    y0=int(a[1])
-    x1=int(a[2])
-    y1=int(a[3])
+    x0=float(a[0])
+    y0=float(a[1])
+    x1=float(a[2])
+    y1=float(a[3])
     assert(x0<476),"car x0 more than 475"
     assert(x0>464),"car x0 less than 465"
     assert(y0<91),"car y0 more than 90"
