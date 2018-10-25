@@ -110,13 +110,7 @@ def ssd():
     assert(x1>328),"dog x1 less than 329"
     assert(y1<539),"dog y1 more than 538"
     assert(y1>527),"dog y1 less than 528"
-
-def mssd():
-    target_dir=ROOT_DIR+'build/examples/mobilenet_ssd/'
-    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir),"r")
-    out=res.read()
-    print(out)
-    arr=out.splitlines()
+def number():
     for char in arr:
         if "car" in char:
             char_arr=char.splitlines()
@@ -127,6 +121,15 @@ def mssd():
         if "dog" in char:
             char_arr=char.splitlines()
             dogNumber=arr.index(char_arr[0])+1
+
+def mssd():
+    target_dir=ROOT_DIR+'build/examples/mobilenet_ssd/'
+    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+    arr=out.splitlines()
+    number()
+
     #check the car
     a=re.findall(r"\d+\.?\d*", arr[carNumber])
     x0=float(a[0])
