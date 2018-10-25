@@ -1,8 +1,5 @@
 import os
-#import argparse
 import re
-#import pdb
-#import sys
 ROOT_DIR='/home/rk/tengine/'
 TARGET_DIR_ON_BOARD='examples/build/imagenet_classification'
 
