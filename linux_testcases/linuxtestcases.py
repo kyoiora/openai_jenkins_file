@@ -118,8 +118,7 @@ def mssd():
     print(out)
     arr=out.splitlines()
     #check the car
-    a=re.findall(r"\d+\.?\d*", arr[9])
-    print a
+    a=re.findall(r"\d+\.?\d*", arr[11])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
@@ -133,7 +132,7 @@ def mssd():
     assert(y1<177),"car y1 more than 176"
     assert(y1>165),"car y1 less than 166"
     #check the bicycle
-    a=re.findall(r"\d+\.?\d*", arr[11])
+    a=re.findall(r"\d+\.?\d*", arr[13])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
@@ -147,7 +146,7 @@ def mssd():
     assert(y1<421),"bicycle y1 more than 420"
     assert(y1>410),"bicycle y1 less than 411"
     #check the dog
-    a=re.findall(r"\d+\.?\d*", arr[13])
+    a=re.findall(r"\d+\.?\d*", arr[9])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
