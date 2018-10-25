@@ -84,7 +84,6 @@ def ssd():
     assert(y1>165),"car y1 less than 166"
     #check the bicycle
     a=re.findall(r"\d+\.?\d*", arr[11])
-    print a
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
@@ -99,7 +98,55 @@ def ssd():
     assert(y1>498),"bicycle y1 less than 499"
     #check the dog
     a=re.findall(r"\d+\.?\d*", arr[13])
-    print a
+    x0=float(a[0])
+    y0=float(a[1])
+    x1=float(a[2])
+    y1=float(a[3])
+    assert(x0<138),"dog x0 more than 137"
+    assert(x0>126),"dog x0 less than 127"
+    assert(y0<225),"dog y0 more than 224"
+    assert(y0>213),"dog y0 less than 214"
+    assert(x1<340),"dog x1 more than 339"
+    assert(x1>328),"dog x1 less than 329"
+    assert(y1<539),"dog y1 more than 538"
+    assert(y1>527),"dog y1 less than 528"
+
+def mssd():
+    target_dir=ROOT_DIR+'build/examples/mobilenet_ssd/'
+    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+    arr=out.splitlines()
+    #check the car
+    a=re.findall(r"\d+\.?\d*", arr[9])
+    x0=float(a[0])
+    y0=float(a[1])
+    x1=float(a[2])
+    y1=float(a[3])
+    assert(x0<476),"car x0 more than 475"
+    assert(x0>464),"car x0 less than 465"
+    assert(y0<78),"car y0 more than 77"
+    assert(y0>66),"car y0 less than 67"
+    assert(x1<694),"car x1 more than 693"
+    assert(x1>682),"car x1 less than 683"
+    assert(y1<177),"car y1 more than 176"
+    assert(y1>165),"car y1 less than 166"
+    #check the bicycle
+    a=re.findall(r"\d+\.?\d*", arr[11])
+    x0=float(a[0])
+    y0=float(a[1])
+    x1=float(a[2])
+    y1=float(a[3])
+    assert(x0<112),"bicycle x0 more than 111"
+    assert(x0>100),"bicycle x0 less than 101"
+    assert(y0<144),"bicycle y0 more than 143"
+    assert(y0>132),"bicycle y0 less than 133"
+    assert(x1<581),"bicycle x1 more than 580"
+    assert(x1>569),"bicycle x1 less than 570"
+    assert(y1<421),"bicycle y1 more than 420"
+    assert(y1>410),"bicycle y1 less than 411"
+    #check the dog
+    a=re.findall(r"\d+\.?\d*", arr[13])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
