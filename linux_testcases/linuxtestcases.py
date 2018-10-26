@@ -2,6 +2,7 @@ import os
 import re
 ROOT_DIR='/home/rk/tengine/'
 TARGET_DIR_ON_BOARD='examples/build/imagenet_classification'
+caffe_wrapper_sqz_dir=/build/examples/caffe_wrapper/cpp_classification
 
 def imagenet_sqz():
     target_dir=ROOT_DIR+TARGET_DIR_ON_BOARD
@@ -398,3 +399,10 @@ def lighten_cnn():
     assert(x1>318),"dog x1 less than 318"
     assert(y1<550),"dog y1 more than 550"
     assert(y1>540),"dog y1 less than 540"
+
+def caffe_wrapper_sqz():
+    target_dir=ROOT_DIR
+    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classification %s/models/sqz.prototxt %s/models/squeezenet_v1.1.caffemodel %s/examples/caffe_wrapper/cpp_classification/imagenet_mean.binaryproto %s/models/synset_words.txt %s/tests/images/cat.jpg"%(target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir,target_dir,target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+    assert "0.4998 - \"n03792782" in out
