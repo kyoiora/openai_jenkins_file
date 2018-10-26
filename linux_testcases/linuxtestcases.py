@@ -406,3 +406,10 @@ def caffe_wrapper_sqz():
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
+
+def vgg16_mem():
+    target_dir=ROOT_DIR
+    res=os.popen("cd %s; %s/tests/bin/vgg16_mem.sh"%(target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+    assert "0.4998 - \"n03792782" in out
