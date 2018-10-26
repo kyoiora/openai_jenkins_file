@@ -266,31 +266,17 @@ def faster_rcnn():
     assert(x1>685),"car x1 less than 686"
     assert(y1<167),"car y1 more than 166"
     assert(y1>155),"car y1 less than 156"
-    #check the bicycle
-    a=re.findall(r"\d+\.?\d*", arr[bicycleNumber])
-    x0=float(a[0])
-    y0=float(a[1])
-    x1=float(a[2])
-    y1=float(a[3])
-    assert(x0<126),"bicycle x0 more than 126"
-    assert(x0>116),"bicycle x0 less than 116"
-    assert(y0<148),"bicycle y0 more than 148"
-    assert(y0>138),"bicycle y0 less than 138"
-    assert(x1<562),"bicycle x1 more than 562"
-    assert(x1>552),"bicycle x1 less than 552"
-    assert(y1<445),"bicycle y1 more than 445"
-    assert(y1>435),"bicycle y1 less than 435"
     #check the dog
     a=re.findall(r"\d+\.?\d*", arr[dogNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<124),"dog x0 more than 124"
-    assert(x0>114),"dog x0 less than 114"
-    assert(y0<184),"dog y0 more than 184"
-    assert(y0>174),"dog y0 less than 174"
-    assert(x1<328),"dog x1 more than 328"
-    assert(x1>318),"dog x1 less than 318"
-    assert(y1<550),"dog y1 more than 550"
-    assert(y1>540),"dog y1 less than 540"
+    assert(x0<103),"dog x0 more than 102"
+    assert(x0>91),"dog x0 less than 92"
+    assert(y0<229),"dog y0 more than 228"
+    assert(y0>217),"dog y0 less than 218"
+    assert(x1<364),"dog x1 more than 363"
+    assert(x1>352),"dog x1 less than 353"
+    assert(y1<552),"dog y1 more than 551"
+    assert(y1>540),"dog y1 less than 541"
