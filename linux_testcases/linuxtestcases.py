@@ -46,7 +46,7 @@ def test_mxnet_mobilenet(targetdir):
     print(out)
     assert "8.0579 - \"n02124075" in out
 
-def test_test_onnx_sqz(targetdir):
+def test_onnx_sqz(targetdir):
     target_dir=targetdir
     res=os.popen("cd %s; ./build/tests/bin/test_onnx_sqz"%(target_dir),"r")
     out=res.read()
