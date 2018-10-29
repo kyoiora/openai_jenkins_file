@@ -2,7 +2,7 @@ import os
 import re
 ROOT_DIR='/home/rk/tengine/'
 TARGET_DIR_ON_BOARD='examples/build/imagenet_classification'
-caffe_wrapper_sqz_dir=/build/examples/caffe_wrapper/cpp_classification
+caffe_wrapper_sqz_dir='/build/examples/caffe_wrapper/cpp_classification'
 
 def imagenet_sqz():
     target_dir=ROOT_DIR+TARGET_DIR_ON_BOARD
