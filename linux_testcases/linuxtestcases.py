@@ -46,6 +46,13 @@ def test_mxnet_mobilenet(targetdir):
     print(out)
     assert "8.0579 - \"n02124075" in out
 
+def test_test_onnx_sqz(targetdir):
+    target_dir=targetdir
+    res=os.popen("cd %s; ./build/tests/bin/test_onnx_sqz"%(target_dir),"r")
+    out=res.read()
+    print(out)
+    assert "0.7178 - \"n02123045" in out
+
 def imagenet_sqz(targetdir):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet "%(target_dir,target_dir,target_dir),"r")
