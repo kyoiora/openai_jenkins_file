@@ -2,7 +2,7 @@ import os
 import re
 
 TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
-caffe_wrapper_sqz_dir='build/examples/caffe_wrapper/cpp_classification'
+caffe_wrapper_sqz_dir='/build/examples/caffe_wrapper/cpp_classification'
 
 def imagenet_sqz(targetdir):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
@@ -61,7 +61,7 @@ def imagenet_vgg16(targetdir):
     assert "0.4998 - \"n03792782" in out
 
 def ssd(targetdir):
-    target_dir=targetdir+'build/examples/ssd/'
+    target_dir=targetdir+'/build/examples/ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -120,7 +120,7 @@ def ssd(targetdir):
     assert(y1>=528),"dog y1 less than 528"
 
 def mssd(targetdir):
-    target_dir=targetdir+'build/examples/mobilenet_ssd/'
+    target_dir=targetdir+'/build/examples/mobilenet_ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -179,7 +179,7 @@ def mssd(targetdir):
     assert(y1>=538),"dog y1 less than 538"
 
 def yolov2(targetdir):
-    target_dir=targetdir+'build/examples/yolov2/'
+    target_dir=targetdir+'/build/examples/yolov2/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./YOLOV2 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -238,7 +238,7 @@ def yolov2(targetdir):
     assert(y1>540),"dog y1 less than 540"
 
 def faster_rcnn(targetdir):
-    target_dir=targetdir+'build/examples/faster_rcnn/'
+    target_dir=targetdir+'/build/examples/faster_rcnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./FASTER_RCNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -283,7 +283,7 @@ def faster_rcnn(targetdir):
     assert(y1>=541),"dog y1 less than 541"
 
 def mtcnn(targetdir):
-    target_dir=targetdir+'build/examples/mtcnn/'
+    target_dir=targetdir+'/build/examples/mtcnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MTCNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -354,7 +354,7 @@ def mtcnn(targetdir):
 
 
 def lighten_cnn(targetdir):
-    target_dir=targetdir+'build/examples/lighten_cnn/'
+    target_dir=targetdir+'/build/examples/lighten_cnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./LIGHTEN_CNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
