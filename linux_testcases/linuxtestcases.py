@@ -325,7 +325,7 @@ def mtcnn():
     assert(y1<155),"secondBox y1 more than 154"
     assert(y1>143),"secondBox y1 less than 144"
     #check the third BOX
-    a=re.findall(r"\d+\.?\d*", arr[dogNumber])
+    a=re.findall(r"\d+\.?\d*", arr[thirdBoxNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
@@ -338,6 +338,21 @@ def mtcnn():
     assert(x1>318),"thirdBox x1 less than 319"
     assert(y1<156),"thirdBox y1 more than 155"
     assert(y1>144),"thirdBox y1 less than 145"
+    #check the four BOX
+    a=re.findall(r"\d+\.?\d*", arr[fourBoxNumber])
+    x0=float(a[0])
+    y0=float(a[1])
+    x1=float(a[2])
+    y1=float(a[3])
+    assert(x0<385),"fourBox x0 more than 384"
+    assert(x0>373),"fourBox x0 less than 374"
+    assert(y0<62),"fourBox y0 more than 61"
+    assert(y0>50),"fourBox y0 less than 51"
+    assert(x1<466),"fourBox x1 more than 465"
+    assert(x1>454),"fourBox x1 less than 455"
+    assert(y1<151),"fourBox y1 more than 150"
+    assert(y1>139),"fourBox y1 less than 140"
+
 
 def lighten_cnn():
     target_dir=ROOT_DIR+'build/examples/lighten_cnn/'
