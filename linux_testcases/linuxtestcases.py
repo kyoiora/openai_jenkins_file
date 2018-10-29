@@ -1,6 +1,7 @@
 import os
 import re
-ROOT_DIR='/home/rk/tengine/'
+import targetdir
+ROOT_DIR=targetdir
 TARGET_DIR_ON_BOARD='examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='build/examples/caffe_wrapper/cpp_classification'
 
