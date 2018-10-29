@@ -302,8 +302,8 @@ def mtcnn():
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<450),"car x0 more than 450"
-    assert(x0>440),"car x0 less than 440"
+    assert(x0<175),"firstBoxNumber x0 more than 174"
+    assert(x0>163),"firstBoxNumber x0 less than 164"
     assert(y0<78),"car y0 more than 78"
     assert(y0>68),"car y0 less than 68"
     assert(x1<680),"car x1 more than 680"
