@@ -296,7 +296,7 @@ def mtcnn():
             thirdBoxNumber=arr.index(char_arr[0])+3
             fourBoxNumber=arr.index(char_arr[0])+4
 
-    #check the car
+    #check the first BOX
     a=re.findall(r"\d+\.?\d*", arr[firstBoxNumber])
     x0=float(a[0])
     y0=float(a[1])
@@ -310,20 +310,20 @@ def mtcnn():
     assert(x1>200),"firstBoxNumber less than 201"
     assert(y1<141),"firstBoxNumber more than 140"
     assert(y1>129),"firstBoxNumber less than 130"
-    #check the bicycle
-    a=re.findall(r"\d+\.?\d*", arr[bicycleNumber])
+    #check the bsecond BOX
+    a=re.findall(r"\d+\.?\d*", arr[secondBoxNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<126),"bicycle x0 more than 126"
-    assert(x0>116),"bicycle x0 less than 116"
-    assert(y0<148),"bicycle y0 more than 148"
-    assert(y0>138),"bicycle y0 less than 138"
-    assert(x1<562),"bicycle x1 more than 562"
-    assert(x1>552),"bicycle x1 less than 552"
-    assert(y1<445),"bicycle y1 more than 445"
-    assert(y1>435),"bicycle y1 less than 435"
+    assert(x0<49),"secondBoxNumber x0 more than 48"
+    assert(x0>37),"secondBoxNumber x0 less than 38"
+    assert(y0<92),"secondBoxNumber y0 more than 91"
+    assert(y0>80),"secondBoxNumber y0 less than 81"
+    assert(x1<91),"secondBoxNumber x1 more than 90"
+    assert(x1>79),"secondBoxNumber x1 less than 80"
+    assert(y1<155),"secondBoxNumber y1 more than 154"
+    assert(y1>143),"secondBoxNumber y1 less than 144"
     #check the dog
     a=re.findall(r"\d+\.?\d*", arr[dogNumber])
     x0=float(a[0])
