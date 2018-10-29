@@ -371,7 +371,7 @@ def lighten_cnn():
 
 def caffe_wrapper_sqz():
     target_dir=ROOT_DIR
-    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./Classification %s/models/sqz.prototxt %s/models/squeezenet_v1.1.caffemodel %s/examples/caffe_wrapper/cpp_classification/imagenet_mean.binaryproto %s/models/synset_words.txt %s/tests/images/cat.jpg"%(target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir,target_dir,target_dir,target_dir,target_dir),"r")
+    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./classification %s/models/sqz.prototxt %s/models/squeezenet_v1.1.caffemodel %s/examples/caffe_wrapper/cpp_classification/imagenet_mean.binaryproto %s/models/synset_words.txt %s/tests/images/cat.jpg"%(target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir,target_dir,target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
