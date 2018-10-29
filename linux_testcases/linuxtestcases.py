@@ -449,11 +449,11 @@ def caffe_wrapper_mobilenet(targetdir):
 def caffe_wrapper_mtcnn_4faces(targetdir):
 
     cmd1="export TENGINE_CONFIG_FILE=targetdir/install/etc/tengine/config"
-    cmd2="echo "face 0: x0,y0 169.23715 84.18719  x1,y1 205.29367  134.34718" >> /tmp/master.dummy"
-    cmd3="echo "face 1: x0,y0 42.22129 84.22765  x1,y1 84.91341  148.80046" >> /tmp/master.dummy"
-    cmd4="echo "face 2: x0,y0 290.14917 102.54037  x1,y1 324.89871  151.54451" >> /tmp/master.dummy"
-    cmd5="echo "face 3: x0,y0 376.13626 51.77087  x1,y1 464.53513  144.84897" >> /tmp/master.dummy"
-    cmd6="echo "total detected: 4 faces" >> /tmp/master.dummy"
+    cmd2="echo \"face 0: x0,y0 169.23715 84.18719  x1,y1 205.29367  134.34718\" >> /tmp/master.dummy"
+    cmd3="echo \"face 1: x0,y0 42.22129 84.22765  x1,y1 84.91341  148.80046\" >> /tmp/master.dummy"
+    cmd4="echo \"face 2: x0,y0 290.14917 102.54037  x1,y1 324.89871  151.54451\" >> /tmp/master.dummy"
+    cmd5="echo \"face 3: x0,y0 376.13626 51.77087  x1,y1 464.53513  144.84897\" >> /tmp/master.dummy"
+    cmd6="echo \"total detected: 4 faces\" >> /tmp/master.dummy"
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
     res=os.popen("cmd;cd %s;echo ./CAFFE_MTCNN targetdir/tests/images/mtcnn_face4.jpg targetdir/models wrapper_result4.jpg;./CAFFE_MTCNN targetdir/tests/images/mtcnn_face4.jpg targetdir/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir),"r")
