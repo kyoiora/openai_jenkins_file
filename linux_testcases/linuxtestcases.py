@@ -439,6 +439,13 @@ def caffe_wrapper_sqz(targetdir):
     print(out)
     assert "0.2763 - \"n02123045" in out
 
+def caffe_wrapper_mobilenet(targetdir):
+    target_dir=targetdir
+    res=os.popen("cd %s;export LD_LIBRARY_PATH=%s;./classification_mobilenet %s/models/mobilenet_deploy.prototxt %s/models/mobilenet.caffemodel %s/examples/caffe_wrapper/cpp_classification/imagenet_mean.binaryproto %s/models/synset_words.txt %s/tests/images/cat.jpg"%(target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir,target_dir,target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+    assert "8.5976 - \"n02123159" in out
+
 def vgg16_mem(targetdir):
     target_dir=targetdir
     res=os.popen("cd %s; %s/tests/bin/vgg16_mem.sh"%(target_dir,target_dir),"r")
