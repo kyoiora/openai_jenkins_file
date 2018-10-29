@@ -449,7 +449,7 @@ def caffe_wrapper_mobilenet(targetdir):
 def caffe_wrapper_mtcnn_4faces(targetdir):
     root_dir=targetdir
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
-    cmd1="export TENGINE_CONFIG_FILE=$root_dir/install/etc/tengine/config"
+    cmd1="export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config"%(root_dir)
     cmd2="echo \"face 0: x0,y0 169.23715 84.18719  x1,y1 205.29367  134.34718\" >> /tmp/master.dummy"
     cmd3="echo \"face 1: x0,y0 42.22129 84.22765  x1,y1 84.91341  148.80046\" >> /tmp/master.dummy"
     cmd4="echo \"face 2: x0,y0 290.14917 102.54037  x1,y1 324.89871  151.54451\" >> /tmp/master.dummy"
