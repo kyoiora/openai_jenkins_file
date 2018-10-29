@@ -82,42 +82,42 @@ def ssd():
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<476),"car x0 more than 475"
-    assert(x0>464),"car x0 less than 465"
-    assert(y0<91),"car y0 more than 90"
-    assert(y0>79),"car y0 less than 80"
-    assert(x1<702),"car x1 more than 701"
-    assert(x1>690),"car x1 less than 691"
-    assert(y1<177),"car y1 more than 176"
-    assert(y1>165),"car y1 less than 166"
+    assert(x0<=475),"car x0 more than 475"
+    assert(x0>=465),"car x0 less than 465"
+    assert(y0<=90),"car y0 more than 90"
+    assert(y0>=80),"car y0 less than 80"
+    assert(x1<=701),"car x1 more than 701"
+    assert(x1>=691),"car x1 less than 691"
+    assert(y1<=176),"car y1 more than 176"
+    assert(y1>=166),"car y1 less than 166"
     #check the bicycle
     a=re.findall(r"\d+\.?\d*", arr[bicycleNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<149),"bicycle x0 more than 148"
-    assert(x0>137),"bicycle x0 less than 138"
-    assert(y0<144),"bicycle y0 more than 143"
-    assert(y0>132),"bicycle y0 less than 133"
-    assert(x1<585),"bicycle x1 more than 584"
-    assert(x1>573),"bicycle x1 less than 574"
-    assert(y1<510),"bicycle y1 more than 509"
-    assert(y1>498),"bicycle y1 less than 499"
+    assert(x0<=148),"bicycle x0 more than 148"
+    assert(x0>=138),"bicycle x0 less than 138"
+    assert(y0<=143),"bicycle y0 more than 143"
+    assert(y0>=133),"bicycle y0 less than 133"
+    assert(x1<=584),"bicycle x1 more than 584"
+    assert(x1>=574),"bicycle x1 less than 574"
+    assert(y1<=509),"bicycle y1 more than 509"
+    assert(y1>=499),"bicycle y1 less than 499"
     #check the dog
     a=re.findall(r"\d+\.?\d*", arr[dogNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<138),"dog x0 more than 137"
-    assert(x0>126),"dog x0 less than 127"
-    assert(y0<225),"dog y0 more than 224"
-    assert(y0>213),"dog y0 less than 214"
-    assert(x1<340),"dog x1 more than 339"
-    assert(x1>328),"dog x1 less than 329"
-    assert(y1<539),"dog y1 more than 538"
-    assert(y1>527),"dog y1 less than 528"
+    assert(x0<=137),"dog x0 more than 137"
+    assert(x0>=127),"dog x0 less than 127"
+    assert(y0<=224),"dog y0 more than 224"
+    assert(y0>=214),"dog y0 less than 214"
+    assert(x1<=339),"dog x1 more than 339"
+    assert(x1>=329),"dog x1 less than 329"
+    assert(y1<=538),"dog y1 more than 538"
+    assert(y1>=528),"dog y1 less than 528"
 
 def mssd():
     target_dir=ROOT_DIR+'build/examples/mobilenet_ssd/'
