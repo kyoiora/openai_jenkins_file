@@ -1,8 +1,7 @@
 import os
 import re
-import test
-from test import test_eval
-ROOT_DIR=targetdir
+import ../test
+ROOT_DIR=Global_targetdir
 TARGET_DIR_ON_BOARD='examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='build/examples/caffe_wrapper/cpp_classification'
 

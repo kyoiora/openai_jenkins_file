@@ -14,11 +14,11 @@ sys.path.append(test_path + '/linux_testcases')
 import testcases
 import adb_wrapper.adb_wrapper.adb_wrapper
 import linuxtestcases
-
+Global_targetdir=""
 #Linux testcase calling old test function in test.sh
 def test_eval(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
-
+    Global_targetdir=targetdir
     #eval testcases from linux_testcases.linuxtestcases.py
     print "testcase_dict=%s"%testcase_dict
     tc="linuxtestcases.%s()"%(testcase_dict)
