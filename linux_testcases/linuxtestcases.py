@@ -3,7 +3,7 @@ import re
 import sys
 
 
-TARGET_DIR_ON_BOARD='examples/build/imagenet_classification'
+TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='build/examples/caffe_wrapper/cpp_classification'
 
 def imagenet_sqz(targetdir):
