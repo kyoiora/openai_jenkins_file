@@ -289,17 +289,15 @@ def mtcnn():
     print(out)
     arr=out.splitlines()
     for char in arr:
-        if "car" in char:
+        if "face" in char:
             char_arr=char.splitlines()
-            carNumber=arr.index(char_arr[0])+1
-        if "bicycle" in char:
-            char_arr=char.splitlines()
-            bicycleNumber=arr.index(char_arr[0])+1
-        if "dog" in char:
-            char_arr=char.splitlines()
-            dogNumber=arr.index(char_arr[0])+1
+            firstBoxNumber=arr.index(char_arr[0])+1
+            secondBoxNumber=arr.index(char_arr[0])+2
+            thirdBoxNumber=arr.index(char_arr[0])+3
+            fourBoxNumber=arr.index(char_arr[0])+4
+
     #check the car
-    a=re.findall(r"\d+\.?\d*", arr[carNumber])
+    a=re.findall(r"\d+\.?\d*", arr[firstBoxNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
