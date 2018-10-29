@@ -1,7 +1,5 @@
 import os
 import re
-import sys
-
 
 TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='build/examples/caffe_wrapper/cpp_classification'
@@ -14,56 +12,56 @@ def imagenet_sqz(targetdir):
     assert "0.2763 - \"n02123045" in out
 
 def imagenet_mobilenet(targetdir):
-    target_dir=ROOT_DIR+TARGET_DIR_ON_BOARD
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "8.5976 - \"n02123159" in out
 
 def imagenet_resnet50(targetdir):
-    target_dir=ROOT_DIR
+    target_dir=targetdir
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n resnet50 -i %s/tests/images/bike.jpg"%(target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.9239 - \"n03792782" in out
 
 def imagenet_googlenet(targetdir):
-    target_dir=ROOT_DIR+TARGET_DIR_ON_BOARD
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n googlenet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.5009 - \"n02123159" in out
 
 def imagenet_inceptionv4(targetdir):
-    target_dir=ROOT_DIR+TARGET_DIR_ON_BOARD
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n inception_v4 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.7556 - \"n02123159" in out
 
 def imagenet_inceptionv3(targetdir):
-    target_dir=ROOT_DIR+TARGET_DIR_ON_BOARD
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n inception_v3 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.0946 - \"n02123159" in out
 
 def imagenet_alexnet(targetdir):
-    target_dir=ROOT_DIR+TARGET_DIR_ON_BOARD
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n alexnet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.3094 - \"n02124075" in out
 
 def imagenet_vgg16(targetdir):
-    target_dir=ROOT_DIR
+    target_dir=targetdir
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n vgg16 -i %s/tests/images/bike.jpg"%(target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.4998 - \"n03792782" in out
 
 def ssd(targetdir):
-    target_dir=ROOT_DIR+'build/examples/ssd/'
+    target_dir=targetdir+'build/examples/ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -122,7 +120,7 @@ def ssd(targetdir):
     assert(y1>=528),"dog y1 less than 528"
 
 def mssd(targetdir):
-    target_dir=ROOT_DIR+'build/examples/mobilenet_ssd/'
+    target_dir=targetdir+'build/examples/mobilenet_ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -181,7 +179,7 @@ def mssd(targetdir):
     assert(y1>=538),"dog y1 less than 538"
 
 def yolov2(targetdir):
-    target_dir=ROOT_DIR+'build/examples/yolov2/'
+    target_dir=targetdir+'build/examples/yolov2/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./YOLOV2 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -240,7 +238,7 @@ def yolov2(targetdir):
     assert(y1>540),"dog y1 less than 540"
 
 def faster_rcnn(targetdir):
-    target_dir=ROOT_DIR+'build/examples/faster_rcnn/'
+    target_dir=targetdir+'build/examples/faster_rcnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./FASTER_RCNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -285,7 +283,7 @@ def faster_rcnn(targetdir):
     assert(y1>=541),"dog y1 less than 541"
 
 def mtcnn(targetdir):
-    target_dir=ROOT_DIR+'build/examples/mtcnn/'
+    target_dir=targetdir+'build/examples/mtcnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MTCNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -356,7 +354,7 @@ def mtcnn(targetdir):
 
 
 def lighten_cnn(targetdir):
-    target_dir=ROOT_DIR+'build/examples/lighten_cnn/'
+    target_dir=targetdir+'build/examples/lighten_cnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./LIGHTEN_CNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -372,14 +370,14 @@ def lighten_cnn(targetdir):
 
 
 def caffe_wrapper_sqz(targetdir):
-    target_dir=ROOT_DIR
+    target_dir=targetdir
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s;./classification %s/models/sqz.prototxt %s/models/squeezenet_v1.1.caffemodel %s/examples/caffe_wrapper/cpp_classification/imagenet_mean.binaryproto %s/models/synset_words.txt %s/tests/images/cat.jpg"%(target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir,target_dir,target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
 
 def vgg16_mem(targetdir):
-    target_dir=ROOT_DIR
+    target_dir=targetdir
     res=os.popen("cd %s; %s/tests/bin/vgg16_mem.sh"%(target_dir,target_dir),"r")
     out=res.read()
     print(out)
