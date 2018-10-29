@@ -301,56 +301,56 @@ def mtcnn():
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<175),"firstBox x0 more than 174"
-    assert(x0>163),"firstBox x0 less than 164"
-    assert(y0<87),"firstBox more than 86"
-    assert(y0>75),"firstBox less than 76"
-    assert(x1<212),"firstBoxN more than 211"
-    assert(x1>200),"firstBox less than 201"
-    assert(y1<141),"firstBoxN more than 140"
-    assert(y1>129),"firstBox less than 130"
+    assert(x0<=174),"firstBox x0 more than 174"
+    assert(x0>=164),"firstBox x0 less than 164"
+    assert(y0<=86),"firstBox more than 86"
+    assert(y0>=76),"firstBox less than 76"
+    assert(x1<=211),"firstBoxN more than 211"
+    assert(x1>=201),"firstBox less than 201"
+    assert(y1<=140),"firstBoxN more than 140"
+    assert(y1>=130),"firstBox less than 130"
     #check the second BOX
     a=re.findall(r"\d+\.?\d*", arr[secondBoxNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<49),"secondBoxN x0 more than 48"
-    assert(x0>37),"secondBox x0 less than 38"
-    assert(y0<92),"secondBox y0 more than 91"
-    assert(y0>80),"secondBox y0 less than 81"
-    assert(x1<91),"secondBox x1 more than 90"
-    assert(x1>79),"secondBox x1 less than 80"
-    assert(y1<155),"secondBox y1 more than 154"
-    assert(y1>143),"secondBox y1 less than 144"
+    assert(x0<=48),"secondBoxN x0 more than 48"
+    assert(x0>=38),"secondBox x0 less than 38"
+    assert(y0<=91),"secondBox y0 more than 91"
+    assert(y0>=81),"secondBox y0 less than 81"
+    assert(x1<=90),"secondBox x1 more than 90"
+    assert(x1>=80),"secondBox x1 less than 80"
+    assert(y1<=154),"secondBox y1 more than 154"
+    assert(y1>=144),"secondBox y1 less than 144"
     #check the third BOX
     a=re.findall(r"\d+\.?\d*", arr[thirdBoxNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<298),"thirdBox x0 more than 297"
-    assert(x0>286),"thirdBox x0 less than 287"
-    assert(y0<109),"thirdBox y0 more than 108"
-    assert(y0>97),"thirdBox y0 less than 98"
-    assert(x1<330),"thirdBox x1 more than 329"
-    assert(x1>318),"thirdBox x1 less than 319"
-    assert(y1<156),"thirdBox y1 more than 155"
-    assert(y1>144),"thirdBox y1 less than 145"
+    assert(x0<=297),"thirdBox x0 more than 297"
+    assert(x0>=287),"thirdBox x0 less than 287"
+    assert(y0<=108),"thirdBox y0 more than 108"
+    assert(y0>=98),"thirdBox y0 less than 98"
+    assert(x1<=329),"thirdBox x1 more than 329"
+    assert(x1>=319),"thirdBox x1 less than 319"
+    assert(y1<=155),"thirdBox y1 more than 155"
+    assert(y1>=145),"thirdBox y1 less than 145"
     #check the four BOX
     a=re.findall(r"\d+\.?\d*", arr[fourBoxNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<385),"fourBox x0 more than 384"
-    assert(x0>373),"fourBox x0 less than 374"
-    assert(y0<62),"fourBox y0 more than 61"
-    assert(y0>50),"fourBox y0 less than 51"
-    assert(x1<466),"fourBox x1 more than 465"
-    assert(x1>454),"fourBox x1 less than 455"
-    assert(y1<151),"fourBox y1 more than 150"
-    assert(y1>139),"fourBox y1 less than 140"
+    assert(x0<=384),"fourBox x0 more than 384"
+    assert(x0>=374),"fourBox x0 less than 374"
+    assert(y0<=61),"fourBox y0 more than 61"
+    assert(y0>=51),"fourBox y0 less than 51"
+    assert(x1<=465),"fourBox x1 more than 465"
+    assert(x1>=455),"fourBox x1 less than 455"
+    assert(y1<=150),"fourBox y1 more than 150"
+    assert(y1>=140),"fourBox y1 less than 140"
 
 
 def lighten_cnn():
