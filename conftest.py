@@ -10,7 +10,7 @@ android_testlist=['imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
                   'imagenet_inception_v4',
                   'imagenet_resnet50','imagenet_vgg16']
 
-linux_testlist=[  'quick_api','test_dev','test_two_dev','test_two_sqz','get_node','test_mxnet_mobilenet'
+linux_testlist=[  'quick_api','test_dev','test_two_dev','test_two_sqz','get_node','test_mxnet_mobilenet',
                   'imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
                   'imagenet_mobilenet','imagenet_inception_v3',
                   'imagenet_inception_v4',
