@@ -4,7 +4,7 @@ import sys
 test_path = (os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(test_path)
 import test
-ROOT_DIR=Global_targetdir
+ROOT_DIR=test.Global_targetdir
 TARGET_DIR_ON_BOARD='examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='build/examples/caffe_wrapper/cpp_classification'
 
