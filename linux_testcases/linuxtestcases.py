@@ -39,14 +39,14 @@ def imagenet_googlenet(targetdir):
     print(out)
     assert "0.5009 - \"n02123159" in out
 
-def imagenet_inceptionv4(targetdir):
+def imagenet_inception_v4(targetdir):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n inception_v4 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.7556 - \"n02123159" in out
 
-def imagenet_inceptionv3(targetdir):
+def imagenet_inception_v3(targetdir):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n inception_v3 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
