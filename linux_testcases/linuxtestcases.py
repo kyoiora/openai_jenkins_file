@@ -7,7 +7,7 @@ caffe_wrapper_sqz_dir='/build/examples/caffe_wrapper/cpp_classification'
 def quick_api(targetdir):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_quick_api"%(target_dir),"r")
-                      out=res.read()
+    out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
 
