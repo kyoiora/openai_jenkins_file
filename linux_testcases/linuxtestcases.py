@@ -304,8 +304,8 @@ def mtcnn():
     y1=float(a[3])
     assert(x0<175),"firstBox x0 more than 174"
     assert(x0>163),"firstBox x0 less than 164"
-    assert(y0<78),"firstBox more than 76"
-    assert(y0>87),"firstBox less than 86"
+    assert(y0<87),"firstBox more than 86"
+    assert(y0>75),"firstBox less than 76"
     assert(x1<212),"firstBoxN more than 211"
     assert(x1>200),"firstBox less than 201"
     assert(y1<141),"firstBoxN more than 140"
