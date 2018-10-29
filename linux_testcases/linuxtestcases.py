@@ -447,7 +447,12 @@ def caffe_wrapper_mobilenet(targetdir):
     assert "8.5976 - \"n02123159" in out
 
 def caffe_wrapper_mtcnn_4faces(targetdir):
-    res=os.popen("export TENGINE_CONFIG_FILE=${ROOT_DIR}/install/etc/tengine/config;echo "face 0: x0,y0 169.23715 84.18719  x1,y1 205.29367  134.34718" >> /tmp/master.dummy;echo "face 1: x0,y0 42.22129 84.22765  x1,y1 84.91341  148.80046" >> /tmp/master.dummy;echo "face 2: x0,y0 290.14917 102.54037  x1,y1 324.89871  151.54451" >> /tmp/master.dummy;echo "face 3: x0,y0 376.13626 51.77087  x1,y1 464.53513  144.84897" >> /tmp/master.dummy;echo "total detected: 4 faces" >> /tmp/master.dummy","r")
+    os.system("export TENGINE_CONFIG_FILE=targetdir/install/etc/tengine/config")
+    os.system("echo "face 0: x0,y0 169.23715 84.18719  x1,y1 205.29367  134.34718" >> /tmp/master.dummy")
+    os.system("echo "face 1: x0,y0 42.22129 84.22765  x1,y1 84.91341  148.80046" >> /tmp/master.dummy")
+    os.system("echo "face 2: x0,y0 290.14917 102.54037  x1,y1 324.89871  151.54451" >> /tmp/master.dummy")
+    os.system("echo "face 3: x0,y0 376.13626 51.77087  x1,y1 464.53513  144.84897" >> /tmp/master.dummy")
+    os.system("echo "total detected: 4 faces" >> /tmp/master.dummy")
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
     res=os.popen("cd %s;echo ./CAFFE_MTCNN targetdir/tests/images/mtcnn_face4.jpg targetdir/models wrapper_result4.jpg;./CAFFE_MTCNN targetdir/tests/images/mtcnn_face4.jpg targetdir/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir),"r")
     out=res.read()
