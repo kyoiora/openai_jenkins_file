@@ -259,28 +259,28 @@ def faster_rcnn():
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<437),"car x0 more than 436"
-    assert(x0>425),"car x0 less than 426"
-    assert(y0<85),"car y0 more than 84"
-    assert(y0>73),"car y0 less than 74"
-    assert(x1<697),"car x1 more than 696"
-    assert(x1>685),"car x1 less than 686"
-    assert(y1<167),"car y1 more than 166"
-    assert(y1>155),"car y1 less than 156"
+    assert(x0<=436),"car x0 more than 436"
+    assert(x0>=426),"car x0 less than 426"
+    assert(y0<=84),"car y0 more than 84"
+    assert(y0>=74),"car y0 less than 74"
+    assert(x1<=696),"car x1 more than 696"
+    assert(x1>=686),"car x1 less than 686"
+    assert(y1<=166),"car y1 more than 166"
+    assert(y1>=156),"car y1 less than 156"
     #check the dog
     a=re.findall(r"\d+\.?\d*", arr[dogNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<103),"dog x0 more than 102"
-    assert(x0>91),"dog x0 less than 92"
-    assert(y0<229),"dog y0 more than 228"
-    assert(y0>217),"dog y0 less than 218"
-    assert(x1<364),"dog x1 more than 363"
-    assert(x1>352),"dog x1 less than 353"
-    assert(y1<552),"dog y1 more than 551"
-    assert(y1>540),"dog y1 less than 541"
+    assert(x0<=102),"dog x0 more than 102"
+    assert(x0>=92),"dog x0 less than 92"
+    assert(y0<=228),"dog y0 more than 228"
+    assert(y0>=218),"dog y0 less than 218"
+    assert(x1<=363),"dog x1 more than 363"
+    assert(x1>=353),"dog x1 less than 353"
+    assert(y1<=551),"dog y1 more than 551"
+    assert(y1>=541),"dog y1 less than 541"
 
 def mtcnn():
     target_dir=ROOT_DIR+'build/examples/mtcnn/'
