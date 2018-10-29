@@ -302,42 +302,42 @@ def mtcnn():
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<175),"firstBoxNumber x0 more than 174"
-    assert(x0>163),"firstBoxNumber x0 less than 164"
-    assert(y0<78),"firstBoxNumber more than 76"
-    assert(y0>87),"firstBoxNumber less than 86"
-    assert(x1<212),"firstBoxNumber more than 211"
-    assert(x1>200),"firstBoxNumber less than 201"
-    assert(y1<141),"firstBoxNumber more than 140"
-    assert(y1>129),"firstBoxNumber less than 130"
-    #check the bsecond BOX
+    assert(x0<175),"firstBox x0 more than 174"
+    assert(x0>163),"firstBox x0 less than 164"
+    assert(y0<78),"firstBox more than 76"
+    assert(y0>87),"firstBox less than 86"
+    assert(x1<212),"firstBoxN more than 211"
+    assert(x1>200),"firstBox less than 201"
+    assert(y1<141),"firstBoxN more than 140"
+    assert(y1>129),"firstBox less than 130"
+    #check the second BOX
     a=re.findall(r"\d+\.?\d*", arr[secondBoxNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<49),"secondBoxNumber x0 more than 48"
-    assert(x0>37),"secondBoxNumber x0 less than 38"
-    assert(y0<92),"secondBoxNumber y0 more than 91"
-    assert(y0>80),"secondBoxNumber y0 less than 81"
-    assert(x1<91),"secondBoxNumber x1 more than 90"
-    assert(x1>79),"secondBoxNumber x1 less than 80"
-    assert(y1<155),"secondBoxNumber y1 more than 154"
-    assert(y1>143),"secondBoxNumber y1 less than 144"
-    #check the dog
+    assert(x0<49),"secondBoxN x0 more than 48"
+    assert(x0>37),"secondBox x0 less than 38"
+    assert(y0<92),"secondBox y0 more than 91"
+    assert(y0>80),"secondBox y0 less than 81"
+    assert(x1<91),"secondBox x1 more than 90"
+    assert(x1>79),"secondBox x1 less than 80"
+    assert(y1<155),"secondBox y1 more than 154"
+    assert(y1>143),"secondBox y1 less than 144"
+    #check the third BOX
     a=re.findall(r"\d+\.?\d*", arr[dogNumber])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<124),"dog x0 more than 124"
-    assert(x0>114),"dog x0 less than 114"
-    assert(y0<184),"dog y0 more than 184"
-    assert(y0>174),"dog y0 less than 174"
-    assert(x1<328),"dog x1 more than 328"
-    assert(x1>318),"dog x1 less than 318"
-    assert(y1<550),"dog y1 more than 550"
-    assert(y1>540),"dog y1 less than 540"
+    assert(x0<298),"thirdBox x0 more than 297"
+    assert(x0>286),"thirdBox x0 less than 287"
+    assert(y0<109),"thirdBox y0 more than 108"
+    assert(y0>97),"thirdBox y0 less than 98"
+    assert(x1<330),"thirdBox x1 more than 329"
+    assert(x1>318),"thirdBox x1 less than 319"
+    assert(y1<156),"thirdBox y1 more than 155"
+    assert(y1>144),"thirdBox y1 less than 145"
 
 def lighten_cnn():
     target_dir=ROOT_DIR+'build/examples/lighten_cnn/'
