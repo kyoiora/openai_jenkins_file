@@ -304,12 +304,12 @@ def mtcnn():
     y1=float(a[3])
     assert(x0<175),"firstBoxNumber x0 more than 174"
     assert(x0>163),"firstBoxNumber x0 less than 164"
-    assert(y0<78),"car y0 more than 78"
-    assert(y0>68),"car y0 less than 68"
-    assert(x1<680),"car x1 more than 680"
-    assert(x1>670),"car x1 less than 670"
-    assert(y1<181),"car y1 more than 181"
-    assert(y1>171),"car y1 less than 171"
+    assert(y0<78),"firstBoxNumber more than 76"
+    assert(y0>87),"firstBoxNumber less than 86"
+    assert(x1<212),"firstBoxNumber more than 211"
+    assert(x1>200),"firstBoxNumber less than 201"
+    assert(y1<141),"firstBoxNumber more than 140"
+    assert(y1>129),"firstBoxNumber less than 130"
     #check the bicycle
     a=re.findall(r"\d+\.?\d*", arr[bicycleNumber])
     x0=float(a[0])
