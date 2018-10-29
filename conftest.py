@@ -14,7 +14,7 @@ linux_testlist=[  'quick_api','test_dev','test_two_dev','test_two_sqz','get_node
                   'test_onnx_sqz',
                   'imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
                   'imagenet_mobilenet','imagenet_inception_v3',
-                  'imagenet_inception_v4',
+                  'imagenet_inception_v4','test_tf_mobilenet','test_tf_inceptionv3',
                   'imagenet_resnet50','imagenet_vgg16','ssd','mssd','yolov2','faster_rcnn','mtcnn','lighten_cnn',
                   'caffe_wrapper_sqz','vgg16_mem']
 
