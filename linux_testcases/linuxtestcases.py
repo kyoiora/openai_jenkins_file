@@ -457,7 +457,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
     root_dir=targetdir
-    res=os.popen("cmd;cd %s;echo ./CAFFE_MTCNN $root_dir/tests/images/mtcnn_face4.jpg $root_dir/models wrapper_result4.jpg;./CAFFE_MTCNN root_dir/tests/images/mtcnn_face4.jpg root_dir/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir),"r")
+    res=os.popen("cmd;cd %s;echo ./CAFFE_MTCNN $root_dir/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir),"r")
     out=res.read()
     print(out)
     arr=out.splitlines()
