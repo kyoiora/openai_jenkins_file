@@ -11,6 +11,13 @@ def quick_api(targetdir):
     print(out)
     assert "0.2763 - \"n02123045" in out
 
+def test_dev(targetdir):
+    target_dir=targetdir
+    res=os.popen("cd %s;./build/internal/bin/test_dev"%(target_dir),"r")
+    out=res.read()
+    print(out)
+    assert "0.2763 - \"n02123045" in out
+
 def imagenet_sqz(targetdir):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet "%(target_dir,target_dir,target_dir),"r")
