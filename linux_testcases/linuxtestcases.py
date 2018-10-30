@@ -667,6 +667,13 @@ def tf_wrapper_inceptionv3(targetdir):
     print(out)
     assert "0.7361 - \"military uniform" in out
 
+def tf_wrapper_mobilenet(targetdir):
+    target_dir=targetdir+"/build/examples/tensorflow_wrapper/label_image"
+    res=os.popen("export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config;cd %s; ./label_image_mobilenet;unset TENGINE_CONFIG_FILE"%(targetdir,target_dir),"r")
+    out=res.read()
+    print(out)
+    assert "0.5246 - \"n02123394" in out
+
 def vgg16_mem(targetdir):
     target_dir=targetdir
     res=os.popen("cd %s; %s/tests/bin/vgg16_mem.sh"%(target_dir,target_dir),"r")
