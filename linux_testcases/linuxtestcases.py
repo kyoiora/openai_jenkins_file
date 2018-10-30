@@ -480,6 +480,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
 
     #check face0
     a=re.findall(r"\d+\.?\d*", arr[face0Number])
+    print a
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
