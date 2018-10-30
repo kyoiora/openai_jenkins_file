@@ -536,6 +536,96 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(y1>=143),"face3 y1 less than 143"
     assert(y1<=145),"face3 y1 more than 145"
 
+def caffe_wrapper_mtcnn_6faces(targetdir):
+    root_dir=targetdir
+    target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
+    cmd1="export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config"%(root_dir)
+    cmd2="echo \"face 0: x0,y0 169.23715 84.18719  x1,y1 205.29367  134.34718\" >> /tmp/master.dummy"
+    cmd3="echo \"face 1: x0,y0 42.22129 84.22765  x1,y1 84.91341  148.80046\" >> /tmp/master.dummy"
+    cmd4="echo \"face 2: x0,y0 290.14917 102.54037  x1,y1 324.89871  151.54451\" >> /tmp/master.dummy"
+    cmd5="echo \"face 3: x0,y0 376.13626 51.77087  x1,y1 464.53513  144.84897\" >> /tmp/master.dummy"
+    cmd6="echo \"total detected: 4 faces\" >> /tmp/master.dummy"
+    cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
+    os.system(cmd)
+    target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
+    os.popen("cd %s;echo ./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir,root_dir),"r")
+    line1=os.popen("cat /tmp/master.dummy","r")
+    out1=line1.read()
+    print(out1)
+    line2=os.popen("cat /tmp/result.dummy","r")
+    out2=line2.read()
+    print(out2)
+    assert(out1!=out2)
+
+    arr=out2.splitlines()
+    for char in arr:
+        if "face 0" in char:
+        #find face0 and change the face 0 to list
+            char_arr=char.splitlines()
+        #index face0Number in arr
+            face0Number=arr.index(char_arr[0])
+            face1Number=arr.index(char_arr[0])+1
+            face2Number=arr.index(char_arr[0])+2
+            face3Number=arr.index(char_arr[0])+3
+
+    #check face0
+    a=re.findall(r"\d+\.?\d*", arr[face0Number])
+    print a
+    x0=float(a[3])
+    y0=float(a[4])
+    x1=float(a[7])
+    y1=float(a[8])
+    assert(x0>=168),"face0 x0 less than 168"
+    assert(x0<=170),"face0 x0 more than 170"
+    assert(y0>=83),"face0 y0 less than 83"
+    assert(y0<=85),"face0 y0 more than 85"
+    assert(x1>=204),"face0 x1 less than 204"
+    assert(x1<=206),"face0 x1 more than 206"
+    assert(y1>=133),"face0 y1 less than 133"
+    assert(y1<=135),"face0 y1 more than 135"
+    #check face1
+    a=re.findall(r"\d+\.?\d*", arr[face1Number])
+    x0=float(a[3])
+    y0=float(a[4])
+    x1=float(a[7])
+    y1=float(a[8])
+    assert(x0>=41),"face1 x0 less than 41"
+    assert(x0<=43),"face1 x0 more than 43"
+    assert(y0>=83),"face1 y0 less than 83"
+    assert(y0<=85),"face1 y0 more than 85"
+    assert(x1>=83),"face1 x1 less than 83"
+    assert(x1<=85),"face1 x1 more than 85"
+    assert(y1>=147),"face1 y1 less than 147"
+    assert(y1<=149),"face1 y1 more than 149"
+    #check face2
+    a=re.findall(r"\d+\.?\d*", arr[face2Number])
+    x0=float(a[3])
+    y0=float(a[4])
+    x1=float(a[7])
+    y1=float(a[8])
+    assert(x0>=289),"face2 x0 less than 289"
+    assert(x0<=291),"face2 x0 more than 291"
+    assert(y0>=101),"face2 y0 less than 101"
+    assert(y0<=103),"face2 y0 more than 103"
+    assert(x1>=323),"face2 x1 less than 323"
+    assert(x1<=325),"face2 x1 more than 325"
+    assert(y1>=150),"face2 y1 less than 150"
+    assert(y1<=152),"face2 y1 more than 152"
+    #check face3
+    a=re.findall(r"\d+\.?\d*", arr[face3Number])
+    x0=float(a[3])
+    y0=float(a[4])
+    x1=float(a[7])
+    y1=float(a[8])
+    assert(x0>=375),"face3 x0 less than 375"
+    assert(x0<=377),"face3 x0 more than 377"
+    assert(y0>=50),"face3 y0 less than 50"
+    assert(y0<=52),"face3 y0 more than 52"
+    assert(x1>=463),"face3 x1 less than 463"
+    assert(x1<=465),"face3 x1 more than 465"
+    assert(y1>=143),"face3 y1 less than 143"
+    assert(y1<=145),"face3 y1 more than 145"
+
 def vgg16_mem(targetdir):
     target_dir=targetdir
     res=os.popen("cd %s; %s/tests/bin/vgg16_mem.sh"%(target_dir,target_dir),"r")
