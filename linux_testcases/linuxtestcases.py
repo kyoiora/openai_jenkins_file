@@ -680,7 +680,7 @@ def tf_wrapper_mobilenet(targetdir):
 def bench_sqz_net(targetdir):
     target_dir=targetdir
     # check Int8
-    if TEST_CHIP="RK3399":
+    if TEST_CHIP=="RK3399":
         res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4(target_dir),"r")
         out1=res1.read()
         print(out1)
@@ -707,7 +707,7 @@ def bench_sqz_net(targetdir):
         print(out2)
         assert "0.2763 - \"n02123045" in out
     # check FAT32
-    if TEST_CHIP="RK3399":
+    if TEST_CHIP=="RK3399":
         res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 4(target_dir),"r")
         out1=res1.read()
         print(out1)
@@ -737,7 +737,7 @@ def bench_sqz_net(targetdir):
 def bench_mobile_net(targetdir):
     target_dir=targetdir
     # check Int8
-    if TEST_CHIP="RK3399":
+    if TEST_CHIP=="RK3399":
         res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 4(target_dir),"r")
         out1=res1.read()
         print(out1)
@@ -764,7 +764,7 @@ def bench_mobile_net(targetdir):
         print(out2)
         assert "8.5976 - \"n02123159" in out
     # check FAT32
-    if TEST_CHIP="RK3399":
+    if TEST_CHIP=="RK3399":
         res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 4(target_dir),"r")
         out1=res1.read()
         print(out1)
