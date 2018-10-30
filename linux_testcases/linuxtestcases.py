@@ -132,6 +132,7 @@ def ssd(targetdir):
     for char in arr:
         if "car" in char:
             char_arr=char.splitlines()
+            print (char_arr)
             carNumber=arr.index(char_arr[0])+1
         if "bicycle" in char:
             char_arr=char.splitlines()
@@ -464,16 +465,23 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     line2=os.popen("cat /tmp/result.dummy","r")
     out2=line2.read()
     print(out2)
-
     assert(out1!=out2)
-    arr=out.splitlines()
+
+    arr=out2.splitlines()
     for char in arr:
-        if "face" in char:
+        if "face 0" in char:
+        #find face0 and change the
             char_arr=char.splitlines()
-            firstBoxNumber=arr.index(char_arr[0])+1
-            secondBoxNumber=arr.index(char_arr[0])+2
-            thirdBoxNumber=arr.index(char_arr[0])+3
-            fourBoxNumber=arr.index(char_arr[0])+4
+            print (char_arr)
+            face0Number=arr.index(char_arr[0])
+            print (face0Number)
+        if "bicycle" in char:
+            char_arr=char.splitlines()
+            bicycleNumber=arr.index(char_arr[0])+1
+        if "dog" in char:
+            char_arr=char.splitlines()
+            dogNumber=arr.index(char_arr[0])+1
+
     #check the first BOX
     a=re.findall(r"\d+\.?\d*", arr[firstBoxNumber])
     x0=float(a[0])
