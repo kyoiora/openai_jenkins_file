@@ -504,8 +504,8 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(y0<=85),face1 y0 more than 85"
     assert(x1>=83),"face1 x1 less than 83"
     assert(x1<=85),face1 x1 more than 85"
-    assert(y1>=147),"face1 y1 less than 133"
-    assert(y1<=149),face1 y1 more than 135"
+    assert(y1>=147),"face1 y1 less than 147"
+    assert(y1<=149),face1 y1 more than 149"
 
 def vgg16_mem(targetdir):
     target_dir=targetdir
