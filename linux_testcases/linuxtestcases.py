@@ -3,6 +3,9 @@ import re
 
 TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='/build/examples/caffe_wrapper/cpp_classification'
+TEST_CHIP="RK3399"
+#TEST_CHIP="NOT_RK3399"
+
 
 def quick_api(targetdir):
     target_dir=targetdir
@@ -673,6 +676,28 @@ def tf_wrapper_mobilenet(targetdir):
     out=res.read()
     print(out)
     assert "0.5246 - \"n02123394" in out
+
+def bench_sqz_net(targetdir):
+    target_dir=targetdir
+    if TEST_CHIP="RK3399":
+        res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4(target_dir),"r")
+        out1=res1.read()
+        print(out1)
+        assert "0.2763 - \"n02123045" in out
+        res2=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4,5(target_dir),"r")
+        out2=res2.read()
+        print(out2)
+        assert "0.2763 - \"n02123045" in out
+        res3=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 2(target_dir),"r")
+        out3=res3.read()
+        print(out3)
+        assert "0.2763 - \"n02123045" in out
+        res4=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 0,1,2,3(target_dir),"r")
+        out4=res4.read()
+        print(out4)
+        assert "0.2763 - \"n02123045" in out
+
+
 
 def vgg16_mem(targetdir):
     target_dir=targetdir
