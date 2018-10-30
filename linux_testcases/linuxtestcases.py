@@ -484,14 +484,14 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0>=168),"firstBox x0 more than 174"
-    assert(x0<=170),"firstBox x0 less than 164"
-    assert(y0>=83),"firstBox more than 86"
-    assert(y0<=85),"firstBox less than 76"
-    assert(x1>=204),"firstBoxN more than 211"
-    assert(x1<=206),"firstBox less than 201"
-    assert(y1>=133),"firstBoxN more than 140"
-    assert(y1<=135),"firstBox less than 130"
+    assert(x0>=168),"face0 x0 less than 168"
+    assert(x0<=170),"face0 x0 more than 170"
+    assert(y0>=83),"face0 x0 less than 83"
+    assert(y0<=85),face0 x0 more than 85"
+    assert(x1>=204),"face0 x0 less than 204"
+    assert(x1<=206),face0 x0 more than 206"
+    assert(y1>=133),"face0 x0 less than 133"
+    assert(y1<=135),face0 x0 more than 135"
     #check the second BOX
     a=re.findall(r"\d+\.?\d*", arr[secondBoxNumber])
     x0=float(a[0])
