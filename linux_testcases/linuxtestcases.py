@@ -487,11 +487,11 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(x0>=168),"face0 x0 less than 168"
     assert(x0<=170),"face0 x0 more than 170"
     assert(y0>=83),"face0 y0 less than 83"
-    assert(y0<=85),face0 y0 more than 85"
+    assert(y0<=85),"face0 y0 more than 85"
     assert(x1>=204),"face0 x1 less than 204"
-    assert(x1<=206),face0 x1 more than 206"
+    assert(x1<=206),"face0 x1 more than 206"
     assert(y1>=133),"face0 y1 less than 133"
-    assert(y1<=135),face0 y1 more than 135"
+    assert(y1<=135),"face0 y1 more than 135"
     #check face1
     a=re.findall(r"\d+\.?\d*", arr[face1Number])
     x0=float(a[0])
@@ -501,11 +501,11 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(x0>=41),"face1 x0 less than 41"
     assert(x0<=43),"face1 x0 more than 43"
     assert(y0>=83),"face1 y0 less than 83"
-    assert(y0<=85),face1 y0 more than 85"
+    assert(y0<=85),"face1 y0 more than 85"
     assert(x1>=83),"face1 x1 less than 83"
-    assert(x1<=85),face1 x1 more than 85"
+    assert(x1<=85),"face1 x1 more than 85"
     assert(y1>=147),"face1 y1 less than 147"
-    assert(y1<=149),face1 y1 more than 149"
+    assert(y1<=149),"face1 y1 more than 149"
     #check face2
     a=re.findall(r"\d+\.?\d*", arr[face2Number])
     x0=float(a[0])
@@ -515,11 +515,11 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(x0>=289),"face2 x0 less than 289"
     assert(x0<=291),"face2 x0 more than 291"
     assert(y0>=101),"face2 y0 less than 101"
-    assert(y0<=103),face2 y0 more than 103"
+    assert(y0<=103),"face2 y0 more than 103"
     assert(x1>=323),"face2 x1 less than 323"
-    assert(x1<=325),face2 x1 more than 325"
+    assert(x1<=325),"face2 x1 more than 325"
     assert(y1>=150),"face2 y1 less than 150"
-    assert(y1<=152),face2 y1 more than 152"
+    assert(y1<=152),"face2 y1 more than 152"
     #check face3
     a=re.findall(r"\d+\.?\d*", arr[face3Number])
     x0=float(a[0])
@@ -529,11 +529,11 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(x0>=375),"face3 x0 less than 375"
     assert(x0<=377),"face3 x0 more than 377"
     assert(y0>=50),"face3 y0 less than 50"
-    assert(y0<=52),face3 y0 more than 52"
+    assert(y0<=52),"face3 y0 more than 52"
     assert(x1>=463),"face3 x1 less than 463"
-    assert(x1<=465),face3 x1 more than 465"
+    assert(x1<=465),"face3 x1 more than 465"
     assert(y1>=143),"face3 y1 less than 143"
-    assert(y1<=145),face3 y1 more than 145"
+    assert(y1<=145),"face3 y1 more than 145"
 
 def vgg16_mem(targetdir):
     target_dir=targetdir
