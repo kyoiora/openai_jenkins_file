@@ -458,7 +458,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
     os.system(cmd)
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
-    os.popen("cd %s;echo ./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir,root_dir),"r")
+    os.popen("cd %s;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
     print out1
@@ -571,7 +571,9 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
             face1Number=arr.index(char_arr[0])+1
             face2Number=arr.index(char_arr[0])+2
             face3Number=arr.index(char_arr[0])+3
-
+            face4Number=arr.index(char_arr[0])+4
+            face5Number=arr.index(char_arr[0])+5
+            
     #check face0
     a=re.findall(r"\d+\.?\d*", arr[face0Number])
     print a
