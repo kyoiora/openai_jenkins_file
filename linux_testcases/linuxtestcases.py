@@ -478,20 +478,20 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
             face2Number=arr.index(char_arr[0])+2
             face3Number=arr.index(char_arr[0])+3
 
-    #check the first BOX
-    a=re.findall(r"\d+\.?\d*", arr[firstBoxNumber])
+    #check face0
+    a=re.findall(r"\d+\.?\d*", arr[face0Number])
     x0=float(a[0])
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0<=174),"firstBox x0 more than 174"
-    assert(x0>=164),"firstBox x0 less than 164"
-    assert(y0<=86),"firstBox more than 86"
-    assert(y0>=76),"firstBox less than 76"
-    assert(x1<=211),"firstBoxN more than 211"
-    assert(x1>=201),"firstBox less than 201"
-    assert(y1<=140),"firstBoxN more than 140"
-    assert(y1>=130),"firstBox less than 130"
+    assert(x0>=168),"firstBox x0 more than 174"
+    assert(x0<=170),"firstBox x0 less than 164"
+    assert(y0>=83),"firstBox more than 86"
+    assert(y0<=85),"firstBox less than 76"
+    assert(x1>=204),"firstBoxN more than 211"
+    assert(x1<=206),"firstBox less than 201"
+    assert(y1>=133),"firstBoxN more than 140"
+    assert(y1<=135),"firstBox less than 130"
     #check the second BOX
     a=re.findall(r"\d+\.?\d*", arr[secondBoxNumber])
     x0=float(a[0])
