@@ -679,7 +679,6 @@ def tf_wrapper_mobilenet(targetdir):
 
 def bench_sqz_net(targetdir):
     target_dir=targetdir
-
     # check Int8
     if TEST_CHIP="RK3399":
         res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4(target_dir),"r")
@@ -735,6 +734,62 @@ def bench_sqz_net(targetdir):
         print(out2)
         assert "0.2763 - \"n02123045" in out
 
+def bench_mobile_net(targetdir):
+    target_dir=targetdir
+    # check Int8
+    if TEST_CHIP="RK3399":
+        res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 4(target_dir),"r")
+        out1=res1.read()
+        print(out1)
+        assert "8.5976 - \"n02123159" in out
+        res2=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 4,5(target_dir),"r")
+        out2=res2.read()
+        print(out2)
+        assert "8.5976 - \"n02123159" in out
+        res3=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 2(target_dir),"r")
+        out3=res3.read()
+        print(out3)
+        assert "8.5976 - \"n02123159" in out
+        res4=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 0,1,2,3(target_dir),"r")
+        out4=res4.read()
+        print(out4)
+        assert "8.5976 - \"n02123159" in out
+     else:
+        res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 2(target_dir),"r")
+        out1=res1.read()
+        print(out1)
+        assert "8.5976 - \"n02123159" in out
+        res2=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 0,1,2,3(target_dir),"r")
+        out2=res2.read()
+        print(out2)
+        assert "8.5976 - \"n02123159" in out
+    # check FAT32
+    if TEST_CHIP="RK3399":
+        res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 4(target_dir),"r")
+        out1=res1.read()
+        print(out1)
+        assert "8.5976 - \"n02123159" in out
+        res2=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 4,5(target_dir),"r")
+        out2=res2.read()
+        print(out2)
+        assert "8.5976 - \"n02123159" in out
+        res3=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 2(target_dir),"r")
+        out3=res3.read()
+        print(out3)
+        assert "8.5976 - \"n02123159" in out
+        res4=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 0,1,2,3(target_dir),"r")
+        out4=res4.read()
+        print(out4)
+        assert "8.5976 - \"n02123159" in out
+     else:
+        res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 2(target_dir),"r")
+        out1=res1.read()
+        print(out1)
+        assert "8.5976 - \"n02123159" in out
+        res2=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 0,1,2,3(target_dir),"r")
+        out2=res2.read()
+        print(out2)
+        assert "8.5976 - \"n02123159" in out
 
 
 def vgg16_mem(targetdir):
