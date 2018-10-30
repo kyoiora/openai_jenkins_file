@@ -17,7 +17,8 @@ linux_testlist=[  'quick_api','test_dev','test_two_dev','test_two_sqz','get_node
                   'imagenet_inception_v4','test_tf_mobilenet','test_tf_inceptionv3',
                   'imagenet_resnet50','imagenet_vgg16','ssd','mssd','yolov2','faster_rcnn','mtcnn','lighten_cnn',
                   'caffe_wrapper_sqz','caffe_wrapper_mobilenet','caffe_wrapper_mtcnn_4faces',
-                  'caffe_wrapper_mtcnn_6faces','tf_wrapper_inceptionv3','tf_wrapper_mobilenet','vgg16_mem']
+                  'caffe_wrapper_mtcnn_6faces','tf_wrapper_inceptionv3','tf_wrapper_mobilenet',
+                  'bench_sqz_net','bench_mobile_net','vgg16_mem']
 
 def pytest_addoption(parser):
 	parser.addoption(
