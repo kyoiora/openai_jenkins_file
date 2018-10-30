@@ -461,7 +461,6 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     os.popen("cd %s;echo ./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
-    print(out1)
     line2=os.popen("cat /tmp/result.dummy","r")
     out2=line2.read()
     print(out2)
