@@ -458,8 +458,13 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
     res=os.popen("$cmd;cd %s;echo ./CAFFE_MTCNN $root_dir/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir),"r")
-    out=res.read()
-    print(out)
+    line1=os.popen("cat /tmp/result.dummy","r")
+    line2=os.popen("cat /tmp/master.dummy","r")
+    out1=line1.read()
+    out2=line2.read()
+    print(out1)
+    print(out2)
+    assert(out1!=out2),"firstBox x0 more than 174"
     arr=out.splitlines()
     for char in arr:
         if "face" in char:
