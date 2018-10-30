@@ -542,11 +542,13 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     root_dir=targetdir
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
     cmd1="export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config"%(root_dir)
-    cmd2="echo \"face 0: x0,y0 169.23715 84.18719  x1,y1 205.29367  134.34718\" >> /tmp/master.dummy"
-    cmd3="echo \"face 1: x0,y0 42.22129 84.22765  x1,y1 84.91341  148.80046\" >> /tmp/master.dummy"
-    cmd4="echo \"face 2: x0,y0 290.14917 102.54037  x1,y1 324.89871  151.54451\" >> /tmp/master.dummy"
-    cmd5="echo \"face 3: x0,y0 376.13626 51.77087  x1,y1 464.53513  144.84897\" >> /tmp/master.dummy"
-    cmd6="echo \"total detected: 4 faces\" >> /tmp/master.dummy"
+    cmd2="echo \"face 0: x0,y0 170.91638 76.79741  x1,y1 208.06985  128.15182\" >> /tmp/master.dummy"
+    cmd3="echo \"face 1: x0,y0 104.73532 175.54961  x1,y1 137.31529  236.33575\" >> /tmp/master.dummy"
+    cmd4="echo \"face 2: x0,y0 296.50046 183.12787  x1,y1 334.23788  236.24565\" >> /tmp/master.dummy"
+    cmd5="echo \"face 3: x0,y0 459.72641 123.38977  x1,y1 506.37677  175.55830\" >> /tmp/master.dummy"
+    cmd6="echo \"face 4: x0,y0 66.37959 161.10822  x1,y1 108.99861  243.48486\" >> /tmp/master.dummy"
+    cmd7="echo \"face 5: x0,y0 561.20978 199.41609  x1,y1 587.92566  252.88115\" >> /tmp/master.dummy"
+    cmd8="echo \"total detected: 6 faces\" >> /tmp/master.dummy"
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
     os.system(cmd)
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
