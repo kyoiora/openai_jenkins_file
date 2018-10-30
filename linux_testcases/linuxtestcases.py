@@ -461,6 +461,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     os.popen("cd %s;echo ./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
+    print out1
     line2=os.popen("cat /tmp/result.dummy","r")
     out2=line2.read()
     print(out2)
@@ -560,6 +561,7 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     assert(out1!=out2)
 
     arr=out2.splitlines()
+    os.system("rm /tmp/result.dummy;rm /tmp/master.dummy")
     for char in arr:
         if "face 0" in char:
         #find face0 and change the face 0 to list
