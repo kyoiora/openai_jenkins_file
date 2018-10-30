@@ -132,7 +132,6 @@ def ssd(targetdir):
     for char in arr:
         if "car" in char:
             char_arr=char.splitlines()
-            print (char_arr)
             carNumber=arr.index(char_arr[0])+1
         if "bicycle" in char:
             char_arr=char.splitlines()
@@ -458,7 +457,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     cmd6="echo \"total detected: 4 faces\" >> /tmp/master.dummy"
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
-    os.popen("$cmd;cd %s;echo ./CAFFE_MTCNN $root_dir/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir),"r")
+    os.popen("$cmd;cd %s;echo ./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
     print(out1)
@@ -470,17 +469,13 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     arr=out2.splitlines()
     for char in arr:
         if "face 0" in char:
-        #find face0 and change the
+        #find face0 and change the face 0 to list
             char_arr=char.splitlines()
-            print (char_arr)
+        #index face0Number in arr
             face0Number=arr.index(char_arr[0])
-            print (face0Number)
-        if "bicycle" in char:
-            char_arr=char.splitlines()
-            bicycleNumber=arr.index(char_arr[0])+1
-        if "dog" in char:
-            char_arr=char.splitlines()
-            dogNumber=arr.index(char_arr[0])+1
+            face1Number=arr.index(char_arr[0])+1
+            face2Number=arr.index(char_arr[0])+2
+            face3Number=arr.index(char_arr[0])+3
 
     #check the first BOX
     a=re.findall(r"\d+\.?\d*", arr[firstBoxNumber])
