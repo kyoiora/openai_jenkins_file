@@ -468,6 +468,8 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(out1!=out2)
 
     arr=out2.splitlines()
+    rm /tmp/result.dummy
+    rm /tmp/master.dummy
     for char in arr:
         if "face 0" in char:
         #find face0 and change the face 0 to list
