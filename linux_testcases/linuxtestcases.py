@@ -13,7 +13,7 @@ def quick_api(targetdir):
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
-
+"""
 def test_dev(targetdir):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_dev"%(target_dir),"r")
@@ -27,7 +27,7 @@ def test_two_dev(targetdir):
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
-
+"""
 def test_two_sqz(targetdir):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_two_sqz"%(target_dir),"r")
@@ -41,7 +41,7 @@ def get_node(targetdir):
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
-
+"""
 def test_mxnet_mobilenet(targetdir):
     target_dir=targetdir
     res=os.popen("cd %s; ./build/tests/bin/test_mxnet_mobilenet"%(target_dir),"r")
@@ -55,6 +55,7 @@ def test_onnx_sqz(targetdir):
     out=res.read()
     print(out)
     assert "0.7178 - \"n02123045" in out
+"""
 
 def test_tf_mobilenet(targetdir):
     target_dir=targetdir
