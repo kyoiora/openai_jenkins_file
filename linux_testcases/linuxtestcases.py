@@ -468,8 +468,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(out1!=out2)
 
     arr=out2.splitlines()
-    rm /tmp/result.dummy
-    rm /tmp/master.dummy
+    os.system("rm /tmp/result.dummy;rm /tmp/master.dummy")
     for char in arr:
         if "face 0" in char:
         #find face0 and change the face 0 to list
@@ -549,7 +548,7 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     cmd6="echo \"face 4: x0,y0 66.37959 161.10822  x1,y1 108.99861  243.48486\" >> /tmp/master.dummy"
     cmd7="echo \"face 5: x0,y0 561.20978 199.41609  x1,y1 587.92566  252.88115\" >> /tmp/master.dummy"
     cmd8="echo \"total detected: 6 faces\" >> /tmp/master.dummy"
-    cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
+    cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6+"&&"+cmd7+"&&"+cmd8
     os.system(cmd)
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
     os.popen("cd %s;echo ./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir,root_dir),"r")
