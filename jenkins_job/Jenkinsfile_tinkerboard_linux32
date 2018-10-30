@@ -1,4 +1,4 @@
-node('ROCK960'){
+node('tinkerboard_linux'){
     dir('/home/rk/peter/openai_jenkins_file'){
         stage(' git pull jenkins file'){
             sh "pwd"
