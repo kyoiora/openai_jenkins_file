@@ -457,7 +457,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     cmd6="echo \"total detected: 4 faces\" >> /tmp/master.dummy"
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
-    res=os.popen("$cmd;cd %s;echo ./CAFFE_MTCNN $root_dir/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir),"r")
+    os.popen("$cmd;cd %s;echo ./CAFFE_MTCNN $root_dir/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
     print(out1)
