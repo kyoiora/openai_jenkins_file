@@ -526,14 +526,14 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     y0=float(a[1])
     x1=float(a[2])
     y1=float(a[3])
-    assert(x0>=375),"face2 x0 less than 375"
-    assert(x0<=377),"face2 x0 more than 377"
-    assert(y0>=50),"face2 y0 less than 50"
-    assert(y0<=52),face2 y0 more than 52"
-    assert(x1>=463),"face2 x1 less than 463"
-    assert(x1<=465),face2 x1 more than 465"
-    assert(y1>=143),"face2 y1 less than 143"
-    assert(y1<=145),face2 y1 more than 145"
+    assert(x0>=375),"face3 x0 less than 375"
+    assert(x0<=377),"face3 x0 more than 377"
+    assert(y0>=50),"face3 y0 less than 50"
+    assert(y0<=52),face3 y0 more than 52"
+    assert(x1>=463),"face3 x1 less than 463"
+    assert(x1<=465),face3 x1 more than 465"
+    assert(y1>=143),"face3 y1 less than 143"
+    assert(y1<=145),face3 y1 more than 145"
 
 def vgg16_mem(targetdir):
     target_dir=targetdir
