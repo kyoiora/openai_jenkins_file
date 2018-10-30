@@ -660,6 +660,12 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     assert(y1>=251),"face5 y1 less than 251"
     assert(y1<=253),"face5 y1 more than 253"
 
+def tf_wrapper_inceptionv3(targetdir):
+    target_dir=targetdir+"/build/examples/tensorflow_wrapper/label_image"
+    res=os.popen("export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config;cd %s; ./label_image_inceptionv3;unset TENGINE_CONFIG_FILE"%(targetdir,target_dir),"r")
+    out=res.read()
+    print(out)
+    assert "0.7361 - \"military uniform" in out
 
 def vgg16_mem(targetdir):
     target_dir=targetdir
