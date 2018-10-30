@@ -481,10 +481,10 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     #check face0
     a=re.findall(r"\d+\.?\d*", arr[face0Number])
     print a
-    x0=float(a[0])
-    y0=float(a[1])
-    x1=float(a[2])
-    y1=float(a[3])
+    x0=float(a[3])
+    y0=float(a[4])
+    x1=float(a[7])
+    y1=float(a[8])
     assert(x0>=168),"face0 x0 less than 168"
     assert(x0<=170),"face0 x0 more than 170"
     assert(y0>=83),"face0 y0 less than 83"
@@ -495,10 +495,10 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(y1<=135),"face0 y1 more than 135"
     #check face1
     a=re.findall(r"\d+\.?\d*", arr[face1Number])
-    x0=float(a[0])
-    y0=float(a[1])
-    x1=float(a[2])
-    y1=float(a[3])
+    x0=float(a[3])
+    y0=float(a[4])
+    x1=float(a[7])
+    y1=float(a[8])
     assert(x0>=41),"face1 x0 less than 41"
     assert(x0<=43),"face1 x0 more than 43"
     assert(y0>=83),"face1 y0 less than 83"
@@ -509,10 +509,10 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(y1<=149),"face1 y1 more than 149"
     #check face2
     a=re.findall(r"\d+\.?\d*", arr[face2Number])
-    x0=float(a[0])
-    y0=float(a[1])
-    x1=float(a[2])
-    y1=float(a[3])
+    x0=float(a[3])
+    y0=float(a[4])
+    x1=float(a[7])
+    y1=float(a[8])
     assert(x0>=289),"face2 x0 less than 289"
     assert(x0<=291),"face2 x0 more than 291"
     assert(y0>=101),"face2 y0 less than 101"
@@ -523,10 +523,10 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(y1<=152),"face2 y1 more than 152"
     #check face3
     a=re.findall(r"\d+\.?\d*", arr[face3Number])
-    x0=float(a[0])
-    y0=float(a[1])
-    x1=float(a[2])
-    y1=float(a[3])
+    x0=float(a[3])
+    y0=float(a[4])
+    x1=float(a[7])
+    y1=float(a[8])
     assert(x0>=375),"face3 x0 less than 375"
     assert(x0<=377),"face3 x0 more than 377"
     assert(y0>=50),"face3 y0 less than 50"
