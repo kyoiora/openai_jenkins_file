@@ -646,19 +646,19 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     assert(y1>=242),"face4 y1 less than 242"
     assert(y1<=244),"face4 y1 more than 244"
     #check face5
-    a=re.findall(r"\d+\.?\d*", arr[face3Number])
+    a=re.findall(r"\d+\.?\d*", arr[face5Number])
     x0=float(a[3])
     y0=float(a[4])
     x1=float(a[7])
     y1=float(a[8])
-    assert(x0>=458),"face3 x0 less than 458"
-    assert(x0<=460),"face3 x0 more than 460"
-    assert(y0>=122),"face3 y0 less than 122"
-    assert(y0<=124),"face3 y0 more than 124"
-    assert(x1>=505),"face3 x1 less than 505"
-    assert(x1<=507),"face3 x1 more than 507"
-    assert(y1>=174),"face3 y1 less than 174"
-    assert(y1<=176),"face3 y1 more than 176"
+    assert(x0>=560),"face5 x0 less than 560"
+    assert(x0<=562),"face5 x0 more than 562"
+    assert(y0>=198),"face5 y0 less than 198"
+    assert(y0<=200),"face5 y0 more than 200"
+    assert(x1>=586),"face5 x1 less than 586"
+    assert(x1<=588),"face5 x1 more than 588"
+    assert(y1>=251),"face5 y1 less than 251"
+    assert(y1<=253),"face5 y1 more than 253"
 
 
 def vgg16_mem(targetdir):
