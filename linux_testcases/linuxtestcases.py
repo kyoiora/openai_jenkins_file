@@ -128,7 +128,7 @@ def imagenet_vgg16(targetdir):
     assert "0.4998 - \"n03792782" in out
 
 def ssd(targetdir):
-    target_dir=targetdir+'/build/examples/ssd/'
+    target_dir=targetdir+'/examples/ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
