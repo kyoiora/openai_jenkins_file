@@ -1,5 +1,5 @@
 node('tinkerboard_linux'){
-    dir('/home/rk/peter/openai_jenkins_file'){
+    dir('/home/linaro/peter/openai_jenkins_file'){
         stage(' git pull jenkins file'){
             sh "pwd"
             sh '''#!/bin/bash
@@ -9,7 +9,7 @@ node('tinkerboard_linux'){
         }
     }
 
-    dir('/home/rk/tengine'){
+    dir('/home/linaro/tengine'){
         stage('Git Pull'){
             sh "pwd"
             sh "hostname"
@@ -145,7 +145,7 @@ node('tinkerboard_linux'){
 
     }
 
-    dir('/home/rk/peter/openai_jenkins_file'){
+    dir('/home/linaro/peter/openai_jenkins_file'){
         stage(' Run Jenkins/test'){
             sh "pwd"
             sh "hostname"
@@ -157,7 +157,7 @@ node('tinkerboard_linux'){
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
         }
     }
-    dir('/home/rk/tengine/examples/build/imagenet_classification/'){
+    dir('/home/linaro/tengine/examples/build/imagenet_classification/'){
 
         stage('squeezenet_FP32_1xA72'){
 
