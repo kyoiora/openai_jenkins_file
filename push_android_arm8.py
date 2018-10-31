@@ -21,7 +21,7 @@ def push(ip_addr):
     a.push(ROOT_DIR,TARGET_DIR_ON_BOARD,timeout=3600)
     print 'push ok'
     print(res[0])
-    res=a.shell("\'cd %s && chmod u+x Classify && export LD_LIBRARY_PATH=.\' "%(TARGET_DIR_ON_BOARD+'android_pack/'))
+    res=a.shell("\'cd %s && chmod u+x Classify\' "%(TARGET_DIR_ON_BOARD+'android_pack/'))
 
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     
