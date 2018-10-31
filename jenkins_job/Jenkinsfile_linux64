@@ -151,7 +151,7 @@ node('ROCK960'){
             sh "hostname"
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "not test_eval_android" --cmdopt="onboard" --targetdir="/home/rk/tengine" --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
+                    pytest test.py -k "test_eval_linux64" --cmdopt="onboard" --targetdir="/home/rk/tengine" --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
             '''
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
