@@ -2,7 +2,7 @@ import os
 import re
 
 TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
-caffe_wrapper_sqz_dir='/build/examples/caffe_wrapper/cpp_classification'
+caffe_wrapper_sqz_dir='/examples/build/caffe_wrapper/cpp_classification'
 TEST_CHIP="RK3399"
 #TEST_CHIP="NOT_RK3399"
 
@@ -128,7 +128,7 @@ def imagenet_vgg16(targetdir):
     assert "0.4998 - \"n03792782" in out
 
 def ssd(targetdir):
-    target_dir=targetdir+'/build/examples/ssd/'
+    target_dir=targetdir+'/examples/build/ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -187,7 +187,7 @@ def ssd(targetdir):
     assert(y1>=528),"dog y1 less than 528"
 
 def mssd(targetdir):
-    target_dir=targetdir+'/build/examples/mobilenet_ssd/'
+    target_dir=targetdir+'/examples/build/mobilenet_ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -246,7 +246,7 @@ def mssd(targetdir):
     assert(y1>=538),"dog y1 less than 538"
 
 def yolov2(targetdir):
-    target_dir=targetdir+'/build/examples/yolov2/'
+    target_dir=targetdir+'/examples/build/yolov2/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./YOLOV2 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -305,7 +305,7 @@ def yolov2(targetdir):
     assert(y1>540),"dog y1 less than 540"
 
 def faster_rcnn(targetdir):
-    target_dir=targetdir+'/build/examples/faster_rcnn/'
+    target_dir=targetdir+'/examples/build/faster_rcnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./FASTER_RCNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -350,7 +350,7 @@ def faster_rcnn(targetdir):
     assert(y1>=541),"dog y1 less than 541"
 
 def mtcnn(targetdir):
-    target_dir=targetdir+'/build/examples/mtcnn/'
+    target_dir=targetdir+'/examples/build/mtcnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MTCNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -421,7 +421,7 @@ def mtcnn(targetdir):
 
 
 def lighten_cnn(targetdir):
-    target_dir=targetdir+'/build/examples/lighten_cnn/'
+    target_dir=targetdir+'/examples/build/lighten_cnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./LIGHTEN_CNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
@@ -461,7 +461,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     cmd6="echo \"total detected: 4 faces\" >> /tmp/master.dummy"
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
     os.system(cmd)
-    target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
+    target_dir=targetdir+'/examples/build/caffe_wrapper/mtcnn'
     os.popen("cd %s;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
@@ -543,7 +543,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
 
 def caffe_wrapper_mtcnn_6faces(targetdir):
     root_dir=targetdir
-    target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
+    target_dir=targetdir+'/examples/build/caffe_wrapper/mtcnn'
     cmd1="export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config"%(root_dir)
     cmd2="echo \"face 0: x0,y0 170.91638 76.79741  x1,y1 208.06985  128.15182\" >> /tmp/master.dummy"
     cmd3="echo \"face 1: x0,y0 104.73532 175.54961  x1,y1 137.31529  236.33575\" >> /tmp/master.dummy"
@@ -665,14 +665,14 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     assert(y1<=253),"face5 y1 more than 253"
 
 def tf_wrapper_inceptionv3(targetdir):
-    target_dir=targetdir+"/build/examples/tensorflow_wrapper/label_image"
+    target_dir=targetdir+"/examples/build/tensorflow_wrapper/label_image"
     res=os.popen("export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config;cd %s; ./label_image_inceptionv3;unset TENGINE_CONFIG_FILE"%(targetdir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.7361 - \"military uniform" in out
 
 def tf_wrapper_mobilenet(targetdir):
-    target_dir=targetdir+"/build/examples/tensorflow_wrapper/label_image"
+    target_dir=targetdir+"/examples/build/tensorflow_wrapper/label_image"
     res=os.popen("export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config;cd %s; ./label_image_mobilenet;unset TENGINE_CONFIG_FILE"%(targetdir,target_dir),"r")
     out=res.read()
     print(out)
@@ -681,59 +681,40 @@ def tf_wrapper_mobilenet(targetdir):
 def bench_sqz_net(targetdir):
     target_dir=targetdir
     # check Int8
-    if TEST_CHIP=="RK3399":
-        res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4"%(target_dir),"r")
-        out1=res1.read()
-        print(out1)
-        assert "0.2763 - \"n02123045" in out1
-        res2=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4,5"%(target_dir),"r")
-        out2=res2.read()
-        print(out2)
-        assert "0.2763 - \"n02123045" in out2
-        res3=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 2"%(target_dir),"r")
-        out3=res3.read()
-        print(out3)
-        assert "0.2763 - \"n02123045" in out3
-        res4=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 0,1,2,3"%(target_dir),"r")
-        out4=res4.read()
-        print(out4)
-        assert "0.2763 - \"n02123045" in out4
-    else:
-        res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 2"%(target_dir),"r")
-        out1=res1.read()
-        print(out1)
-        assert "0.2763 - \"n02123045" in out1
-        res2=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 0,1,2,3"%(target_dir),"r")
-        out2=res2.read()
-        print(out2)
-        assert "0.2763 - \"n02123045" in out2
+    res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4"%(target_dir),"r")
+    out1=res1.read()
+    print(out1)
+    assert "0.2763 - \"n02123045" in out1
+    res2=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4,5"%(target_dir),"r")
+    out2=res2.read()
+    print(out2)
+    assert "0.2763 - \"n02123045" in out2
+    res3=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 2"%(target_dir),"r")
+    out3=res3.read()
+    print(out3)
+    assert "0.2763 - \"n02123045" in out3
+    res4=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 0,1,2,3"%(target_dir),"r")
+    out4=res4.read()
+    print(out4)
+    assert "0.2763 - \"n02123045" in out4
+
     # check FAT32
-    if TEST_CHIP=="RK3399":
-        res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 4"%(target_dir),"r")
-        out1=res1.read()
-        print(out1)
-        assert "0.2763 - \"n02123045" in out1
-        res2=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 4,5"%(target_dir),"r")
-        out2=res2.read()
-        print(out2)
-        assert "0.2763 - \"n02123045" in out2
-        res3=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 2"%(target_dir),"r")
-        out3=res3.read()
-        print(out3)
-        assert "0.2763 - \"n02123045" in out3
-        res4=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 0,1,2,3"%(target_dir),"r")
-        out4=res4.read()
-        print(out4)
-        assert "0.2763 - \"n02123045" in out4
-    else:
-        res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 2"%(target_dir),"r")
-        out1=res1.read()
-        print(out1)
-        assert "0.2763 - \"n02123045" in out1
-        res2=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 0,1,2,3"%(target_dir),"r")
-        out2=res2.read()
-        print(out2)
-        assert "0.2763 - \"n02123045" in out2
+    res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 4"%(target_dir),"r")
+    out1=res1.read()
+    print(out1)
+    assert "0.2763 - \"n02123045" in out1
+    res2=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 4,5"%(target_dir),"r")
+    out2=res2.read()
+    print(out2)
+    assert "0.2763 - \"n02123045" in out2
+    res3=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 2"%(target_dir),"r")
+    out3=res3.read()
+    print(out3)
+    assert "0.2763 - \"n02123045" in out3
+    res4=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 0,1,2,3"%(target_dir),"r")
+    out4=res4.read()
+    print(out4)
+    assert "0.2763 - \"n02123045" in out4
 
 def bench_mobile_net(targetdir):
     target_dir=targetdir
