@@ -95,49 +95,49 @@ node('ROCK960'){
         stage(' Run Convate'){
 			sh '''#!/bin/bash
 				make install
-				cd examples/tengine_model/classification
-				./../../linux_build.sh
+				cd examples/build/tengine_model/classification
+				./../../../linux_build.sh
 				make
 
 			'''
 			print 'Run squeezenet'
 			sh '''#!/bin/bash
-				./examples/tengine_model/classification/tm_classify -n squeezenet
+				./examples/build/tengine_model/classification/tm_classify -n squeezenet
 
 			'''
 			print 'Run mobilenet'
 			sh '''#!/bin/bash
-				./examples/tengine_model/classification/tm_classify -n mobilenet
+				./examples/build/tengine_model/classification/tm_classify -n mobilenet
 
 			'''
 			print 'Run resnet50'
 			sh '''#!/bin/bash
-				./examples/tengine_model/classification/tm_classify -n mobilenet
+				./examples/build/tengine_model/classification/tm_classify -n mobilenet
 
 			'''
 			print 'Run googlenet'
 			sh '''#!/bin/bash
-				./examples/tengine_model/classification/tm_classify -n googlenet
+				./examples/build/tengine_model/classification/tm_classify -n googlenet
 
 			'''
 			print 'Run inception_v4'
 			sh '''#!/bin/bash
-				./examples/tengine_model/classification/tm_classify -n inception_v4
+				./examples/build/tengine_model/classification/tm_classify -n inception_v4
 
 			'''
 			print 'Run inception_v3'
 			sh '''#!/bin/bash
-				./examples/tengine_model/classification/tm_classify -n inception_v3
+				./examples/build/tengine_model/classification/tm_classify -n inception_v3
 
 			'''
 			print 'Run alexnet'
 			sh '''#!/bin/bash
-				./examples/tengine_model/classification/tm_classify -n alexnet
+				./examples/build/tengine_model/classification/tm_classify -n alexnet
 
 			'''
 			print 'Run vgg16'
 			sh '''#!/bin/bash
- #             	./examples/tengine_model/classification/tm_classify -n vgg16 -i tests/images/bike.jpg
+ #             	./examples/build/tengine_model/classification/tm_classify -n vgg16 -i tests/images/bike.jpg
 
 			'''
 
