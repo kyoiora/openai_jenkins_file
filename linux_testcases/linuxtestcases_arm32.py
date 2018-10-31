@@ -3,8 +3,8 @@ import re
 
 TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='/examples/build/caffe_wrapper/cpp_classification'
-TEST_CHIP="RK3399"
-#TEST_CHIP="NOT_RK3399"
+#TEST_CHIP="RK3399"
+TEST_CHIP="NOT_RK3399"
 
 
 def quick_api(targetdir):
