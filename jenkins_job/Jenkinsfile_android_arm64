@@ -1,4 +1,4 @@
-node('tinkerboard_android'){
+node('RK3399_android'){
 
     dir('/root/openai_jenkins_file'){
         stage(' git pull jenkins file'){
@@ -60,7 +60,7 @@ node('tinkerboard_android'){
         
             sh '''#!/bin/bash
 
-                python push_android.py -f push -ip '192.168.3.115'
+                python push_android_arm8.py -f push -ip '192.168.3.115'
             '''
         }
 
