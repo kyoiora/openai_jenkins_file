@@ -1,4 +1,4 @@
-node('build1'){  
+node('tinkerboard_android'){
 
     dir('/root/openai_jenkins_file'){
         stage(' git pull jenkins file'){
@@ -10,8 +10,7 @@ node('build1'){
         }
     }
     
-    dir('/root/tengine_armv8'){
-        sh "pwd"
+    dir('/root/tengine_arm8/tengine'){
 
         stage('Git Pull'){
         
@@ -23,22 +22,32 @@ node('build1'){
         stage('Make'){
         
            sh '''#!/bin/bash
-                   cd build && make -j4 && make install
+                   rm -rf build && mkdir build
+                   cd build
+                   ../android_build_armv8.sh
+                   make -j4 && make install
             '''
           
         }
         stage('Make example'){
         
             sh '''#!/bin/bash
-                   cd examples/build && make -j4
+                   cd examples
+                   rm -rf build && mkdir build
+                   cd build
+                   ../android_build_armv8.sh
+                   make -j4
             '''
           
         }
         stage('android_pack'){
         
             sh '''#!/bin/bash
+                   rm -rf android_pack/
                    ./android_pack.sh
+                   cp -rf ./tests/images/ ./android_pack
                    cp examples/build/imagenet_classification/Classify ./android_pack
+                   cp -rf /root/peter/models ./android_pack
                    ls -al ./android_pack
             '''
           
@@ -50,7 +59,8 @@ node('build1'){
         stage('push file to android'){
         
             sh '''#!/bin/bash
-                    python push_android.py -f push -ip '192.168.3.115'
+
+                python push_android.py -f push -ip '192.168.3.115'
             '''
         }
 
