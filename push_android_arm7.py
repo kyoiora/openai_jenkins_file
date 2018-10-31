@@ -4,7 +4,7 @@ test_path = (os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(test_path + '/libs')
 from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
 import argparse
-ROOT_DIR='/root/tengine_arm7/tengine/android_pack/'
+ROOT_DIR='/root/tengine_armv7/tengine/android_pack/'
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
 def push(ip_addr):
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
