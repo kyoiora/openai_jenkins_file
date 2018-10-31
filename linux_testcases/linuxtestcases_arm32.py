@@ -554,7 +554,6 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     cmd8="echo \"total detected: 6 faces\" >> /tmp/master.dummy"
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6+"&&"+cmd7+"&&"+cmd8
     os.system(cmd)
-    target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
     os.popen("cd %s;./CAFFE_MTCNN %s/tests/images/mtcnn_face6.jpg %s/models wrapper_result6.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
