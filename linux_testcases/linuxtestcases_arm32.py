@@ -680,40 +680,24 @@ def tf_wrapper_mobilenet(targetdir):
 def bench_sqz_net(targetdir):
     target_dir=targetdir
     # check Int8
-    res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4"%(target_dir),"r")
+    res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 2"%(target_dir),"r")
     out1=res1.read()
     print(out1)
-    assert "0.2763 - \"n02123045" in out1
-    res2=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4,5"%(target_dir),"r")
+    assert "8.5976 - \"n02123159" in out1
+    res2=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 0,1,2,3"%(target_dir),"r")
     out2=res2.read()
     print(out2)
-    assert "0.2763 - \"n02123045" in out2
-    res3=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 2"%(target_dir),"r")
-    out3=res3.read()
-    print(out3)
-    assert "0.2763 - \"n02123045" in out3
-    res4=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 0,1,2,3"%(target_dir),"r")
-    out4=res4.read()
-    print(out4)
-    assert "0.2763 - \"n02123045" in out4
+    assert "8.5976 - \"n02123159" in out2
 
     # check FAT32
-    res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 4"%(target_dir),"r")
+    res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 2"%(target_dir),"r")
     out1=res1.read()
     print(out1)
-    assert "0.2763 - \"n02123045" in out1
-    res2=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 4,5"%(target_dir),"r")
+    assert "8.5976 - \"n02123159" in out1
+    res2=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 0,1,2,3"%(target_dir),"r")
     out2=res2.read()
     print(out2)
-    assert "0.2763 - \"n02123045" in out2
-    res3=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 2"%(target_dir),"r")
-    out3=res3.read()
-    print(out3)
-    assert "0.2763 - \"n02123045" in out3
-    res4=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_sqz -p 0,1,2,3"%(target_dir),"r")
-    out4=res4.read()
-    print(out4)
-    assert "0.2763 - \"n02123045" in out4
+    assert "8.5976 - \"n02123159" in out2
 
 def bench_mobile_net(targetdir):
     target_dir=targetdir
