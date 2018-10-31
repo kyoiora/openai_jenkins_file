@@ -10,7 +10,7 @@ node('RK3399_android'){
         }
     }
     
-    dir('/root/tengine_arm8/tengine'){
+    dir('/root/tengine_armv8/tengine'){
 
         stage('Git Pull'){
         
