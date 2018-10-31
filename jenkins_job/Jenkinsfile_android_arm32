@@ -10,7 +10,7 @@ node('bananapi_android'){
         }
     }
     
-    dir('/root/tengine_arm7/tengine'){
+    dir('/root/tengine_armv7/tengine'){
 
         stage('Git Pull'){
         
