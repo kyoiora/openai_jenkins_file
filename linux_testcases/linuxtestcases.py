@@ -461,7 +461,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     cmd6="echo \"total detected: 4 faces\" >> /tmp/master.dummy"
     cmd=cmd1+"&&"+cmd2+"&&"+cmd3+"&&"+cmd4+"&&"+cmd5+"&&"+cmd6
     os.system(cmd)
-    target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
+    target_dir=targetdir+'/examples/build/caffe_wrapper/mtcnn'
     os.popen("cd %s;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
@@ -543,7 +543,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
 
 def caffe_wrapper_mtcnn_6faces(targetdir):
     root_dir=targetdir
-    target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
+    target_dir=targetdir+'/examples/build/caffe_wrapper/mtcnn'
     cmd1="export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config"%(root_dir)
     cmd2="echo \"face 0: x0,y0 170.91638 76.79741  x1,y1 208.06985  128.15182\" >> /tmp/master.dummy"
     cmd3="echo \"face 1: x0,y0 104.73532 175.54961  x1,y1 137.31529  236.33575\" >> /tmp/master.dummy"
