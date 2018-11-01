@@ -83,7 +83,7 @@ node('firefly'){
                     pytest test.py -k "test_eval_android" --cmdopt="linuxPT3399" --ip='192.168.3.115' --variables=./test_var.json --html=report/Android_arm64_performance_test.html --junit-xml=report/Android_arm64_performance_test.xml --verbose || true
             '''
             junit allowEmptyResults: true, keepLongStdio: true, Android_arm64_performance_testResults: 'report/Android_arm64_performance_test.xml'
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_arm64_performance_test.html', reportName: 'HTML Report', reportTitles: ''])
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_arm64_performance_test.html', reportName: 'Android_arm64_performance_test HTML Report', reportTitles: ''])
         }
 
     }
