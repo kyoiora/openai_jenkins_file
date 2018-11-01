@@ -6,7 +6,7 @@ from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
 ROOT_DIR='/root/tengine_armv8/android_pack/'
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
 import logging
-import pprint
+
 
 def imagenet_sqz(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -121,7 +121,7 @@ def squeezenet_FP32_1xA72(android_ip):
             Number=arr.index(char_arr[0])
             out="\n".join(arr[Number:Number+8])
     print(out)
-    assert False
+
 
 def squeezenet_Int8_1xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -274,7 +274,7 @@ def mobilenet_Int8_1xA72(android_ip):
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
             out="\n".join(arr[Number:Number+8])
-    pprint.pprint(out)
+    print(out)
 
 def mobilenet_FP32_2xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
