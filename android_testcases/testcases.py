@@ -103,3 +103,13 @@ def imagenet_vgg16(android_ip):
     #pdb.set_trace()
     print(res[0])
     assert "0.4998 - \"n03792782" in res[0]
+
+def imagenet_sqz_FP32_1xA17(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+    res=a.shell("export TENGINE_CPU_LIST=5;export CONV_INT_PRIO=2000;cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 "%(target_dir,target_dir,target_dir))
+    #pdb.set_trace()
+    print(res)
