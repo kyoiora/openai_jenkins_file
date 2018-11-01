@@ -10,15 +10,15 @@ android_testlist=['imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
                   'imagenet_inception_v4',
                   'imagenet_resnet50','imagenet_vgg16','imagenet_sqz_FP32_1xA17']
 
-RK3399_PF_testlist=['squeezenet_FP32_1xA72','squeezenet_Int8_1xA72','squeezenet_FP32_2xA72','squeezenet_Int8_2xA72',
+RK3399_PT_testlist=['squeezenet_FP32_1xA72','squeezenet_Int8_1xA72','squeezenet_FP32_2xA72','squeezenet_Int8_2xA72',
                     'squeezenet_FP32_1xA53','squeezenet_Int8_1xA53','squeezenet_FP32_4xA53','squeezenet_Int8_4xA53',
                     'mobilenet_FP32_1xA72','mobilenet_Int8_1xA72','mobilenet_FP32_2xA72','mobilenet_Int8_2xA72',
                     'mobilenet_FP32_1xA53','mobilenet_Int8_1xA53','mobilenet_FP32_4xA53','mobilenet_Int8_4xA53',]
 
-RK3288_PF_testlist=['squeezenet_FP32_1xA17','squeezenet_Int8_1x17','squeezenet_FP32_4xA17','squeezenet_Int8_4xA17',
+RK3288_PT_testlist=['squeezenet_FP32_1xA17','squeezenet_Int8_1x17','squeezenet_FP32_4xA17','squeezenet_Int8_4xA17',
                     'mobilenet_FP32_1xA17','mobilenet_Int8_1xA17','mobilenet_FP32_4xA17','mobilenet_Int8_4xA17',]
 
-BananaPi_PF_testlist=['squeezenet_FP32_1xA7','squeezenet_Int8_1x7','squeezenet_FP32_4xA7','squeezenet_Int8_4xA7',
+BananaPi_PT_testlist=['squeezenet_FP32_1xA7','squeezenet_Int8_1x7','squeezenet_FP32_4xA7','squeezenet_Int8_4xA7',
                     'mobilenet_FP32_1xA7','mobilenet_Int8_1xA7','mobilenet_FP32_4xA7','mobilenet_Int8_4xA7',]
 
 linux_testlist=[  'quick_api','test_two_sqz','get_node',
@@ -58,7 +58,7 @@ def ip(request):
 def pytest_generate_tests(metafunc):
 	print metafunc.config.getoption('cmdopt')
 	# if linux test job get parmetrize from core_test.list
-	if metafunc.config.getoption('cmdopt') == "linuxFC":
+	if metafunc.config.getoption('cmdopt') == "linuxFT":
 		#if 'testcase_dict' in metafunc.fixturenames:
 		#	test_path = metafunc.config.getoption('targetdir')
 		#	testcase_list=collections.OrderedDict()
@@ -71,15 +71,15 @@ def pytest_generate_tests(metafunc):
 		#	metafunc.parametrize("testcase_dict", testcase_list.keys())
 		metafunc.parametrize("testcase_dict", linux_testlist)
 		print(linux_testlist)
-    elif metafunc.config.getoption('cmdopt') == "linuxPF3399":
-		metafunc.parametrize("testcase_dict", RK3399_PF_testlist)
-		print(RK3399_PF_testlist)
-    elif metafunc.config.getoption('cmdopt') == "linuxPF3288":
-		metafunc.parametrize("testcase_dict", RK3288_PF_testlist)
-		print(RK3288_PF_testlist)
+    elif metafunc.config.getoption('cmdopt') == "linuxPT3399":
+		metafunc.parametrize("testcase_dict", RK3399_PT_testlist)
+		print(RK3399_PT_testlist)
+    elif metafunc.config.getoption('cmdopt') == "linuxPT3288":
+		metafunc.parametrize("testcase_dict", RK3288_PT_testlist)
+		print(RK3288_PT_testlist)
     elif metafunc.config.getoption('cmdopt') == "linuxPFBananapi":
-		metafunc.parametrize("testcase_dict", BananaPi_PF_testlist)
-		print(BananaPi_PF_testlist)
+		metafunc.parametrize("testcase_dict", BananaPi_PT_testlist)
+		print(BananaPi_PT_testlist)
 	else:
 		# If test job is for Android ,use the list of android_testlist to call 
 		# testcases in testcasses.py
