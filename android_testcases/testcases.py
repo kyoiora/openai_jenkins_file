@@ -6,7 +6,7 @@ from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
 ROOT_DIR='/root/tengine_armv8/android_pack/'
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
 import logging
-
+import pprint
 
 def imagenet_sqz(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
