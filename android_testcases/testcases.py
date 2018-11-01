@@ -119,11 +119,11 @@ def squeezenet_FP32_1xA72(android_ip):
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
     print(arr[Number])
-    print(arr[Number]+1)
-    print(arr[Number]+2)
-    print(arr[Number]+3)
-    print(arr[Number]+4)
-    print(arr[Number]+5)
+    print(arr[Number+1])
+    print(arr[Number+2])
+    print(arr[Number+3])
+    print(arr[Number+4])
+    print(arr[Number+5])
 
 def squeezenet_Int8_1xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
