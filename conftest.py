@@ -72,18 +72,18 @@ def pytest_generate_tests(metafunc):
 		metafunc.parametrize("testcase_dict", linux_testlist)
 		print(linux_testlist)
     elif metafunc.config.getoption('cmdopt') == "linuxPT3399":
-        metafunc.parametrize("testcase_dict", RK3399_PT_testlist)
-		print(RK3399_PT_testlist)
+            metafunc.parametrize("testcase_dict", RK3399_PT_testlist)
+		    print(RK3399_PT_testlist)
     elif metafunc.config.getoption('cmdopt') == "linuxPT3288":
-		metafunc.parametrize("testcase_dict", RK3288_PT_testlist)
-		print(RK3288_PT_testlist)
+		    metafunc.parametrize("testcase_dict", RK3288_PT_testlist)
+		    print(RK3288_PT_testlist)
     elif metafunc.config.getoption('cmdopt') == "linuxPFBananapi":
-		metafunc.parametrize("testcase_dict", BananaPi_PT_testlist)
-		print(BananaPi_PT_testlist)
+		    metafunc.parametrize("testcase_dict", BananaPi_PT_testlist)
+		    print(BananaPi_PT_testlist)
 	else:
 		# If test job is for Android ,use the list of android_testlist to call 
 		# testcases in testcasses.py
-		metafunc.parametrize("testcase_dict", android_testlist)
-		print(android_testlist)
+		    metafunc.parametrize("testcase_dict", android_testlist)
+		    print(android_testlist)
 
 
