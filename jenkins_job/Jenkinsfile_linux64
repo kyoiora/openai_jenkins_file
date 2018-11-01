@@ -153,7 +153,7 @@ node('ROCK960'){
             sh "hostname"
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_linux64" --cmdopt="onboard" --targetdir="/home/rk/tengine" --variables=./test_var.json --html=report/96Board_Jenkins_Linuxtest.html --junit-xml=report/96Board_Jenkins_Linuxtest.xml --verbose || true
+                    pytest test.py -k "test_eval_linux64" --cmdopt="linuxFT" --targetdir="/home/rk/tengine" --variables=./test_var.json --html=report/96Board_Jenkins_Linuxtest.html --junit-xml=report/96Board_Jenkins_Linuxtest.xml --verbose || true
             '''
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/96Board_Jenkins_Linuxtest.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: '96Board_Jenkins_Linuxtest.html', reportName: '96Board_Jenkins_Linuxtest HTML Report', reportTitles: ''])
