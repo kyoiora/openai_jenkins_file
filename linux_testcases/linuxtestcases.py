@@ -786,5 +786,9 @@ def squeezenet_FP32_1xA72(targetdir):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
-    print(out)
-    assert "0.2763 - \"n02123045" in out
+    arr=out.splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print(arr[Number])
