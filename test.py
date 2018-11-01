@@ -17,7 +17,7 @@ import linuxtestcases
 import linuxtestcases_arm32
 
 #Linux testcase calling old test function in test.sh
-def test_eval_linux64_FT(testcase_dict,cmdopt,targetdir,variables):
+def test_eval_linux64(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
     #eval testcases from linux_testcases.linuxtestcases.py
     print "testcase_dict=%s"%testcase_dict
