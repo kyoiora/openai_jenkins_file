@@ -114,3 +114,36 @@ def squeezenet_FP32_1xA72(android_ip):
     res=a.shell("cd %s;export CONV_INT_PRIO=2000;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
     print(res[0])
+
+def squeezenet_Int8_1xA72(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=200;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    print(res[0])
+
+def squeezenet_FP32_2xA72(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=2000;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    print(res[0])
+
+def squeezenet_Int8_2xA72(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=200;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    print(res[0])
