@@ -1,4 +1,4 @@
-node('RK3399_android'){
+node('firefly'){
 
     dir('/root/openai_jenkins_file'){
         stage(' git pull jenkins file'){
