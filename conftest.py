@@ -10,6 +10,11 @@ android_testlist=['imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
                   'imagenet_inception_v4',
                   'imagenet_resnet50','imagenet_vgg16','imagenet_sqz_FP32_1xA17']
 
+RK3399_PF_testlist=['squeezenet_FP32_1xA72','squeezenet_Int8_1xA72','squeezenet_FP32_2xA72','squeezenet_Int8_2xA72',
+                    'squeezenet_FP32_1xA53','squeezenet_Int8_1xA53','squeezenet_FP32_4xA53','squeezenet_Int8_4xA53',
+                    'mobilenet_FP32_1xA72','mobilenet_Int8_1xA72','mobilenet_FP32_2xA72','mobilenet_Int8_2xA72',
+                    'mobilenet_FP32_1xA53','mobilenet_Int8_1xA53','mobilenet_FP32_4xA53','mobilenet_Int8_4xA53',]
+
 linux_testlist=[  'quick_api','test_two_sqz','get_node',
                   'imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
                   'imagenet_mobilenet','imagenet_inception_v3',
