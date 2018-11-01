@@ -119,7 +119,7 @@ def squeezenet_FP32_1xA72(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-            out="\n".join(arr[Number:Number+7])
+            out="\n".join(arr[Number:Number+8])
     print out
 
 def squeezenet_Int8_1xA72(android_ip):
