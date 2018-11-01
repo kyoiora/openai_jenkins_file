@@ -787,3 +787,45 @@ def squeezenet_FP32_1xA72(targetdir):
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 5;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
+
+def squeezenet_Int8_1xA72(targetdir):
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
+    res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 5;sleep 20"%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+
+def squeezenet_FP32_2xA72(targetdir):
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
+    res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 5;sleep 20"%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+
+def squeezenet_Int8_2xA72(targetdir):
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
+    res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 5;sleep 20"%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+
+def squeezenet_FP32_1xA53(targetdir):
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
+    res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 5;sleep 20"%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+
+def squeezenet_Int8_1xA53(targetdir):
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
+    res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 5;sleep 20"%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+
+def squeezenet_FP32_4xA53(targetdir):
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
+    res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 5;sleep 20"%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+
+def squeezenet_Int8_4xA53(targetdir):
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
+    res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 5;sleep 20"%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
