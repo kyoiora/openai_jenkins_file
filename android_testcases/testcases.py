@@ -5,7 +5,7 @@ import sys
 from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
 ROOT_DIR='/root/tengine_armv8/android_pack/'
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
-
+import logging
 
 
 def imagenet_sqz(android_ip):
@@ -113,7 +113,7 @@ def squeezenet_FP32_1xA72(android_ip):
 
     res=a.shell("cd %s;export CONV_INT_PRIO=2000;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
-    print(res[0])
+    logging.debug(res[0])
 
 def squeezenet_Int8_1xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
