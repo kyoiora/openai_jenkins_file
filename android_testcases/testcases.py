@@ -138,6 +138,7 @@ def squeezenet_Int8_1xA72(android_ip):
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
             out="\n".join(arr[Number:Number+8])
+    print json.dumps(posts_local, indent=4)
     print out
 
 def squeezenet_FP32_2xA72(android_ip):
