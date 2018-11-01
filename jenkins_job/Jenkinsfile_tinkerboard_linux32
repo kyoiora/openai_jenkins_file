@@ -159,66 +159,18 @@ node('tinkerboard'){
     }
     dir('/home/linaro/tengine/examples/build/imagenet_classification/'){
 
-        stage('squeezenet_FP32_1xA72'){
-
-			sh '''#!/bin/bash
-				export TENGINE_CPU_LIST=5
-				export CONV_INT_PRIO=2000
-                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
-                sleep 20
-
-			'''
-		}
-
-        stage('squeezenet_Int8_1xA72'){
-
-			sh '''#!/bin/bash
-			    export TENGINE_CPU_LIST=5
-				export CONV_INT_PRIO=200
-				./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
-
-			'''
-
-		}
-
-        stage('squeezenet_FP32_2xA72'){
-
-			sh '''#!/bin/bash
-				export TENGINE_CPU_LIST=4,5
-				export CONV_INT_PRIO=2000
-				./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
-
-			'''
-
-		}
-        stage('squeezenet_Int8_2xA72'){
-
-			sh '''#!/bin/bash
-			    export TENGINE_CPU_LIST=4,5
-				export CONV_INT_PRIO=200
-                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
-                sleep 20
-
-			'''
-
-
-		}
-
-        stage('squeezenet_FP32_1xA53'){
+        stage('squeezenet_FP32_1xA17'){
 
 			sh '''#!/bin/bash
 				export TENGINE_CPU_LIST=2
 				export CONV_INT_PRIO=2000
-				./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
+                ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
+                sleep 20
 
 			'''
-
-
 		}
-        stage('Squeezenet_Int8_1xA53'){
+
+        stage('squeezenet_Int8_1xA17'){
 
 			sh '''#!/bin/bash
 			    export TENGINE_CPU_LIST=2
@@ -229,21 +181,35 @@ node('tinkerboard'){
 			'''
 
 		}
-        stage('squeezenet_FP32_4xA53'){
+
+        stage('squeezenet_FP32_4xA17'){
 
 			sh '''#!/bin/bash
 				export TENGINE_CPU_LIST=0,1,2,3
 				export CONV_INT_PRIO=2000
+				./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
+				sleep 20
+
+			'''
+
+		}
+        stage('squeezenet_Int8_4xA17'){
+
+			sh '''#!/bin/bash
+			    export TENGINE_CPU_LIST=0,1,2,3
+				export CONV_INT_PRIO=200
                 ./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
                 sleep 20
 
 			'''
 
+
 		}
-        stage('squeezenet_Int8_4xA53'){
+
+        stage('squeezenet_Int8_1xA17'){
 
 			sh '''#!/bin/bash
-			    export TENGINE_CPU_LIST=0,1,2,3
+			    export TENGINE_CPU_LIST=2
 				export CONV_INT_PRIO=200
 				./Classify -n squeezenet -r 100 & mpstat -P ALL 1 5
 				sleep 20
@@ -251,10 +217,10 @@ node('tinkerboard'){
 			'''
 
 		}
-        stage('mobilenet_FP32_1xA72'){
+        stage('mobilenet_FP32_1xA17'){
 
 			sh '''#!/bin/bash
-				export TENGINE_CPU_LIST=5
+				export TENGINE_CPU_LIST=2
 				export CONV_INT_PRIO=2000
 				./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
 				sleep 20
@@ -262,10 +228,10 @@ node('tinkerboard'){
 			'''
 		}
 
-        stage('mobilenet_Int8_1xA72'){
+        stage('mobilenet_Int8_4xA17'){
 
 			sh '''#!/bin/bash
-			    export TENGINE_CPU_LIST=5
+			    export TENGINE_CPU_LIST=0,1,2,3
 				export CONV_INT_PRIO=200
 				./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
 				sleep 20
@@ -274,71 +240,16 @@ node('tinkerboard'){
 
 		}
 
-        stage('mobilenet_FP32_2xA72'){
+        stage('mobilenet_FP32_4xA17'){
 
 			sh '''#!/bin/bash
-				export TENGINE_CPU_LIST=4,5
+				export TENGINE_CPU_LIST=0,1,2,3
 				export CONV_INT_PRIO=2000
                 ./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
                 sleep 20
 
 			'''
 
-		}
-        stage('mobilenet_Int8_2xA72'){
-
-			sh '''#!/bin/bash
-			    export TENGINE_CPU_LIST=4,5
-				export CONV_INT_PRIO=200
-				./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
-
-			'''
-
-		}
-
-        stage('mobilenet_FP32_1xA53'){
-
-			sh '''#!/bin/bash
-				export TENGINE_CPU_LIST=2
-				export CONV_INT_PRIO=2000
-				./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
-
-			'''
-
-		}
-        stage('mobilenet_Int8_1xA53'){
-
-			sh '''#!/bin/bash
-			    export TENGINE_CPU_LIST=2
-				export CONV_INT_PRIO=200
-				./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
-
-			'''
-
-		}
-        stage('mobilenet_FP32_4xA53'){
-
-			sh '''#!/bin/bash
-				export TENGINE_CPU_LIST=0,1,2,3
-				export CONV_INT_PRIO=2000
-				./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
-
-			'''
-
-		}
-        stage('mobilenet_Int8_4xA53'){
-
-			sh '''#!/bin/bash
-			    export TENGINE_CPU_LIST=0,1,2,3
-				export CONV_INT_PRIO=200
-				./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
-
-			'''
 		}
 
 	}
