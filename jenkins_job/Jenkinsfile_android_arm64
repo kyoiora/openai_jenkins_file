@@ -69,10 +69,10 @@ node('firefly'){
             sh "hostname" 
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_android" --cmdopt="adb" --ip='192.168.3.115' --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
+                    pytest test.py -k "test_eval_android" --cmdopt="adb" --ip='192.168.3.115' --variables=./test_var.json --html=report/Jenkins_test.html --junit-xml=report/Jenkins_test.xml --verbose || true
             ''' 
-            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Jenkins_test.xml'
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Jenkins_test.html', reportName: 'Jenkins_test HTML Report', reportTitles: ''])
         }
 
         stage(' Run Performance'){
