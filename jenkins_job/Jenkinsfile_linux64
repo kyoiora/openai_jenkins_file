@@ -303,7 +303,7 @@ node('ROCK960'){
 				export TENGINE_CPU_LIST=2
 				export CONV_INT_PRIO=2000
 				./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
+				sleep 30
 
 			'''
 
@@ -314,7 +314,7 @@ node('ROCK960'){
 			    export TENGINE_CPU_LIST=2
 				export CONV_INT_PRIO=200
 				./Classify -n mobilenet -r 100 & mpstat -P ALL 1 5
-				sleep 20
+				sleep 30
 
 			'''
 
