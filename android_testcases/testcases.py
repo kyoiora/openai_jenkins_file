@@ -112,7 +112,7 @@ def squeezenet_FP32_1xA72(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -128,7 +128,7 @@ def squeezenet_Int8_1xA72(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -144,7 +144,7 @@ def squeezenet_FP32_2xA72(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=0;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -160,7 +160,7 @@ def squeezenet_Int8_2xA72(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=2;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -176,7 +176,7 @@ def squeezenet_FP32_1xA53(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -192,7 +192,7 @@ def squeezenet_Int8_1xA53(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -208,7 +208,7 @@ def squeezenet_FP32_4xA53(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -224,7 +224,7 @@ def squeezenet_Int8_4xA53(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -240,7 +240,7 @@ def mobilenet_FP32_1xA72(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -256,7 +256,7 @@ def mobilenet_Int8_1xA72(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -272,7 +272,7 @@ def mobilenet_FP32_2xA72(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=0;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -288,7 +288,7 @@ def mobilenet_Int8_2xA72(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=2;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -304,7 +304,7 @@ def mobilenet_FP32_1xA53(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -320,7 +320,7 @@ def mobilenet_Int8_1xA53(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -336,7 +336,7 @@ def mobilenet_FP32_4xA53(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
@@ -352,7 +352,7 @@ def mobilenet_Int8_4xA53(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
     #pdb.set_trace()
     arr=res[0].splitlines()
     for char in arr:
