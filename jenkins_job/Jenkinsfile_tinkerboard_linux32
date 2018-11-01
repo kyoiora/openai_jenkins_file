@@ -151,20 +151,20 @@ node('tinkerboard'){
             sh "hostname"
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_linux32" --cmdopt="linuxFT" --targetdir="/home/linaro/tengine" --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
+                    pytest test.py -k "test_eval_linux32" --cmdopt="linuxFT" --targetdir="/home/linaro/tengine" --variables=./test_var.json --html=report/Linux_TinkerBoard_Jenkins_test.html --junit-xml=report/Linux_TinkerBoard_Jenkins_test.xml --verbose || true
             '''
-            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Linux_TinkerBoard_Jenkins_test.xml'
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Linux_TinkerBoard_Jenkins_test.html', reportName: 'Linux_TinkerBoard_Jenkins_test_HTML Report', reportTitles: ''])
         }
           stage(' Run Performance_test'){
               sh "pwd"
               sh "hostname"
               sh '''#!/bin/bash
                       git pull
-                      pytest test.py -k "test_eval_linux32" --cmdopt="linuxPT3288" --targetdir="/home/linaro/tengine" --variables=./test_var.json --html=report/test.html --junit-xml=report/test.xml --verbose || true
+                      pytest test.py -k "test_eval_linux32" --cmdopt="linuxPT3288" --targetdir="/home/linaro/tengine" --variables=./test_var.json --html=report/Linux_TinkerBoard_Performance_test.html --junit-xml=report/Linux_TinkerBoard_Performance_test.xml --verbose || true
               '''
-              junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/test.xml'
-              publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'test.html', reportName: 'HTML Report', reportTitles: ''])
+              junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Linux_TinkerBoard_Performance_test.xml'
+              publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Linux_TinkerBoard_Performance_test.html', reportName: 'Linux_TinkerBoard_Performance_test_HTML Report', reportTitles: ''])
           }
     }
 
