@@ -113,7 +113,13 @@ def squeezenet_FP32_1xA72(android_ip):
 
     res=a.shell("cd %s;export CONV_INT_PRIO=2000;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
     #pdb.set_trace()
-    log.debug(res[0])
+    arr=res[0].splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print arr[Number:Number+8]
+
 
 def squeezenet_Int8_1xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
