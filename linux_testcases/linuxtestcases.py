@@ -779,3 +779,12 @@ def vgg16_mem(targetdir):
     out=res.read()
     print(out)
     assert "0.4998 - \"n03792782" in out
+
+# Performance test
+
+def squeezenet_FP32_1xA72(targetdir):
+    target_dir=targetdir+TARGET_DIR_ON_BOARD
+    res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet "%(target_dir,target_dir,target_dir),"r")
+    out=res.read()
+    print(out)
+    assert "0.2763 - \"n02123045" in out
