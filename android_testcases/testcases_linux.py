@@ -111,6 +111,6 @@ def imagenet_sqz_FP32_1xA17(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("export TENGINE_CPU_LIST=2;export CONV_INT_PRIO=2000;cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 "%(target_dir,target_dir,target_dir))
+    res=a.shell("export TENGINE_CPU_LIST=2;export CONV_INT_PRIO=2000;cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100;sleep 20 "%(target_dir,target_dir,target_dir))
     #pdb.set_trace()
     print(res)
