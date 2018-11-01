@@ -232,3 +232,131 @@ def squeezenet_Int8_4xA53(android_ip):
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
     print(arr[Number])
+
+def mobilenet_FP32_1xA72(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=2000;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    arr=res[0].splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print(arr[Number])
+
+def mobilenet_Int8_1xA72(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=200;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    arr=res[0].splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print(arr[Number])
+
+def mobilenet_FP32_2xA72(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=2000;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    arr=res[0].splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print(arr[Number])
+
+def mobilenet_Int8_2xA72(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=200;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    arr=res[0].splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print(arr[Number])
+
+def mobilenet_FP32_1xA53(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=2000;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    arr=res[0].splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print(arr[Number])
+
+def mobilenet_Int8_1xA53(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=200;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    arr=res[0].splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print(arr[Number])
+
+def mobilenet_FP32_4xA53(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=2000;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    arr=res[0].splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print(arr[Number])
+
+def mobilenet_Int8_4xA53(android_ip):
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    a = AdbWrapper() # Auto Find adb in system PATH or Environment
+    a.connect(android_ip)
+    #pdb.set_trace()
+    a.device=android_ip
+
+    res=a.shell("cd %s;export CONV_INT_PRIO=200;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
+    #pdb.set_trace()
+    arr=res[0].splitlines()
+    for char in arr:
+        if "Repeat" in char:
+            char_arr=char.splitlines()
+            Number=arr.index(char_arr[0])
+    print(arr[Number])
