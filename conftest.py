@@ -58,7 +58,7 @@ def ip(request):
 def pytest_generate_tests(metafunc):
 	print metafunc.config.getoption('cmdopt')
 	# if linux test job get parmetrize from core_test.list
-	if metafunc.config.getoption('cmdopt') != "adb":
+	if metafunc.config.getoption('cmdopt') == "linuxFC":
 		#if 'testcase_dict' in metafunc.fixturenames:
 		#	test_path = metafunc.config.getoption('targetdir')
 		#	testcase_list=collections.OrderedDict()
@@ -71,7 +71,15 @@ def pytest_generate_tests(metafunc):
 		#	metafunc.parametrize("testcase_dict", testcase_list.keys())
 		metafunc.parametrize("testcase_dict", linux_testlist)
 		print(linux_testlist)
-
+    elif metafunc.config.getoption('cmdopt') == "linuxPF3399":
+		metafunc.parametrize("testcase_dict", RK3399_PF_testlist)
+		print(RK3399_PF_testlist)
+    elif metafunc.config.getoption('cmdopt') == "linuxPF3288":
+		metafunc.parametrize("testcase_dict", RK3288_PF_testlist)
+		print(RK3288_PF_testlist)
+    elif metafunc.config.getoption('cmdopt') == "linuxPFBananapi":
+		metafunc.parametrize("testcase_dict", BananaPi_PF_testlist)
+		print(BananaPi_PF_testlist)
 	else:
 		# If test job is for Android ,use the list of android_testlist to call 
 		# testcases in testcasses.py
