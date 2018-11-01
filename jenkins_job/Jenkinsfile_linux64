@@ -47,6 +47,8 @@ node('ROCK960'){
                     ./build/tests/bin/bench_mobilenet -r1
             '''
         }
+
+        """
         stage(' Create Convate'){
             print 'Create squeezenet'
             sh '''#!/bin/bash
@@ -142,7 +144,7 @@ node('ROCK960'){
 			'''
 
 		}
-
+    """
     }
 
     dir('/home/rk/peter/openai_jenkins_file'){
