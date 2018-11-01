@@ -8,7 +8,7 @@ import pdb
 android_testlist=['imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
                   'imagenet_mobilenet','imagenet_inception_v3',
                   'imagenet_inception_v4',
-                  'imagenet_resnet50','imagenet_vgg16']
+                  'imagenet_resnet50','imagenet_vgg16','imagenet_sqz_FP32_1xA17']
 
 linux_testlist=[  'quick_api','test_two_sqz','get_node',
                   'imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
