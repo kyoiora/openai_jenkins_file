@@ -118,9 +118,8 @@ def squeezenet_FP32_1xA72(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print (-----------------squeezenet_FP32_1XA72 Test Result---------------）
+    print ("-----------------squeezenet_FP32_1XA72 Test Result---------------"）
     print(arr[Number])
-
 
 def squeezenet_Int8_1xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
