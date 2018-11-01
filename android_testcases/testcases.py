@@ -136,7 +136,8 @@ def squeezenet_Int8_1xA72(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def squeezenet_FP32_2xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -152,7 +153,8 @@ def squeezenet_FP32_2xA72(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def squeezenet_Int8_2xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -168,7 +170,8 @@ def squeezenet_Int8_2xA72(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def squeezenet_FP32_1xA53(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -184,7 +187,8 @@ def squeezenet_FP32_1xA53(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def squeezenet_Int8_1xA53(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -200,7 +204,8 @@ def squeezenet_Int8_1xA53(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def squeezenet_FP32_4xA53(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -216,7 +221,8 @@ def squeezenet_FP32_4xA53(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def squeezenet_Int8_4xA53(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -232,7 +238,8 @@ def squeezenet_Int8_4xA53(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def mobilenet_FP32_1xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -248,7 +255,8 @@ def mobilenet_FP32_1xA72(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def mobilenet_Int8_1xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -264,7 +272,8 @@ def mobilenet_Int8_1xA72(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def mobilenet_FP32_2xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -280,7 +289,8 @@ def mobilenet_FP32_2xA72(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def mobilenet_Int8_2xA72(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -296,7 +306,8 @@ def mobilenet_Int8_2xA72(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def mobilenet_FP32_1xA53(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -312,7 +323,8 @@ def mobilenet_FP32_1xA53(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def mobilenet_Int8_1xA53(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -328,7 +340,8 @@ def mobilenet_Int8_1xA53(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def mobilenet_FP32_4xA53(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -344,7 +357,8 @@ def mobilenet_FP32_4xA53(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
 
 def mobilenet_Int8_4xA53(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
@@ -360,4 +374,5 @@ def mobilenet_Int8_4xA53(android_ip):
         if "Repeat" in char:
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
-    print(arr[Number])
+            out="\n".join(arr[Number:Number+8])
+    print out
