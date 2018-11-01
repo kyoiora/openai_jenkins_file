@@ -56,21 +56,21 @@ def ip(request):
 	return request.config.getoption("--ip")
 
 def pytest_generate_tests(metafunc):
-	print metafunc.config.getoption('cmdopt')
-	# if linux test job get parmetrize from core_test.list
-	if metafunc.config.getoption('cmdopt') == "linuxFT":
-		#if 'testcase_dict' in metafunc.fixturenames:
-		#	test_path = metafunc.config.getoption('targetdir')
-		#	testcase_list=collections.OrderedDict()
-		#	print(test_path)
-		#	testlist=asciitable.read(test_path+'/jenkins/core_test.list')
+    print metafunc.config.getoption('cmdopt')
+    # if linux test job get parmetrize from core_test.list
+    if metafunc.config.getoption('cmdopt') == "linuxFT":
+        #if 'testcase_dict' in metafunc.fixturenames:
+        #test_path = metafunc.config.getoption('targetdir')
+        #testcase_list=collections.OrderedDict()
+        #print(test_path)
+        #testlist=asciitable.read(test_path+'/jenkins/core_test.list')
 
-		#	for rec in testlist:
-		#		testcase_list[rec[0]]=rec[1]
-		#	pprint.pprint(dict(testcase_list.items()))
-		#	metafunc.parametrize("testcase_dict", testcase_list.keys())
-		metafunc.parametrize("testcase_dict", linux_testlist)
-		print(linux_testlist)
+        #for rec in testlist:
+        #testcase_list[rec[0]]=rec[1]
+        #pprint.pprint(dict(testcase_list.items()))
+        #metafunc.parametrize("testcase_dict", testcase_list.keys())
+        metafunc.parametrize("testcase_dict", linux_testlist)
+        print(linux_testlist)
     elif metafunc.config.getoption('cmdopt') == "linuxPT3399":
         metafunc.parametrize("testcase_dict", RK3399_PT_testlist)
         print(RK3399_PT_testlist)
@@ -79,11 +79,10 @@ def pytest_generate_tests(metafunc):
         print(RK3288_PT_testlist)
     elif metafunc.config.getoption('cmdopt') == "linuxPFBananapi":
         metafunc.parametrize("testcase_dict", BananaPi_PT_testlist)
-		print(BananaPi_PT_testlist)
-	else:
-		# If test job is for Android ,use the list of android_testlist to call 
-		# testcases in testcasses.py
-		    metafunc.parametrize("testcase_dict", android_testlist)
-		    print(android_testlist)
-
+        print(BananaPi_PT_testlist)
+    else:
+        # If test job is for Android ,use the list of android_testlist to call
+        # testcases in testcasses.py
+        metafunc.parametrize("testcase_dict", android_testlist)
+        print(android_testlist)
 
