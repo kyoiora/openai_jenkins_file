@@ -814,7 +814,7 @@ def Convert_mobilenet(targetdir):
     res=os.popen("ls -l %s/models/mobilenet.tmfile"%(targetdir),"r")
     out2=res.read()
     print(out2)
-    assert "4954644" in out2
+    assert "17133048" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n mobilenet"%(Run_dir),"r")
     out=res.read()
@@ -831,7 +831,7 @@ def Convert_resnet50(targetdir):
     res=os.popen("ls -l %s/models/resnet50.tmfile"%(targetdir),"r")
     out2=res.read()
     print(out2)
-    assert "4954644" in out2
+    assert "417133048" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n resnet50"%(Run_dir),"r")
     out=res.read()
