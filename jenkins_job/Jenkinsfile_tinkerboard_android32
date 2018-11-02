@@ -1,4 +1,4 @@
-node('tinkerboard'){
+node('tinkerboard_Android'){
 
     dir('/root/openai_jenkins_file'){
         stage(' git pull jenkins file'){
