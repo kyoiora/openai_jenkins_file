@@ -77,7 +77,7 @@ def pytest_generate_tests(metafunc):
     elif metafunc.config.getoption('cmdopt') == "linuxPT3288":
         metafunc.parametrize("testcase_dict", RK3288_PT_testlist)
         print(RK3288_PT_testlist)
-    elif metafunc.config.getoption('cmdopt') == "linuxPFBananapi":
+    elif metafunc.config.getoption('cmdopt') == "linuxPTBananapi":
         metafunc.parametrize("testcase_dict", BananaPi_PT_testlist)
         print(BananaPi_PT_testlist)
     else:
