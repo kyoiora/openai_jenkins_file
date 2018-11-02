@@ -6,7 +6,7 @@ caffe_wrapper_sqz_dir='/examples/build/caffe_wrapper/cpp_classification'
 TEST_CHIP="RK3399"
 #TEST_CHIP="NOT_RK3399"
 
-"""
+
 def quick_api(targetdir):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_quick_api"%(target_dir),"r")
@@ -779,7 +779,6 @@ def vgg16_mem(targetdir):
     out=res.read()
     print(out)
     assert "0.4998 - \"n03792782" in out
-"""
 
 # Convert test
 def Convert_squeezenet(targetdir):
