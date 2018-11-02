@@ -848,7 +848,7 @@ def Convert_googlenet(targetdir):
     res=os.popen("ls -l %s/models/googlenet.tmfile"%(targetdir),"r")
     out2=res.read()
     print(out2)
-    assert "128022132" in out2
+    assert "28022132" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n googlenet"%(Run_dir),"r")
     out=res.read()
