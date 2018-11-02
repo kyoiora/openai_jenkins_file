@@ -10,7 +10,7 @@ node('tinkerboard'){
         }
     }
     
-    dir('/root/tengine_armv8/tengine'){
+    dir('/root/tengine_armv7/tengine'){
 
         stage('Git Pull'){
         
@@ -24,7 +24,7 @@ node('tinkerboard'){
            sh '''#!/bin/bash
                    rm -rf build && mkdir build
                    cd build
-                   ../android_build_armv8.sh
+                   ../android_build_armv7.sh
                    make -j4 && make install
             '''
           
@@ -35,7 +35,7 @@ node('tinkerboard'){
                    cd examples
                    rm -rf build && mkdir build
                    cd build
-                   ../android_build_armv8.sh
+                   ../android_build_armv7.sh
                    make -j4
             '''
           
@@ -60,19 +60,19 @@ node('tinkerboard'){
         
             sh '''#!/bin/bash
 
-                python push_android_arm8.py -f push -ip '192.168.3.115'
+                python push_android_arm7.py -f push -ip '192.168.3.115'
             '''
         }
 
-        stage(' Run Jenkins/test'){
+        stage(' Function test'){
             sh "pwd"
             sh "hostname" 
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_android" --cmdopt="adb" --ip='192.168.3.115' --variables=./test_var.json --html=report/Android_arm64_Jenkins_test.html --junit-xml=report/Android_arm64_Jenkins_test.xml --verbose || true
+                    pytest test.py -k "test_eval_android" --cmdopt="adb" --ip='192.168.3.115' --variables=./test_var.json --html=report/Android_tinkerboard_Jenkins_test.html --junit-xml=report/Android_tinkerboard_Jenkins_test.xml --verbose || true
             ''' 
-            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Android_arm64_Jenkins_test.xml'
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_arm64_Jenkins_test.html', reportName: 'Android_arm64_Jenkins_test HTML Report', reportTitles: ''])
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Android_tinkerboard_Jenkins_test.xml'
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_tinkerboard_Jenkins_test.html', reportName: 'Android_tinkerboard_Jenkins_test HTML Report', reportTitles: ''])
         }
 
         stage(' Run Performance_test'){
@@ -80,10 +80,10 @@ node('tinkerboard'){
             sh "hostname"
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_android" --cmdopt="linuxPT3399" --ip='192.168.3.115' --variables=./test_var.json --html=report/Android_arm64_Performance_test.html --junit-xml=report/Android_arm64_Performance_test.xml --verbose || true
+                    pytest test.py -k "test_eval_android" --cmdopt="linuxPT3399" --ip='192.168.3.115' --variables=./test_var.json --html=report/Android_tinkerboard_Performance_test.html --junit-xml=report/Android_tinkerboard_Performance_test.xml --verbose || true
             '''
-            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Android_arm64_Performance_test.xml'
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_arm64_Performance_test.html', reportName: 'Android_arm64_Performance_test HTML Report', reportTitles: ''])
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Android_tinkerboard_Performance_test.xml'
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_tinkerboard_Performance_test.html', reportName: 'Android_tinkerboard_Performance_test HTML Report', reportTitles: ''])
         }
 
     }
