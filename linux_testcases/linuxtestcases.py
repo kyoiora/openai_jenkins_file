@@ -916,7 +916,7 @@ def Convert_vgg16(targetdir):
     res=os.popen("ls -l %s/models/vgg16.tmfile"%(targetdir),"r")
     out2=res.read()
     print(out2)
-    assert "4954644" in out2
+    assert "553437856" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n vgg16"%(Run_dir),"r")
     out=res.read()
