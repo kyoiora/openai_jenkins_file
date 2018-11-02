@@ -780,6 +780,16 @@ def vgg16_mem(targetdir):
     print(out)
     assert "0.4998 - \"n03792782" in out
 
+
+# Convert test
+def Convert_squeezenet(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    os.system("cd %s; rm -rf models/*.tmfile"%(targetdir))
+    out1=res.read("cd %s; ./convert_model_to_tm -f caffe -p %s/models/sqz.prototxt -m %s/models/squeezenet_v1.1.caffemodel -o %s/models/squeezenet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    print(out1)
+    out2=res.read("ls -l %s/models/squeezenet.tmfile"%(targetdir),"r")
+    assert "4954644" in out2
+
 # Performance test
 
 def squeezenet_FP32_1xA72(targetdir):
