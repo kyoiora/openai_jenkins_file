@@ -1,6 +1,6 @@
 node('bananapi_android'){
 
-    dir('/root/openai_jenkins_file'){
+    dir('/root/peter/bananapi/openai_jenkins_file'){
         stage(' git pull jenkins file'){
             sh "pwd"
             sh '''#!/bin/bash
@@ -53,7 +53,7 @@ node('bananapi_android'){
           
         }
 
-    dir('/root/openai_jenkins_file'){
+    dir('/root/peter/bananapi/openai_jenkins_file'){
 
 
         stage('push file to android'){
