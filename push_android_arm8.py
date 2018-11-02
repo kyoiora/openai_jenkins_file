@@ -8,24 +8,7 @@ sys.path.append(test_path + '/libs')
 from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
 import argparse
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
-
-def pytest_addoption(parser):
-	parser.addoption(
-		"--cmdopt", action="store", default="onboard",
-		help="my option: onboard or cc or adb"
-	)
-
-@pytest.fixture
-def cmdopt(request):
-	return request.config.getoption("--cmdopt")
-
-def pytest_generate_tests(metafunc):
-    if metafunc.config.getoption('cmdopt') == "linuxPT3399":
-        ROOT_DIR='/root/tengine_armv8/tengine/android_pack/'
-    elif metafunc.config.getoption('cmdopt') == "linuxPT3288":
-        ROOT_DIR='/root/tengine_armv7/tinkerboard/tengine/android_pack/'
-    else:
-        ROOT_DIR='/root/tengine_armv7/bananapi/tengine/android_pack/'
+ROOT_DIR='/root/tengine_armv8/tengine/android_pack/'
 
 def push(ip_addr):
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
