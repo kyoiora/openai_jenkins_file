@@ -9,6 +9,16 @@ from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
 import argparse
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
 
+def pytest_addoption(parser):
+	parser.addoption(
+		"--cmdopt", action="store", default="onboard",
+		help="my option: onboard or cc or adb"
+	)
+
+@pytest.fixture
+def cmdopt(request):
+	return request.config.getoption("--cmdopt")
+
 def pytest_generate_tests(metafunc):
     if metafunc.config.getoption('cmdopt') == "linuxPT3399":
         ROOT_DIR='/root/tengine_armv8/tengine/android_pack/'
@@ -23,7 +33,6 @@ def push(ip_addr):
     #pdb.set_trace()
     a.device=ip_addr
     a.root()
-    ROOT_DIR=pytest_generate_tests()
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/*.so'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/Classify'))
