@@ -855,6 +855,22 @@ def Convert_googlenet(targetdir):
     print out
     assert "0.5009 - \"n02123159" in out
 
+def Convert_inception_v3(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/deploy_inceptionV3.prototxt -m %s/models/deploy_inceptionV3.caffemodel -o %s/models/inception_v3.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/inception_v3.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "4954644" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n inception_v3"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.0946 - \"n02123159" in out
 
 
 # Performance test
