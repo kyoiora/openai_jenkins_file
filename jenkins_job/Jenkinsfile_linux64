@@ -48,7 +48,7 @@ node('ROCK960'){
             '''
         }
 
-        """
+
         stage(' Create Convate'){
             print 'Create squeezenet'
             sh '''#!/bin/bash
@@ -90,7 +90,7 @@ node('ROCK960'){
              sh '''#!/bin/bash
  #                   ./build/tools/bin/convert_model_to_tm -f caffe -p models/vgg16.prototxt -m models/vgg16.caffemodel -o models/vgg16.tmfile
 
-            '''
+
 
         }
 
