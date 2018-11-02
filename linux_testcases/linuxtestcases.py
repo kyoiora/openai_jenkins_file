@@ -899,7 +899,7 @@ def Convert_alexnet(targetdir):
     res=os.popen("ls -l %s/models/alexnet.tmfile"%(targetdir),"r")
     out2=res.read()
     print(out2)
-    assert "4954644" in out2
+    assert "243865088" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n alexnet"%(Run_dir),"r")
     out=res.read()
