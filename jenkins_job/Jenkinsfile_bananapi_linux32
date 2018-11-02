@@ -1,4 +1,4 @@
-node('tinkerboard_linux'){
+node('bananapi_linux'){
     dir('/home/linaro/peter/openai_jenkins_file'){
         stage(' git pull jenkins file'){
             sh "pwd"
