@@ -1,5 +1,8 @@
 import os,pdb
 import sys
+import pytest
+import asciitable
+import collections
 test_path = (os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(test_path + '/libs')
 from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
