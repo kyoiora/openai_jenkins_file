@@ -1,5 +1,5 @@
 node('bananapi_linux'){
-    dir('/home/linaro/peter/openai_jenkins_file'){
+    dir('/home/pi/peter/openai_jenkins_file'){
         stage(' git pull jenkins file'){
             sh "pwd"
             sh '''#!/bin/bash
@@ -9,7 +9,7 @@ node('bananapi_linux'){
         }
     }
 
-    dir('/home/linaro/tengine'){
+    dir('/home/pi/tengine'){
         stage('Git Pull'){
             sh "pwd"
             sh "hostname"
@@ -50,7 +50,7 @@ node('bananapi_linux'){
 
     }
 
-    dir('/home/linaro/peter/openai_jenkins_file'){
+    dir('/home/pi/peter/openai_jenkins_file'){
         stage(' Function test'){
             sh "pwd"
             sh "hostname"
