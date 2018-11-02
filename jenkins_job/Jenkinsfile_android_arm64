@@ -1,6 +1,6 @@
 node('firefly'){
 
-    dir('/root/openai_jenkins_file'){
+    dir('/root/peter/rk3399/openai_jenkins_file'){
         stage(' git pull jenkins file'){
             sh "pwd"
             sh '''#!/bin/bash
@@ -53,7 +53,7 @@ node('firefly'){
           
         }
 
-    dir('/root/openai_jenkins_file'){
+    dir('/root/peter/rk3399/openai_jenkins_file'){
 
 
         stage('push file to android'){
