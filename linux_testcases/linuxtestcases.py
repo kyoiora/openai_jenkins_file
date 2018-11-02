@@ -831,7 +831,7 @@ def Convert_resnet50(targetdir):
     res=os.popen("ls -l %s/models/resnet50.tmfile"%(targetdir),"r")
     out2=res.read()
     print(out2)
-    assert "417133048" in out2
+    assert "102713076" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n resnet50"%(Run_dir),"r")
     out=res.read()
@@ -848,7 +848,7 @@ def Convert_googlenet(targetdir):
     res=os.popen("ls -l %s/models/googlenet.tmfile"%(targetdir),"r")
     out2=res.read()
     print(out2)
-    assert "4954644" in out2
+    assert "128022132" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n googlenet"%(Run_dir),"r")
     out=res.read()
