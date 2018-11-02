@@ -788,15 +788,18 @@ def Convert_squeezenet(targetdir):
     # Delete tmfiles
     os.system("cd %s; rm -rf models/*.tmfile"%(targetdir))
     #Create
-    out1=res.read("cd %s; ./convert_model_to_tm -f caffe -p %s/models/sqz.prototxt -m %s/models/squeezenet_v1.1.caffemodel -o %s/models/squeezenet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/sqz.prototxt -m %s/models/squeezenet_v1.1.caffemodel -o %s/models/squeezenet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
     print(out1)
-    out2=res.read("ls -l %s/models/squeezenet.tmfile"%(targetdir),"r")
+    res=os.popen("ls -l %s/models/squeezenet.tmfile"%(targetdir),"r")
+    out2=res.read()
     assert "4954644" in out2
 
     #Create tm_classify
     os.system("cd %s; %s/linux_build.sh;make"%(Run_dir,targetdir+"/examples"))
     #Run
-    out=res.read("cd %s; ./tm_classify -n squeezene"%(Run_dir),"r")
+    res=os.popen("cd %s; ./tm_classify -n squeezene"%(Run_dir),"r")
+    out=res.read()
     print out
     assert "0.2763 - \"n02123045" in out
 
