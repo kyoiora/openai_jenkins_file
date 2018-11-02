@@ -784,7 +784,7 @@ def vgg16_mem(targetdir):
 # Convert test
 def Convert_squeezenet(targetdir):
     Create_dir=targetdir+"/build/tools/bin/"
-    Run_dir=targetdir+"/build/tengine_model/classification"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
     # Delete tmfiles
     os.system("cd %s; rm -rf models/*.tmfile"%(targetdir))
     #Create
