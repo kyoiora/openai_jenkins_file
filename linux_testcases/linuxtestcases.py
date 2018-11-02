@@ -865,7 +865,7 @@ def Convert_inception_v3(targetdir):
     res=os.popen("ls -l %s/models/inception_v3.tmfile"%(targetdir),"r")
     out2=res.read()
     print(out2)
-    assert "4954644" in out2
+    assert "95719756" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n inception_v3"%(Run_dir),"r")
     out=res.read()
@@ -882,7 +882,7 @@ def Convert_inception_v4(targetdir):
     res=os.popen("ls -l %s/models/inception_v4.tmfile"%(targetdir),"r")
     out2=res.read()
     print(out2)
-    assert "4954644" in out2
+    assert "171391968" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n inception_v4"%(Run_dir),"r")
     out=res.read()
