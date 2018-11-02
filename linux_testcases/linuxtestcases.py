@@ -838,6 +838,23 @@ def Convert_resnet50(targetdir):
     print out
     assert "0.9239 - \"n03792782" in out
 
+def Convert_googlenet(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/googlenet.prototxt -m %s/models/googlenet.caffemodel -o %s/models/googlenet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/googlenet.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "4954644" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n googlenet"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.5009 - \"n02123159" in out
+
 
 
 # Performance test
