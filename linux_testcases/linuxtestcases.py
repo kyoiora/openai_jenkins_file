@@ -906,6 +906,23 @@ def Convert_alexnet(targetdir):
     print out
     assert "0.3094 - \"n02124075" in out
 
+def Convert_vgg16(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/vgg16.prototxt -m %s/models/vgg16.caffemodel -o %s/models/vgg16.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/vgg16.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "4954644" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n vgg16"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.4998 - \"n03792782" in out
+
 
 # Performance test
 
