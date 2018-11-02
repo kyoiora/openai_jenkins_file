@@ -833,7 +833,7 @@ def Convert_resnet50(targetdir):
     print(out2)
     assert "102713076" in out2
     #Run
-    res=os.popen("cd %s; ./tm_classify -n resnet50"%(Run_dir),"r")
+    res=os.popen("cd %s; ./tm_classify -n resnet50 -i %s/tests/images/bike.jpg"%(Run_dir,targetdir),"r")
     out=res.read()
     print out
     assert "0.9239 - \"n03792782" in out
