@@ -918,7 +918,7 @@ def Convert_vgg16(targetdir):
     print(out2)
     assert "553437856" in out2
     #Run
-    res=os.popen("cd %s; ./tm_classify -n vgg16"%(Run_dir),"r")
+    res=os.popen("cd %s; ./tm_classify -n vgg16 -i %s/tests/images/bike.jpg"%(Run_dir,targetdir),"r")
     out=res.read()
     print out
     assert "0.4998 - \"n03792782" in out
