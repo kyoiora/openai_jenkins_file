@@ -1,0 +1,91 @@
+node('tinkerboard_Android'){
+
+    dir('/root/openai_jenkins_file'){
+        stage(' git pull jenkins file'){
+            sh "pwd"
+            sh '''#!/bin/bash
+                    git pull
+            ''' 
+
+        }
+    }
+    
+    dir('/root/tengine_armv7/tengine'){
+
+        stage('Git Pull'){
+        
+            sh '''#!/bin/bash
+                    git pull
+            '''
+          
+        }
+        stage('Make'){
+        
+           sh '''#!/bin/bash
+                   rm -rf build && mkdir build
+                   cd build
+                   ../android_build_armv7.sh
+                   make -j4 && make install
+            '''
+          
+        }
+        stage('Make example'){
+        
+            sh '''#!/bin/bash
+                   cd examples
+                   rm -rf build && mkdir build
+                   cd build
+                   ../android_build_armv7.sh
+                   make -j4
+            '''
+          
+        }
+        stage('android_pack'){
+        
+            sh '''#!/bin/bash
+                   rm -rf android_pack/
+                   ./android_pack.sh
+                   cp -rf ./tests/images/ ./android_pack
+                   cp examples/build/imagenet_classification/Classify ./android_pack
+                   cp -rf /root/peter/models ./android_pack
+                   ls -al ./android_pack
+            '''
+          
+        }
+
+    dir('/root/openai_jenkins_file'){
+
+
+        stage('push file to android'){
+        
+            sh '''#!/bin/bash
+
+                python push_android_arm7.py -f push -ip '192.168.8.80'
+            '''
+        }
+
+        stage(' Function test'){
+            sh "pwd"
+            sh "hostname" 
+            sh '''#!/bin/bash
+                    git pull
+                    pytest test.py -k "test_eval_android" --cmdopt="adb" --ip='192.168.8.80' --variables=./test_var.json --html=report/Android_tinkerboard_Function_test.html --junit-xml=report/Android_tinkerboard_Function_test.xml --verbose || true
+            ''' 
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Android_tinkerboard_Function_test.xml'
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_tinkerboard_Function_test.html', reportName: 'Android_tinkerboard_Function_test HTML Report', reportTitles: ''])
+        }
+
+        stage(' Run Performance_test'){
+            sh "pwd"
+            sh "hostname"
+            sh '''#!/bin/bash
+                    git pull
+                    pytest test.py -k "test_eval_android" --cmdopt="linuxPT3288" --ip='192.168.3.115' --variables=./test_var.json --html=report/Android_tinkerboard_Performance_test.html --junit-xml=report/Android_tinkerboard_Performance_test.xml --verbose || true
+            '''
+            junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Android_tinkerboard_Performance_test.xml'
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_tinkerboard_Performance_test.html', reportName: 'Android_tinkerboard_Performance_test HTML Report', reportTitles: ''])
+        }
+
+    }
+    }
+}
