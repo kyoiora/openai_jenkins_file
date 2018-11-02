@@ -10,7 +10,7 @@ node('tinkerboard_Android'){
         }
     }
     
-    dir('/root/tengine_armv7/tengine'){
+    dir('/root/tengine_armv7/tinkerboard/tengine'){
 
         stage('Git Pull'){
         
