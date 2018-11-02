@@ -798,7 +798,7 @@ def Convert_squeezenet(targetdir):
     #Create tm_classify
     os.system("cd %s; %s/linux_build.sh;make"%(Run_dir,targetdir+"/examples"))
     #Run
-    res=os.popen("cd %s; ./tm_classify -n squeezene"%(Run_dir),"r")
+    res=os.popen("cd %s; ./tm_classify -n squeezenet"%(Run_dir),"r")
     out=res.read()
     print out
     assert "0.2763 - \"n02123045" in out
