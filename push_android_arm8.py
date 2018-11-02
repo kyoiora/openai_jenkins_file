@@ -23,7 +23,7 @@ def push(ip_addr):
     #pdb.set_trace()
     a.device=ip_addr
     a.root()
-    ROOT_DIR=pytest_generate_tests(metafunc)
+    ROOT_DIR=pytest_generate_tests()
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/*.so'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/Classify'))
