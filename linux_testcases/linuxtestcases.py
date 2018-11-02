@@ -803,6 +803,22 @@ def Convert_squeezenet(targetdir):
     print out
     assert "0.2763 - \"n02123045" in out
 
+def Convert_mobilenet(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/mobilenet_deploy.prototxt -m %s/models/mobilenet.caffemodel -o %s/models/mobilenet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/mobilenet.tmfile"%(targetdir),"r")
+    out2=res.read()
+    assert "4954644" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n mobilenet"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "8.5976 - \"n02123159" in out
+
 
 # Performance test
 
