@@ -793,6 +793,7 @@ def Convert_squeezenet(targetdir):
     print(out1)
     res=os.popen("ls -l %s/models/squeezenet.tmfile"%(targetdir),"r")
     out2=res.read()
+    print(out2)
     assert "4954644" in out2
 
     #Create tm_classify
@@ -812,6 +813,7 @@ def Convert_mobilenet(targetdir):
     print(out1)
     res=os.popen("ls -l %s/models/mobilenet.tmfile"%(targetdir),"r")
     out2=res.read()
+    print(out2)
     assert "4954644" in out2
     #Run
     res=os.popen("cd %s; ./tm_classify -n mobilenet"%(Run_dir),"r")
