@@ -60,7 +60,7 @@ node('tinkerboard_Android'){
         
             sh '''#!/bin/bash
 
-                python push_android_arm7.py -f push -ip '192.168.8.80'
+                python push_android_tinkerboard.py -f push -ip '192.168.8.80'
             '''
         }
 
