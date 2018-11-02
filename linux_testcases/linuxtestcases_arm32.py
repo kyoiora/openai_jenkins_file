@@ -764,6 +764,148 @@ def vgg16_mem(targetdir):
     print(out)
     assert "0.4998 - \"n03792782" in out
 
+# Convert test
+def Convert_squeezenet(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    # Delete tmfiles
+    os.system("cd %s; rm -rf models/*.tmfile"%(targetdir))
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/sqz.prototxt -m %s/models/squeezenet_v1.1.caffemodel -o %s/models/squeezenet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/squeezenet.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "4954644" in out2
+
+    #Create tm_classify
+    os.system("cd %s; %s/linux_build.sh;make"%(Run_dir,targetdir+"/examples"))
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n squeezenet"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.2763 - \"n02123045" in out
+
+def Convert_mobilenet(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/mobilenet_deploy.prototxt -m %s/models/mobilenet.caffemodel -o %s/models/mobilenet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/mobilenet.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "17133048" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n mobilenet"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "8.5976 - \"n02123159" in out
+
+def Convert_resnet50(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/resnet50.prototxt -m %s/models/resnet50.caffemodel -o %s/models/resnet50.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/resnet50.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "102713076" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n resnet50 -i %s/tests/images/bike.jpg"%(Run_dir,targetdir),"r")
+    out=res.read()
+    print out
+    assert "0.9239 - \"n03792782" in out
+
+def Convert_googlenet(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/googlenet.prototxt -m %s/models/googlenet.caffemodel -o %s/models/googlenet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/googlenet.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "28022132" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n googlenet"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.5009 - \"n02123159" in out
+
+def Convert_inception_v3(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/deploy_inceptionV3.prototxt -m %s/models/deploy_inceptionV3.caffemodel -o %s/models/inception_v3.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/inception_v3.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "95719756" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n inception_v3"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.0946 - \"n02123159" in out
+
+def Convert_inception_v4(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/inception_v4.prototxt -m %s/models/inception_v4.caffemodel -o %s/models/inception_v4.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/inception_v4.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "171391968" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n inception_v4"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.7556 - \"n02123159" in out
+
+def Convert_alexnet(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/alex_deploy.prototxt -m %s/models/alexnet.caffemodel -o %s/models/alexnet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/alexnet.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "243865088" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n alexnet"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.3094 - \"n02124075" in out
+
+def Convert_vgg16(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/vgg16.prototxt -m %s/models/vgg16.caffemodel -o %s/models/vgg16.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/vgg16.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "553437856" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n vgg16 -i %s/tests/images/bike.jpg"%(Run_dir,targetdir),"r")
+    out=res.read()
+    print out
+    assert "0.4998 - \"n03792782" in out
+
 # Performance test for rk3288
 def squeezenet_FP32_1xA17(targetdir):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
