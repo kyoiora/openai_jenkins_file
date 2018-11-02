@@ -872,6 +872,40 @@ def Convert_inception_v3(targetdir):
     print out
     assert "0.0946 - \"n02123159" in out
 
+def Convert_inception_v4(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/inception_v4.prototxt -m %s/models/inception_v4.caffemodel -o %s/models/inception_v4.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/inception_v4.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "4954644" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n inception_v4"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.7556 - \"n02123159" in out
+
+def Convert_alexnet(targetdir):
+    Create_dir=targetdir+"/build/tools/bin/"
+    Run_dir=targetdir+"/examples/build/tengine_model/classification"
+    #Create
+    res=os.popen("cd %s; ./convert_model_to_tm -f caffe -p %s/models/alex_deploy.prototxt -m %s/models/alexnet.caffemodel -o %s/models/alexnet.tmfile"%(Create_dir,targetdir,targetdir,targetdir),"r")
+    out1=res.read()
+    print(out1)
+    res=os.popen("ls -l %s/models/alexnet.tmfile"%(targetdir),"r")
+    out2=res.read()
+    print(out2)
+    assert "4954644" in out2
+    #Run
+    res=os.popen("cd %s; ./tm_classify -n alexnet"%(Run_dir),"r")
+    out=res.read()
+    print out
+    assert "0.3094 - \"n02124075" in out
+
 
 # Performance test
 
