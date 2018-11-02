@@ -1,4 +1,4 @@
-node('firefly'){
+node('tinkerboard'){
 
     dir('/root/openai_jenkins_file'){
         stage(' git pull jenkins file'){
