@@ -2,7 +2,6 @@ import pytest
 import os
 import asciitable
 import collections
-import pprint
 import pdb
 
 android_testlist=['imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
