@@ -45,10 +45,10 @@ node('bananapi_Android'){
             sh '''#!/bin/bash
                    rm -rf android_pack/
                    ./android_pack.sh
-                   cp -rf ./tests/images/ ./android_pack
-                   cp examples/build/imagenet_classification/Classify ./android_pack
-                   cp -rf /root/peter/models ./android_pack
-                   ls -al ./android_pack
+                   cp -rf tests/ android_pack/
+                   cp examples/build/imagenet_classification/Classify android_pack/
+                   cp -rf /root/peter/models android_pack/
+                   ls -al android_pack/
             '''
           
         }
@@ -80,7 +80,7 @@ node('bananapi_Android'){
             sh "hostname"
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_android" --cmdopt="linuxPTBananapi" --ip='192.168.8.248' --variables=./test_var.json --html=report/Android_bananapi_Performance_test.html --junit-xml=report/Android_bananapi_Performance_test.xml --verbose || true
+                    pytest test.py -k "test_eval_linux32" --cmdopt="linuxPTBananapi" --ip='192.168.8.248' --variables=./test_var.json --html=report/Android_bananapi_Performance_test.html --junit-xml=report/Android_bananapi_Performance_test.xml --verbose || true
             '''
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Android_bananapi_Performance_test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_bananapi_Performance_test.html', reportName: 'Android_bananapi_Performance_test HTML Report', reportTitles: ''])

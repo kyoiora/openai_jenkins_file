@@ -45,10 +45,10 @@ node('firefly_android'){
             sh '''#!/bin/bash
                    rm -rf android_pack/
                    ./android_pack.sh
-                   cp -rf ./tests/images/ ./android_pack
-                   cp examples/build/imagenet_classification/Classify ./android_pack
-                   cp -rf /root/peter/models ./android_pack
-                   ls -al ./android_pack
+                   cp -rf tests/ android_pack/
+                   cp examples/build/imagenet_classification/Classify android_pack/
+                   cp -rf /root/peter/models android_pack/
+                   ls -al android_pack/
             '''
           
         }

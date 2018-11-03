@@ -3,7 +3,6 @@ import argparse
 import pdb
 import sys
 from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
-ROOT_DIR='/root/tengine_armv8/android_pack/'
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
 import logging
 
@@ -81,7 +80,7 @@ def imagenet_inception_v4(android_ip):
     assert "0.7556 - \"n02123159" in res[0]
 
 def imagenet_resnet50(android_ip):
-    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack'
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(android_ip)
     #pdb.set_trace()
@@ -93,7 +92,7 @@ def imagenet_resnet50(android_ip):
     assert "0.9239 - \"n03792782" in res[0]
 
 def imagenet_vgg16(android_ip):
-    target_dir=TARGET_DIR_ON_BOARD+'android_pack/'
+    target_dir=TARGET_DIR_ON_BOARD+'android_pack'
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(android_ip)
     #pdb.set_trace()
