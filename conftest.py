@@ -17,7 +17,7 @@ RK3399_PT_testlist=['squeezenet_FP32_1xA72','squeezenet_Int8_1xA72','squeezenet_
 RK3288_PT_testlist=['squeezenet_FP32_1xA17','squeezenet_Int8_1xA17','squeezenet_FP32_4xA17','squeezenet_Int8_4xA17',
                     'mobilenet_FP32_1xA17','mobilenet_Int8_1xA17','mobilenet_FP32_4xA17','mobilenet_Int8_4xA17',]
 
-BananaPi_PT_testlist=['squeezenet_FP32_1xA7','squeezenet_Int8_1x7','squeezenet_FP32_4xA7','squeezenet_Int8_4xA7',
+BananaPi_PT_testlist=['squeezenet_FP32_1xA7','squeezenet_Int8_1xA7','squeezenet_FP32_4xA7','squeezenet_Int8_4xA7',
                     'mobilenet_FP32_1xA7','mobilenet_Int8_1xA7','mobilenet_FP32_4xA7','mobilenet_Int8_4xA7',]
 
 linux_testlist=[  'quick_api','test_two_sqz','get_node',
