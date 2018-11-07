@@ -14,7 +14,7 @@ node('bananapi_linux'){
             sh "pwd"
             sh "hostname"
             sh '''#!/bin/bash
-                git pull
+#                git pull
             '''
         }
         stage('Make'){
