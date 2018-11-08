@@ -567,17 +567,13 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     os.system("rm /tmp/result.dummy;rm /tmp/master.dummy")
     for char in arr:
         if "face 0" in char:
-        #find face0 and change the face 0 to list
             char_arr=char.splitlines()
-        #index face0Number in arr
             face0Number=arr.index(char_arr[0])
             face1Number=arr.index(char_arr[0])+1
             face2Number=arr.index(char_arr[0])+2
             face3Number=arr.index(char_arr[0])+3
             face4Number=arr.index(char_arr[0])+4
             face5Number=arr.index(char_arr[0])+5
-            
-    #check face0
     a=re.findall(r"\d+\.?\d*", arr[face0Number])
     print a
     x0=float(a[3])
