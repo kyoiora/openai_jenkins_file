@@ -472,7 +472,6 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(out1!=out2)
 
     arr=out2.splitlines()
-    os.system("rm /tmp/result.dummy;rm /tmp/master.dummy")
     for char in arr:
         if "face 0" in char:
         #find face0 and change the face 0 to list
@@ -540,6 +539,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(x1<=465),"face3 x1 more than 465"
     assert(y1>=143),"face3 y1 less than 143"
     assert(y1<=145),"face3 y1 more than 145"
+    os.system("rm /tmp/result.dummy;rm /tmp/master.dummy")
 
 def caffe_wrapper_mtcnn_6faces(targetdir):
     root_dir=targetdir
@@ -564,7 +564,6 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     assert(out1!=out2)
 
     arr=out2.splitlines()
-#    os.system("rm /tmp/result.dummy;rm /tmp/master.dummy")
     for char in arr:
         if "face 0" in char:
             char_arr=char.splitlines()
@@ -658,6 +657,7 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     assert(x1<=588),"face5 x1 more than 588"
     assert(y1>=251),"face5 y1 less than 251"
     assert(y1<=253),"face5 y1 more than 253"
+    os.system("rm /tmp/result.dummy;rm /tmp/master.dummy")
 
 def tf_wrapper_inceptionv3(targetdir):
     target_dir=targetdir+"/examples/build/tensorflow_wrapper/label_image"
