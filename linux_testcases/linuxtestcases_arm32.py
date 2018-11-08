@@ -564,7 +564,7 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     assert(out1!=out2)
 
     arr=out2.splitlines()
-    os.system("rm /tmp/result.dummy;rm /tmp/master.dummy")
+#    os.system("rm /tmp/result.dummy;rm /tmp/master.dummy")
     for char in arr:
         if "face 0" in char:
             char_arr=char.splitlines()
