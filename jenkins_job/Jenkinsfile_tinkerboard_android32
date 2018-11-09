@@ -51,7 +51,7 @@ node('tinkerboard_Android'){
                    cp -rf models/ android_pack/
                    ls -al android_pack/
             '''
-          
+
         }
 
     dir('/root/peter/rk3288/openai_jenkins_file'){
