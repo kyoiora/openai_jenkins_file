@@ -61,7 +61,7 @@ node('bananapi_Android'){
         
             sh '''#!/bin/bash
 
-                python push_android_bananapi.py -f push -ip '192.168.8.248'
+                python push_android_bananapi.py -f push -ip '192.168.88.166'
             '''
         }
 
@@ -70,7 +70,7 @@ node('bananapi_Android'){
             sh "hostname" 
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_android" --cmdopt="adb" --ip='192.168.8.248' --variables=./test_var.json --html=report/Android_bananapi_Function_test.html --junit-xml=report/Android_bananapi_Function_test.xml --verbose || true
+                    pytest test.py -k "test_eval_android" --cmdopt="adb" --ip='192.168.88.166' --variables=./test_var.json --html=report/Android_bananapi_Function_test.html --junit-xml=report/Android_bananapi_Function_test.xml --verbose || true
             ''' 
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Android_bananapi_Function_test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_bananapi_Function_test.html', reportName: 'Android_bananapi_Function_test HTML Report', reportTitles: ''])
@@ -81,7 +81,7 @@ node('bananapi_Android'){
             sh "hostname"
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_android" --cmdopt="linuxPTBananapi" --ip='192.168.8.248' --variables=./test_var.json --html=report/Android_bananapi_Performance_test.html --junit-xml=report/Android_bananapi_Performance_test.xml --verbose || true
+                    pytest test.py -k "test_eval_android" --cmdopt="linuxPTBananapi" --ip='192.168.88.166' --variables=./test_var.json --html=report/Android_bananapi_Performance_test.html --junit-xml=report/Android_bananapi_Performance_test.xml --verbose || true
             '''
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Android_bananapi_Performance_test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Android_bananapi_Performance_test.html', reportName: 'Android_bananapi_Performance_test HTML Report', reportTitles: ''])
