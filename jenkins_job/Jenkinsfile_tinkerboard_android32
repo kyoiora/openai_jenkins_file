@@ -15,7 +15,7 @@ node('tinkerboard_Android'){
         stage('Git Pull'){
         
             sh '''#!/bin/bash
-                    git pull
+ #                   git pull
             '''
           
         }
