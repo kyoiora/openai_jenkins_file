@@ -32,7 +32,7 @@ def squeezenet_FP32_1xA72(targetdir,cmdopt):
     print("Int8_1xA72 result:\n")
     print(out)
     arr=out.splitlines()
-    time_result(arr)
+    a=time_result(arr)
     Int8_1xA72_time=a[1]
     RK3399 = pt.PrettyTable()
     RK3399.field_names = ["FP32_1xA72", "Int8_1xA72", "FP32_2xA72", "Int8_2xA72","FP32_1xA53", "Int8_1xA53", "FP32_4xA53", "Int8_4xA53"]
