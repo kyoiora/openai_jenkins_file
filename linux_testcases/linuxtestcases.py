@@ -465,9 +465,11 @@ def caffe_wrapper_mtcnn_4faces(targetdir,cmdopt):
     os.popen("cd %s;./CAFFE_MTCNN %s/tests/images/mtcnn_face4.jpg %s/models wrapper_result4.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
+    print("file master.dummy contents:\n")
     print out1
     line2=os.popen("cat /tmp/result.dummy","r")
     out2=line2.read()
+    print("file result.dummy contents:\n")
     print(out2)
     assert(out1!=out2)
 
@@ -557,9 +559,11 @@ def caffe_wrapper_mtcnn_6faces(targetdir,cmdopt):
     os.popen("cd %s;./CAFFE_MTCNN %s/tests/images/mtcnn_face6.jpg %s/models wrapper_result6.jpg | grep face > /tmp/result.dummy"%(target_dir,root_dir,root_dir),"r")
     line1=os.popen("cat /tmp/master.dummy","r")
     out1=line1.read()
+    print("file master.dummy contents:\n")
     print(out1)
     line2=os.popen("cat /tmp/result.dummy","r")
     out2=line2.read()
+    print("file result.dummy contents:\n")
     print(out2)
     assert(out1!=out2)
 
