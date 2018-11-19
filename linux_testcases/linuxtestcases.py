@@ -3,53 +3,53 @@ import re
 
 TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='/examples/build/caffe_wrapper/cpp_classification'
-TEST_CHIP="RK3399"
+TEST_CHIP="linuxPT3399"
 #TEST_CHIP="NOT_RK3399"
 
 
-def quick_api(targetdir):
+def quick_api(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_quick_api"%(target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
 """
-def test_dev(targetdir):
+def test_dev(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_dev"%(target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
 
-def test_two_dev(targetdir):
+def test_two_dev(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_two_dev"%(target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
 """
-def test_two_sqz(targetdir):
+def test_two_sqz(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_two_sqz"%(target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
 
-def get_node(targetdir):
+def get_node(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_get_node"%(target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
 """
-def test_mxnet_mobilenet(targetdir):
+def test_mxnet_mobilenet(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s; ./build/tests/bin/test_mxnet_mobilenet"%(target_dir),"r")
     out=res.read()
     print(out)
     assert "8.0579 - \"n02124075" in out
 
-def test_onnx_sqz(targetdir):
+def test_onnx_sqz(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s; ./build/tests/bin/test_onnx_sqz"%(target_dir),"r")
     out=res.read()
@@ -57,77 +57,77 @@ def test_onnx_sqz(targetdir):
     assert "0.7178 - \"n02123045" in out
 """
 
-def test_tf_mobilenet(targetdir):
+def test_tf_mobilenet(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s; ./build/tests/bin/test_tf_mobilenet"%(target_dir),"r")
     out=res.read()
     print(out)
     assert "0.5246 - \"n02123394" in out
 
-def test_tf_inceptionv3(targetdir):
+def test_tf_inceptionv3(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s; ./build/tests/bin/test_tf_inceptionv3"%(target_dir),"r")
     out=res.read()
     print(out)
     assert "0.7361 - \"military uniform" in out
 
-def imagenet_sqz(targetdir):
+def imagenet_sqz(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
 
-def imagenet_mobilenet(targetdir):
+def imagenet_mobilenet(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "8.5976 - \"n02123159" in out
 
-def imagenet_resnet50(targetdir):
+def imagenet_resnet50(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n resnet50 -i %s/tests/images/bike.jpg"%(target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.9239 - \"n03792782" in out
 
-def imagenet_googlenet(targetdir):
+def imagenet_googlenet(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n googlenet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.5009 - \"n02123159" in out
 
-def imagenet_inception_v4(targetdir):
+def imagenet_inception_v4(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n inception_v4 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.7556 - \"n02123159" in out
 
-def imagenet_inception_v3(targetdir):
+def imagenet_inception_v3(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n inception_v3 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.0946 - \"n02123159" in out
 
-def imagenet_alexnet(targetdir):
+def imagenet_alexnet(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n alexnet "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.3094 - \"n02124075" in out
 
-def imagenet_vgg16(targetdir):
+def imagenet_vgg16(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s/Classify -n vgg16 -i %s/tests/images/bike.jpg"%(target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir+TARGET_DIR_ON_BOARD,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.4998 - \"n03792782" in out
 
-def ssd(targetdir):
+def ssd(targetdir,cmdopt):
     target_dir=targetdir+'/examples/build/ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
@@ -186,7 +186,7 @@ def ssd(targetdir):
     assert(y1<=538),"dog y1 more than 538"
     assert(y1>=528),"dog y1 less than 528"
 
-def mssd(targetdir):
+def mssd(targetdir,cmdopt):
     target_dir=targetdir+'/examples/build/mobilenet_ssd/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
@@ -245,7 +245,7 @@ def mssd(targetdir):
     assert(y1<=548),"dog y1 more than 548"
     assert(y1>=538),"dog y1 less than 538"
 
-def yolov2(targetdir):
+def yolov2(targetdir,cmdopt):
     target_dir=targetdir+'/examples/build/yolov2/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./YOLOV2 "%(target_dir,target_dir,target_dir),"r")
     out=res.read()
@@ -304,7 +304,7 @@ def yolov2(targetdir):
     assert(y1<550),"dog y1 more than 550"
     assert(y1>540),"dog y1 less than 540"
 
-def faster_rcnn(targetdir):
+def faster_rcnn(targetdir,cmdopt):
     target_dir=targetdir+'/examples/build/faster_rcnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./FASTER_RCNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
@@ -349,7 +349,7 @@ def faster_rcnn(targetdir):
     assert(y1<=551),"dog y1 more than 551"
     assert(y1>=541),"dog y1 less than 541"
 
-def mtcnn(targetdir):
+def mtcnn(targetdir,cmdopt):
     target_dir=targetdir+'/examples/build/mtcnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./MTCNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
@@ -420,7 +420,7 @@ def mtcnn(targetdir):
     assert(y1>=140),"fourBox y1 less than 140"
 
 
-def lighten_cnn(targetdir):
+def lighten_cnn(targetdir,cmdopt):
     target_dir=targetdir+'/examples/build/lighten_cnn/'
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s; %s./LIGHTEN_CNN"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
@@ -436,21 +436,21 @@ def lighten_cnn(targetdir):
     assert(x0>=0.00001),"car x0 less than 0.00001"
 
 
-def caffe_wrapper_sqz(targetdir):
+def caffe_wrapper_sqz(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s;./classification %s/models/sqz.prototxt %s/models/squeezenet_v1.1.caffemodel %s/examples/caffe_wrapper/cpp_classification/imagenet_mean.binaryproto %s/models/synset_words.txt %s/tests/images/cat.jpg"%(target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir,target_dir,target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
 
-def caffe_wrapper_mobilenet(targetdir):
+def caffe_wrapper_mobilenet(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;export LD_LIBRARY_PATH=%s;./classification_mobilenet %s/models/mobilenet_deploy.prototxt %s/models/mobilenet.caffemodel %s/examples/caffe_wrapper/cpp_classification/imagenet_mean.binaryproto %s/models/synset_words.txt %s/tests/images/cat.jpg"%(target_dir+caffe_wrapper_sqz_dir,target_dir+caffe_wrapper_sqz_dir,target_dir,target_dir,target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
     assert "8.5976 - \"n02123159" in out
 
-def caffe_wrapper_mtcnn_4faces(targetdir):
+def caffe_wrapper_mtcnn_4faces(targetdir,cmdopt):
     root_dir=targetdir
     target_dir=targetdir+'/build/examples/caffe_wrapper/mtcnn'
     cmd1="export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config"%(root_dir)
@@ -541,7 +541,7 @@ def caffe_wrapper_mtcnn_4faces(targetdir):
     assert(y1>=143),"face3 y1 less than 143"
     assert(y1<=145),"face3 y1 more than 145"
 
-def caffe_wrapper_mtcnn_6faces(targetdir):
+def caffe_wrapper_mtcnn_6faces(targetdir,cmdopt):
     root_dir=targetdir
     target_dir=targetdir+'/examples/build/caffe_wrapper/mtcnn'
     cmd1="export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config"%(root_dir)
@@ -576,7 +576,7 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
             face3Number=arr.index(char_arr[0])+3
             face4Number=arr.index(char_arr[0])+4
             face5Number=arr.index(char_arr[0])+5
-            
+
     #check face0
     a=re.findall(r"\d+\.?\d*", arr[face0Number])
     print a
@@ -663,21 +663,21 @@ def caffe_wrapper_mtcnn_6faces(targetdir):
     assert(y1>=251),"face5 y1 less than 251"
     assert(y1<=253),"face5 y1 more than 253"
 
-def tf_wrapper_inceptionv3(targetdir):
+def tf_wrapper_inceptionv3(targetdir,cmdopt):
     target_dir=targetdir+"/examples/build/tensorflow_wrapper/label_image"
     res=os.popen("export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config;cd %s; ./label_image_inceptionv3;unset TENGINE_CONFIG_FILE"%(targetdir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.7361 - \"military uniform" in out
 
-def tf_wrapper_mobilenet(targetdir):
+def tf_wrapper_mobilenet(targetdir,cmdopt):
     target_dir=targetdir+"/examples/build/tensorflow_wrapper/label_image"
     res=os.popen("export TENGINE_CONFIG_FILE=%s/install/etc/tengine/config;cd %s; ./label_image_mobilenet;unset TENGINE_CONFIG_FILE"%(targetdir,target_dir),"r")
     out=res.read()
     print(out)
     assert "0.5246 - \"n02123394" in out
 
-def bench_sqz_net(targetdir):
+def bench_sqz_net(targetdir,cmdopt):
     target_dir=targetdir
     # check Int8
     res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4"%(target_dir),"r")
@@ -715,10 +715,10 @@ def bench_sqz_net(targetdir):
     print(out4)
     assert "0.2763 - \"n02123045" in out4
 
-def bench_mobile_net(targetdir):
+def bench_mobile_net(targetdir,cmdopt):
     target_dir=targetdir
     # check Int8
-    if TEST_CHIP=="RK3399":
+    if TEST_CHIP=="linuxPT3399":
         res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 4"%(target_dir),"r")
         out1=res1.read()
         print(out1)
@@ -745,7 +745,7 @@ def bench_mobile_net(targetdir):
         print(out2)
         assert "8.5976 - \"n02123159" in out2
     # check FAT32
-    if TEST_CHIP=="RK3399":
+    if TEST_CHIP=="linuxPT3399":
         res1=os.popen("cd %s;export CONV_INT_PRIO=2000;./build/tests/bin/bench_mobilenet -p 4"%(target_dir),"r")
         out1=res1.read()
         print(out1)
@@ -773,7 +773,7 @@ def bench_mobile_net(targetdir):
         assert "8.5976 - \"n02123159" in out2
 
 
-def vgg16_mem(targetdir):
+def vgg16_mem(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s; %s/tests/bin/vgg16_mem.sh"%(target_dir,target_dir),"r")
     out=res.read()
@@ -781,7 +781,7 @@ def vgg16_mem(targetdir):
     assert "0.4998 - \"n03792782" in out
 
 # Convert test
-def Convert_squeezenet(targetdir):
+def Convert_squeezenet(targetdir,cmdopt):
     Create_dir=targetdir+"/build/tools/bin/"
     Run_dir=targetdir+"/examples/build/tengine_model/classification"
     # Delete tmfiles
@@ -803,7 +803,7 @@ def Convert_squeezenet(targetdir):
     print out
     assert "0.2763 - \"n02123045" in out
 
-def Convert_mobilenet(targetdir):
+def Convert_mobilenet(targetdir,cmdopt):
     Create_dir=targetdir+"/build/tools/bin/"
     Run_dir=targetdir+"/examples/build/tengine_model/classification"
     #Create
@@ -820,7 +820,7 @@ def Convert_mobilenet(targetdir):
     print out
     assert "8.5976 - \"n02123159" in out
 
-def Convert_resnet50(targetdir):
+def Convert_resnet50(targetdir,cmdopt):
     Create_dir=targetdir+"/build/tools/bin/"
     Run_dir=targetdir+"/examples/build/tengine_model/classification"
     #Create
@@ -837,7 +837,7 @@ def Convert_resnet50(targetdir):
     print out
     assert "0.9239 - \"n03792782" in out
 
-def Convert_googlenet(targetdir):
+def Convert_googlenet(targetdir,cmdopt):
     Create_dir=targetdir+"/build/tools/bin/"
     Run_dir=targetdir+"/examples/build/tengine_model/classification"
     #Create
@@ -854,7 +854,7 @@ def Convert_googlenet(targetdir):
     print out
     assert "0.5009 - \"n02123159" in out
 
-def Convert_inception_v3(targetdir):
+def Convert_inception_v3(targetdir,cmdopt):
     Create_dir=targetdir+"/build/tools/bin/"
     Run_dir=targetdir+"/examples/build/tengine_model/classification"
     #Create
@@ -871,7 +871,7 @@ def Convert_inception_v3(targetdir):
     print out
     assert "0.0946 - \"n02123159" in out
 
-def Convert_inception_v4(targetdir):
+def Convert_inception_v4(targetdir,cmdopt):
     Create_dir=targetdir+"/build/tools/bin/"
     Run_dir=targetdir+"/examples/build/tengine_model/classification"
     #Create
@@ -888,7 +888,7 @@ def Convert_inception_v4(targetdir):
     print out
     assert "0.7556 - \"n02123159" in out
 
-def Convert_alexnet(targetdir):
+def Convert_alexnet(targetdir,cmdopt):
     Create_dir=targetdir+"/build/tools/bin/"
     Run_dir=targetdir+"/examples/build/tengine_model/classification"
     #Create
@@ -905,7 +905,7 @@ def Convert_alexnet(targetdir):
     print out
     assert "0.3094 - \"n02124075" in out
 
-def Convert_vgg16(targetdir):
+def Convert_vgg16(targetdir,cmdopt):
     Create_dir=targetdir+"/build/tools/bin/"
     Run_dir=targetdir+"/examples/build/tengine_model/classification"
     #Create
@@ -925,97 +925,97 @@ def Convert_vgg16(targetdir):
 
 # Performance test
 
-def squeezenet_FP32_1xA72(targetdir):
+def squeezenet_FP32_1xA72(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def squeezenet_Int8_1xA72(targetdir):
+def squeezenet_Int8_1xA72(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def squeezenet_FP32_2xA72(targetdir):
+def squeezenet_FP32_2xA72(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def squeezenet_Int8_2xA72(targetdir):
+def squeezenet_Int8_2xA72(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def squeezenet_FP32_1xA53(targetdir):
+def squeezenet_FP32_1xA53(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 30"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def squeezenet_Int8_1xA53(targetdir):
+def squeezenet_Int8_1xA53(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 30"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def squeezenet_FP32_4xA53(targetdir):
+def squeezenet_FP32_4xA53(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def squeezenet_Int8_4xA53(targetdir):
+def squeezenet_Int8_4xA53(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def mobilenet_FP32_1xA72(targetdir):
+def mobilenet_FP32_1xA72(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def mobilenet_Int8_1xA72(targetdir):
+def mobilenet_Int8_1xA72(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def mobilenet_FP32_2xA72(targetdir):
+def mobilenet_FP32_2xA72(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def mobilenet_Int8_2xA72(targetdir):
+def mobilenet_Int8_2xA72(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def mobilenet_FP32_1xA53(targetdir):
+def mobilenet_FP32_1xA53(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100 & mpstat -P ALL 1 3;sleep 30"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def mobilenet_Int8_1xA53(targetdir):
+def mobilenet_Int8_1xA53(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100 & mpstat -P ALL 1 3;sleep 30"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def mobilenet_FP32_4xA53(targetdir):
+def mobilenet_FP32_4xA53(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
 
-def mobilenet_Int8_4xA53(targetdir):
+def mobilenet_Int8_4xA53(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
