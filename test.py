@@ -14,7 +14,7 @@ sys.path.append(test_path + '/linux_testcases_arm32')
 import testcases
 import adb_wrapper.adb_wrapper.adb_wrapper
 import linuxtestcases
-import linuxtestcases11
+
 
 #Linux testcase calling old test function in test.sh
 def test_eval_linux(testcase_dict,cmdopt,targetdir,variables):
