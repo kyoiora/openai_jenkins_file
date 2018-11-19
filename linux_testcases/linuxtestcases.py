@@ -3,7 +3,7 @@ import re
 
 TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='/examples/build/caffe_wrapper/cpp_classification'
-TEST_CHIP="linuxPT3399"
+#TEST_CHIP="linuxPT3399"
 #TEST_CHIP="NOT_RK3399"
 
 
@@ -717,6 +717,7 @@ def bench_sqz_net(targetdir,cmdopt):
 
 def bench_mobile_net(targetdir,cmdopt):
     target_dir=targetdir
+    TEST_CHIP=cmdopt
     # check Int8
     if TEST_CHIP=="linuxPT3399":
         res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_mobilenet -p 4"%(target_dir),"r")
