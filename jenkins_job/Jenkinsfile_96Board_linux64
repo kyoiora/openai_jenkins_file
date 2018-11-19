@@ -57,7 +57,7 @@ node('ROCK960_linux'){
             sh "hostname"
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_linux6" --cmdopt="linuxFT" --targetdir="/home/rk/tengine" --variables=./test_var.json --html=report/Linux_96Board_Function_test.html --junit-xml=report/Linux_96Board_Function_test.xml --verbose || true
+                    pytest test.py -k "test_eval_linux64" --cmdopt="linuxFT" --targetdir="/home/rk/tengine" --variables=./test_var.json --html=report/Linux_96Board_Function_test.html --junit-xml=report/Linux_96Board_Function_test.xml --verbose || true
             '''
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Linux_96Board_Function_test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Linux_96Board_Function_test.html', reportName: 'Linux_96Board_Function_test HTML Report', reportTitles: ''])
@@ -68,7 +68,7 @@ node('ROCK960_linux'){
             sh "hostname"
             sh '''#!/bin/bash
                     git pull
-                    pytest test.py -k "test_eval_linux" --cmdopt="linuxPT3399" --targetdir="/home/rk/tengine" --variables=./test_var.json --html=report/Linux_96Board_Performance_test.html --junit-xml=report/Linux_96Board_Performance_test.xml --verbose || true
+                    pytest test.py -k "test_eval_linux64" --cmdopt="linuxPT3399" --targetdir="/home/rk/tengine" --variables=./test_var.json --html=report/Linux_96Board_Performance_test.html --junit-xml=report/Linux_96Board_Performance_test.xml --verbose || true
             '''
             junit allowEmptyResults: true, keepLongStdio: true, testResults: 'report/Linux_96Board_Performance_test.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report/', reportFiles: 'Linux_96Board_Performance_test.html', reportName: 'Linux_96Board_Performance_test HTML Report', reportTitles: ''])

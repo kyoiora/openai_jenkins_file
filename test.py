@@ -14,10 +14,10 @@ sys.path.append(test_path + '/linux_testcases_arm32')
 import testcases
 import adb_wrapper.adb_wrapper.adb_wrapper
 import linuxtestcases
-#import linuxtestcases_arm32
+import linuxtestcases_arm32
 
 #Linux testcase calling old test function in test.sh
-def test_eval_linux(testcase_dict,cmdopt,targetdir,variables):
+def test_eval_linux64(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
     #eval testcases from linux_testcases.linuxtestcases.py
     print "testcase_dict=%s"%testcase_dict
@@ -33,7 +33,7 @@ def test_eval_linux(testcase_dict,cmdopt,targetdir,variables):
     #print ex.output # contains stdout and stderr together
     #result=False
     #assert result==True
-
+"""
 def test_eval_linux32(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
     #eval testcases from linux_testcases.linuxtestcases_arm32.py
@@ -41,7 +41,6 @@ def test_eval_linux32(testcase_dict,cmdopt,targetdir,variables):
     tc="linuxtestcases_arm32.%s(targetdir)"%(testcase_dict)
     print tc
     test=eval(tc)
-"""
 
 #android testcase using adb to execute code in Android board
 def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
