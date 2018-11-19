@@ -28,7 +28,7 @@ def squeezenet_FP32_1xA72(targetdir,cmdopt):
 
 
 def test_result(targetdir,cmdopt):
-    squeezenet_FP32_1xA72(targetdir,cmdopt)
+    FP32_1xA72_time=squeezenet_FP32_1xA72(targetdir,cmdopt)
     RK3399 = pt.PrettyTable()
     RK3399.field_names = ["FP32_1xA72", "Int8_1xA72", "FP32_2xA72", "Int8_2xA72","FP32_1xA53", "Int8_1xA53", "FP32_4xA53", "Int8_4xA53"]
     RK3399.add_row([FP32_1xA72_time,100,200,199,198,11,11,11])
