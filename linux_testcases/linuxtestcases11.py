@@ -16,7 +16,7 @@ def time_arr(arr):
 
 def squeezenet_FP32_1xA72(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
-    res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
+    res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 1 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print("FP32_1xA72 result:\n")
     print(out)
