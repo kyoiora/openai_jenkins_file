@@ -1162,13 +1162,12 @@ mobilenet_Int8_1xA17=0.0
 mobilenet_FP32_4xA17=0.0
 mobilenet_Int8_4xA17=0.0
 
-
 def squeezenet_FP32_1xA17(targetdir,cmdopt):
     target_dir=targetdir+TARGET_DIR_ON_BOARD
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global squeezenet_FP32_1xA17
     a=time_arr(arr)
     squeezenet_FP32_1xA17=a[1]
@@ -1178,7 +1177,7 @@ def squeezenet_Int8_1xA17(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global squeezenet_Int8_1xA17
     a=time_arr(arr)
     squeezenet_Int8_1xA17=a[1]
@@ -1188,7 +1187,7 @@ def squeezenet_FP32_4xA17(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global squeezenet_FP32_4xA17
     a=time_arr(arr)
     squeezenet_FP32_4xA17=a[1]
@@ -1198,7 +1197,7 @@ def squeezenet_Int8_4xA17(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global squeezenet_Int8_4xA17
     a=time_arr(arr)
     squeezenet_Int8_4xA17=a[1]
@@ -1210,7 +1209,7 @@ def mobilenet_FP32_1xA17(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global mobilenet_FP32_1xA17
     a=time_arr(arr)
     mobilenet_FP32_1xA17=a[1]
@@ -1220,7 +1219,7 @@ def mobilenet_Int8_1xA17(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global mobilenet_Int8_1xA17
     a=time_arr(arr)
     mobilenet_Int8_1xA17=a[1]
@@ -1230,7 +1229,7 @@ def mobilenet_FP32_4xA17(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global mobilenet_FP32_4xA17
     a=time_arr(arr)
     mobilenet_FP32_4xA17=a[1]
@@ -1240,7 +1239,7 @@ def mobilenet_Int8_4xA17(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global mobilenet_Int8_4xA17
     a=time_arr(arr)
     mobilenet_Int8_4xA17=a[1]
@@ -1271,7 +1270,7 @@ def squeezenet_FP32_1xA7(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global squeezenet_FP32_1xA7
     a=time_arr(arr)
     squeezenet_FP32_1xA7=a[1]
@@ -1281,7 +1280,7 @@ def squeezenet_Int8_1xA7(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global squeezenet_Int8_1xA7
     a=time_arr(arr)
     squeezenet_Int8_1xA7=a[1]
@@ -1291,7 +1290,7 @@ def squeezenet_FP32_4xA7(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global squeezenet_FP32_4xA7
     a=time_arr(arr)
     squeezenet_FP32_4xA7=a[1]
@@ -1301,7 +1300,7 @@ def squeezenet_Int8_4xA7(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global squeezenet_Int8_4xA7
     a=time_arr(arr)
     squeezenet_Int8_4xA7=a[1]
@@ -1313,7 +1312,7 @@ def mobilenet_FP32_1xA7(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global mobilenet_FP32_1xA7
     a=time_arr(arr)
     mobilenet_FP32_1xA7=a[1]
@@ -1323,7 +1322,7 @@ def mobilenet_Int8_1xA7(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global mobilenet_Int8_1xA7
     a=time_arr(arr)
     mobilenet_Int8_1xA7=a[1]
@@ -1333,7 +1332,7 @@ def mobilenet_FP32_4xA7(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global mobilenet_FP32_4xA7
     a=time_arr(arr)
     mobilenet_FP32_4xA7=a[1]
@@ -1343,7 +1342,7 @@ def mobilenet_Int8_4xA7(targetdir,cmdopt):
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=%s; %s/Classify -n mobilenet -r 100"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
     print(out)
-	arr=out.splitlines()
+    arr=out.splitlines()
     global mobilenet_Int8_4xA7
     a=time_arr(arr)
     mobilenet_Int8_4xA7=a[1]
@@ -1354,3 +1353,4 @@ def Bananapi_testresult(targetdir,cmdopt):
     Bananapi.add_row(["squeezenet",squeezenet_FP32_1xA7,squeezenet_Int8_1xA7,squeezenet_FP32_4xA7,squeezenet_Int8_4xA7])
     Bananapi.add_row(["mobilenet",mobilenet_FP32_1xA7,mobilenet_Int8_1xA7,mobilenet_FP32_4xA7,mobilenet_Int8_4xA7])
     print(Bananapi)
+
