@@ -21,7 +21,7 @@ def test_eval_linux64(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
     #eval testcases from linux_testcases.linuxtestcases.py
     print "testcase_dict=%s"%testcase_dict
-    tc="linuxtestcases.%s(targetdir)"%(testcase_dict)
+    tc="linuxtestcases.%s(targetdir,cmdopt)"%(testcase_dict)
     print tc
     test=eval(tc)
 
