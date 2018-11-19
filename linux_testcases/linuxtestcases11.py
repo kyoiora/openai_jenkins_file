@@ -5,7 +5,7 @@ caffe_wrapper_sqz_dir='/examples/build/caffe_wrapper/cpp_classification'
 import prettytable as pt
 
 # Performance test for RT3399
-
+FP32_1xA72_time=0.0
 def time_arr(arr):
     for char in arr:
         if "Repeat" in char:
