@@ -5,7 +5,7 @@ caffe_wrapper_sqz_dir='/examples/build/caffe_wrapper/cpp_classification'
 import prettytable as pt
 
 # Performance test for RT3399
-global FP32_1xA72_time
+
 def time_arr(arr):
     for char in arr:
         if "Repeat" in char:
@@ -22,7 +22,7 @@ def squeezenet_FP32_1xA72(targetdir,cmdopt):
     print(out)
     arr=out.splitlines()
     a=time_arr(arr)
-    FP32_1xA72_time=a[1]
+    global FP32_1xA72_time=a[1]
     print FP32_1xA72_time
     return FP32_1xA72_time
     assert false
