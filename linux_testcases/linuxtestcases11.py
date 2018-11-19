@@ -27,7 +27,7 @@ def squeezenet_FP32_1xA72(targetdir,cmdopt):
     FP32_1xA72_time=a[1]
     print FP32_1xA72_time
     return FP32_1xA72_time
-    assert false
+    assert 4==5
 
 
 def test_result(targetdir,cmdopt):
@@ -35,4 +35,4 @@ def test_result(targetdir,cmdopt):
     RK3399.field_names = ["FP32_1xA72", "Int8_1xA72", "FP32_2xA72", "Int8_2xA72","FP32_1xA53", "Int8_1xA53", "FP32_4xA53", "Int8_4xA53"]
     RK3399.add_row([FP32_1xA72_time,100,200,199,198,11,11,11])
     print(RK3399)
-    assert false
+    assert 4==5
