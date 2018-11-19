@@ -33,7 +33,7 @@ def test_eval_linux(testcase_dict,cmdopt,targetdir,variables):
     #print ex.output # contains stdout and stderr together
     #result=False
     #assert result==True
-
+"""
 def test_eval_linux11(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
     #eval testcases from linux_testcases.linuxtestcases_arm32.py
@@ -42,7 +42,7 @@ def test_eval_linux11(testcase_dict,cmdopt,targetdir,variables):
     print tc
     test=eval(tc)
 
-"""
+
 
 #android testcase using adb to execute code in Android board
 def test_eval_android(testcase_dict,cmdopt,targetdir,ip):
