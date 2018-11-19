@@ -26,7 +26,6 @@ def squeezenet_FP32_1xA72(targetdir,cmdopt):
 
     FP32_1xA72_time=a[1]
     print FP32_1xA72_time
-    return FP32_1xA72_time
     assert 4==5
 
 
