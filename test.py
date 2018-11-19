@@ -5,6 +5,7 @@ import collections
 import pprint
 import pdb
 import subprocess
+import prettytable as pt
 import sys
 test_path = (os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(test_path + '/android_testcases')
