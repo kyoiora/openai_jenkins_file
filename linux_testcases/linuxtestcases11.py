@@ -26,8 +26,7 @@ def squeezenet_FP32_1xA72(targetdir,cmdopt):
             char_arr=char.splitlines()
             Number=arr.index(char_arr[0])
     a=re.findall(r"\d+\.?\d*", arr[Number])
-    global FP32_1xA72_time
-FP32_1xA72_time=a[1]
+    global FP32_1xA72_time=a[1]
 
     res=os.popen("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=%s; %s/Classify -n squeezenet -r 100 & mpstat -P ALL 1 3;sleep 20"%(target_dir,target_dir,target_dir),"r")
     out=res.read()
