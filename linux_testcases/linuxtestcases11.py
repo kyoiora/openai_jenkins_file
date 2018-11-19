@@ -1,6 +1,5 @@
 import os
 import re
-import PrettyTable
 TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='/examples/build/caffe_wrapper/cpp_classification'
 import prettytable as pt
