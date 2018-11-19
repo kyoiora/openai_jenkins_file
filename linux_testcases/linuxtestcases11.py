@@ -21,7 +21,7 @@ def squeezenet_FP32_1xA72(targetdir,cmdopt):
     print("FP32_1xA72 result:\n")
     print(out)
     arr=out.splitlines()
-    time_arr(arr)
+    a=time_arr(arr)
     FP32_1xA72_time=a[1]
     print FP32_1xA72_time
     return FP32_1xA72_time
