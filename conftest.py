@@ -9,10 +9,10 @@ android_testlist=['imagenet_sqz','imagenet_alexnet','imagenet_googlenet',
                   'imagenet_inception_v4',
                   'imagenet_resnet50','imagenet_vgg16']
 
-RK3399_PT_testlist=['squeezenet_FP32_1xA72','test_result','squeezenet_Int8_1xA72','squeezenet_FP32_2xA72','squeezenet_Int8_2xA72',
+RK3399_PT_testlist=['squeezenet_FP32_1xA72','squeezenet_Int8_1xA72','squeezenet_FP32_2xA72','squeezenet_Int8_2xA72',
                     'squeezenet_FP32_1xA53','squeezenet_Int8_1xA53','squeezenet_FP32_4xA53','squeezenet_Int8_4xA53',
                     'mobilenet_FP32_1xA72','mobilenet_Int8_1xA72','mobilenet_FP32_2xA72','mobilenet_Int8_2xA72',
-                    'mobilenet_FP32_1xA53','mobilenet_Int8_1xA53','mobilenet_FP32_4xA53','mobilenet_Int8_4xA53',]
+                    'mobilenet_FP32_1xA53','mobilenet_Int8_1xA53','mobilenet_FP32_4xA53','mobilenet_Int8_4xA53','test_result',]
 
 RK3288_PT_testlist=['squeezenet_FP32_1xA17','squeezenet_Int8_1xA17','squeezenet_FP32_4xA17','squeezenet_Int8_4xA17',
                     'mobilenet_FP32_1xA17','mobilenet_Int8_1xA17','mobilenet_FP32_4xA17','mobilenet_Int8_4xA17',]
