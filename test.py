@@ -38,7 +38,7 @@ def test_eval_linux11(testcase_dict,cmdopt,targetdir,variables):
     #print "testcase_id=%s,path=%s" % (id,testcase_dict[id])
     #eval testcases from linux_testcases.linuxtestcases_arm32.py
     print "testcase_dict=%s"%testcase_dict
-    tc="linuxtestcases_arm11.%s(targetdir,cmdopt)"%(testcase_dict)
+    tc="linuxtestcases11.%s(targetdir,cmdopt)"%(testcase_dict)
     print tc
     test=eval(tc)
 
