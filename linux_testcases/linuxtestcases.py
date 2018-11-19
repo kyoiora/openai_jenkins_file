@@ -679,7 +679,7 @@ def tf_wrapper_mobilenet(targetdir,cmdopt):
 
 def bench_sqz_net(targetdir,cmdopt):
     target_dir=targetdir
-
+    TEST_CHIP=cmdopt
     # check Int8
     if TEST_CHIP=="RK3399":
         res1=os.popen("cd %s;export CONV_INT_PRIO=200;./build/tests/bin/bench_sqz -p 4"%(target_dir),"r")
