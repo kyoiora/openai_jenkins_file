@@ -24,7 +24,7 @@ def test_onnx_sqz(targetdir,cmdopt):
     out=res.read()
     print(out)
     assert "0.7178 - \"n02123045" in out
-"""
+
 
 def test_tf_mobilenet(targetdir,cmdopt):
     target_dir=targetdir
