@@ -356,7 +356,7 @@ def mobilenet_Int8_4xA53(android_ip):
     mobilenet_Int8_4xA53=a[1]
 
 
-def RK3399_testresult(targetdir,cmdopt):
+def RK3399_testresult(android_ip):
     RK3399 = pt.PrettyTable()
     RK3399.field_names = ["models","FP32_1xA72", "Int8_1xA72", "FP32_2xA72", "Int8_2xA72","FP32_1xA53", "Int8_1xA53", "FP32_4xA53", "Int8_4xA53"]
     RK3399.add_row(["squeezenet",squeezenet_FP32_1xA72,squeezenet_Int8_1xA72,squeezenet_FP32_2xA72,squeezenet_Int8_2xA72,squeezenet_FP32_1xA53,squeezenet_Int8_1xA53,squeezenet_FP32_4xA53,squeezenet_Int8_4xA53])
@@ -490,7 +490,7 @@ def mobilenet_Int8_4xA17(android_ip):
     mobilenet_Int8_4xA17=a[1]
 
 
-def RK3288_testresult(targetdir,cmdopt):
+def RK3288_testresult(android_ip):
     RK3288 = pt.PrettyTable()
     RK3288.field_names = ["models","FP32_1xA17", "Int8_1xA17", "FP32_4xA17", "Int8_4xA17"]
     RK3288.add_row(["squeezenet",squeezenet_FP32_1xA17,squeezenet_Int8_1xA17,squeezenet_FP32_4xA17,squeezenet_Int8_4xA17])
@@ -624,7 +624,7 @@ def mobilenet_Int8_4xA7(android_ip):
     mobilenet_Int8_4xA7=a[1]
 
 
-def Bananapi_testresult(targetdir,cmdopt):
+def Bananapi_testresult(android_ip):
     Bananapi = pt.PrettyTable()
     Bananapi.field_names = ["models","FP32_1xA7", "Int8_1xA7", "FP32_4xA7", "Int8_4xA7"]
     Bananapi.add_row(["squeezenet",squeezenet_FP32_1xA7,squeezenet_Int8_1xA7,squeezenet_FP32_4xA7,squeezenet_Int8_4xA7])
