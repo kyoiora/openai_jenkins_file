@@ -107,14 +107,14 @@ def imagenet_vgg16(android_ip):
 
 def ssd(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack'
-	test_dir=target_dir+'/build/ssd/'
+    test_dir=target_dir+'/build/ssd/'
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(android_ip)
     #pdb.set_trace()
     a.device=android_ip
 
     res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./SSD "%(target_dir,target_dir,test_dir))
-	print(res[0])
+    print(res[0])
     arr=res[0].splitlines()
     for char in arr:
         if "car" in char:
@@ -171,7 +171,7 @@ def ssd(android_ip):
 
 def mssd(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack'
-	test_dir=target_dir+'/build/mobilenet_ssd/'
+    test_dir=target_dir+'/build/mobilenet_ssd/'
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(android_ip)
     #pdb.set_trace()
@@ -179,7 +179,7 @@ def mssd(android_ip):
 
 
     res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir))
-	print(res[0])
+    print(res[0])
     arr=res[0].splitlines()
     for char in arr:
         if "car" in char:
@@ -236,7 +236,7 @@ def mssd(android_ip):
 
 def yolov2(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack'
-	test_dir=target_dir+'/build/yolov2/'
+    test_dir=target_dir+'/build/yolov2/'
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(android_ip)
     #pdb.set_trace()
@@ -300,7 +300,7 @@ def yolov2(android_ip):
 
 def faster_rcnn(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack'
-	test_dir=target_dir+'/build/faster_rcnn/'
+    test_dir=target_dir+'/build/faster_rcnn/'
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(android_ip)
     #pdb.set_trace()
@@ -350,7 +350,7 @@ def faster_rcnn(android_ip):
 
 def mtcnn(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack'
-	test_dir=target_dir+'/build/mtcnn/'
+    test_dir=target_dir+'/build/mtcnn/'
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(android_ip)
     #pdb.set_trace()
@@ -426,7 +426,7 @@ def mtcnn(android_ip):
 
 def lighten_cnn(android_ip):
     target_dir=TARGET_DIR_ON_BOARD+'android_pack'
-	test_dir=target_dir+'/build/lighten_cnn/'
+    test_dir=target_dir+'/build/lighten_cnn/'
     a = AdbWrapper() # Auto Find adb in system PATH or Environment
     a.connect(android_ip)
     #pdb.set_trace()
