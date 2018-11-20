@@ -16,7 +16,7 @@ def push(ip_addr):
 
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/*.so'))
-
+    res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/build'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/Classify'))
 
 
