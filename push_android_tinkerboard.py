@@ -14,7 +14,9 @@ def push(ip_addr):
     a.root()
 
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
-    res=a.shell("cd %s;ls | grep -v models | xargs rm -rf"%(TARGET_DIR_ON_BOARD+'android_pack/'))
+    res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/Classify'))
+    res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/build'))
+    res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/lib*'))
     print res
     print 'push to board'
     a.push(ROOT_DIR,TARGET_DIR_ON_BOARD,timeout=4800)
