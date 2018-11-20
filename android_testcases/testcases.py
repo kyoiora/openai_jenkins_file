@@ -153,8 +153,8 @@ def squeezenet_Int8_1xA72(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_Int8_1xA72
     a=time_arr(arr)
     squeezenet_Int8_1xA72=a[1]
@@ -167,8 +167,8 @@ def squeezenet_FP32_2xA72(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_FP32_2xA72
     a=time_arr(arr)
     squeezenet_FP32_2xA72=a[1]
@@ -181,8 +181,8 @@ def squeezenet_Int8_2xA72(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_Int8_2xA72
     a=time_arr(arr)
     squeezenet_Int8_2xA72=a[1]
@@ -195,8 +195,8 @@ def squeezenet_FP32_1xA53(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_FP32_1xA53
     a=time_arr(arr)
     squeezenet_FP32_1xA53=a[1]
@@ -209,8 +209,8 @@ def squeezenet_Int8_1xA53(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_Int8_1xA53
     a=time_arr(arr)
     squeezenet_Int8_1xA53=a[1]
@@ -223,8 +223,8 @@ def squeezenet_FP32_4xA53(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_FP32_4xA53
     a=time_arr(arr)
     squeezenet_FP32_4xA53=a[1]
@@ -237,8 +237,8 @@ def squeezenet_Int8_4xA53(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_Int8_4xA53
     a=time_arr(arr)
     squeezenet_Int8_4xA53=a[1]
@@ -251,8 +251,8 @@ def mobilenet_FP32_1xA72(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_FP32_1xA72
     a=time_arr(arr)
     mobilenet_FP32_1xA72=a[1]
@@ -265,8 +265,8 @@ def mobilenet_Int8_1xA72(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_Int8_1xA72
     a=time_arr(arr)
     mobilenet_Int8_1xA72=a[1]
@@ -279,8 +279,8 @@ def mobilenet_FP32_2xA72(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_FP32_2xA72
     a=time_arr(arr)
     mobilenet_FP32_2xA72=a[1]
@@ -293,8 +293,8 @@ def mobilenet_Int8_2xA72(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=4,5;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_Int8_2xA72
     a=time_arr(arr)
     mobilenet_Int8_2xA72=a[1]
@@ -307,8 +307,8 @@ def mobilenet_FP32_1xA53(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_FP32_1xA53
     a=time_arr(arr)
     mobilenet_FP32_1xA53=a[1]
@@ -321,8 +321,8 @@ def mobilenet_Int8_1xA53(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_Int8_1xA53
     a=time_arr(arr)
     mobilenet_Int8_1xA53=a[1]
@@ -335,8 +335,8 @@ def mobilenet_FP32_4xA53(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_FP32_4xA53
     a=time_arr(arr)
     mobilenet_FP32_4xA53=a[1]
@@ -349,8 +349,8 @@ def mobilenet_Int8_4xA53(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_Int8_4xA53
     a=time_arr(arr)
     mobilenet_Int8_4xA53=a[1]
@@ -384,8 +384,8 @@ def squeezenet_FP32_1xA17(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_FP32_1xA17
     a=time_arr(arr)
     squeezenet_FP32_1xA17=a[1]
@@ -398,8 +398,8 @@ def squeezenet_Int8_1xA17(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_Int8_1xA17
     a=time_arr(arr)
     squeezenet_Int8_1xA17=a[1]
@@ -412,8 +412,8 @@ def squeezenet_FP32_4xA17(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_FP32_4xA17
     a=time_arr(arr)
     squeezenet_FP32_4xA17=a[1]
@@ -426,8 +426,8 @@ def squeezenet_Int8_4xA17(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_Int8_4xA17
     a=time_arr(arr)
     squeezenet_Int8_4xA17=a[1]
@@ -441,8 +441,8 @@ def mobilenet_FP32_1xA17(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_FP32_1xA17
     a=time_arr(arr)
     mobilenet_FP32_1xA17=a[1]
@@ -455,8 +455,8 @@ def mobilenet_Int8_1xA17(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_Int8_1xA17
     a=time_arr(arr)
     mobilenet_Int8_1xA17=a[1]
@@ -469,8 +469,8 @@ def mobilenet_FP32_4xA17(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_FP32_4xA17
     a=time_arr(arr)
     mobilenet_FP32_4xA17=a[1]
@@ -483,8 +483,8 @@ def mobilenet_Int8_4xA17(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_Int8_4xA17
     a=time_arr(arr)
     mobilenet_Int8_4xA17=a[1]
@@ -518,8 +518,8 @@ def squeezenet_FP32_1xA7(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_FP32_1xA7
     a=time_arr(arr)
     squeezenet_FP32_1xA7=a[1]
@@ -532,8 +532,8 @@ def squeezenet_Int8_1xA7(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_Int8_1xA7
     a=time_arr(arr)
     squeezenet_Int8_1xA7=a[1]
@@ -546,8 +546,8 @@ def squeezenet_FP32_4xA7(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_FP32_4xA7
     a=time_arr(arr)
     squeezenet_FP32_4xA7=a[1]
@@ -560,8 +560,8 @@ def squeezenet_Int8_4xA7(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_Int8_4xA7
     a=time_arr(arr)
     squeezenet_Int8_4xA7=a[1]
@@ -575,8 +575,8 @@ def mobilenet_FP32_1xA7(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_FP32_1xA7
     a=time_arr(arr)
     mobilenet_FP32_1xA7=a[1]
@@ -589,8 +589,8 @@ def mobilenet_Int8_1xA7(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=2;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_Int8_1xA7
     a=time_arr(arr)
     mobilenet_Int8_1xA7=a[1]
@@ -603,8 +603,8 @@ def mobilenet_FP32_4xA7(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_FP32_4xA7
     a=time_arr(arr)
     mobilenet_FP32_4xA7=a[1]
@@ -617,8 +617,8 @@ def mobilenet_Int8_4xA7(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=2;export TENGINE_CPU_LIST=0,1,2,3;export LD_LIBRARY_PATH=.;./Classify -n mobilenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global mobilenet_Int8_4xA7
     a=time_arr(arr)
     mobilenet_Int8_4xA7=a[1]
