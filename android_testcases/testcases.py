@@ -139,8 +139,8 @@ def squeezenet_FP32_1xA72(android_ip):
     a.device=android_ip
 
     res=a.shell("cd %s;export KERNEL_MODE=0;export TENGINE_CPU_LIST=5;export LD_LIBRARY_PATH=.;./Classify -n squeezenet -r 100"%(target_dir))
-    print(res)
-    arr=res.splitlines()
+    print(res[0])
+    arr=res[0].splitlines()
     global squeezenet_FP32_1xA72
     a=time_arr(arr)
     squeezenet_FP32_1xA72=a[1]
