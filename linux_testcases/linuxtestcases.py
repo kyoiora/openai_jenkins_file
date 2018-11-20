@@ -792,7 +792,7 @@ def Convert_squeezenet(targetdir,cmdopt):
     assert "4954644" in out2
 
     #Create tm_classify
-    os.system("cd %s; %s/linux_build.sh;make"%(Run_dir,targetdir+"/examples"))
+#    os.system("cd %s; %s/linux_build.sh;make"%(Run_dir,targetdir+"/examples"))
     #Run
     res=os.popen("cd %s; ./tm_classify -n squeezenet"%(Run_dir),"r")
     out=res.read()
