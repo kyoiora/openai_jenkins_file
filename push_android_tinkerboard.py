@@ -13,15 +13,14 @@ def push(ip_addr):
     a.device=ip_addr
     a.root()
 
-
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/*.so'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/build'))
     res=a.shell("rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/Classify'))
-
-
-    a.push(ROOT_DIR, TARGET_DIR_ON_BOARD)
-
+    print res
+    print 'push to board'
+    a.push(ROOT_DIR,TARGET_DIR_ON_BOARD,timeout=3600)
+    print 'push ok'
     print(res[0])
     res=a.shell("\'cd %s && chmod u+x Classify\' "%(TARGET_DIR_ON_BOARD+'android_pack/'))
 
