@@ -16,7 +16,7 @@ node('tinkerboard_Android'){
         
             sh '''#!/bin/bash
                     git pull
-                    git checkout d0f8f109dd6ded3413933e1c86e2389a748a7656
+
             '''
           
         }
