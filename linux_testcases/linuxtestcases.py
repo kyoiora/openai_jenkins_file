@@ -4,41 +4,13 @@ import prettytable as pt
 TARGET_DIR_ON_BOARD='/examples/build/imagenet_classification'
 caffe_wrapper_sqz_dir='/examples/build/caffe_wrapper/cpp_classification'
 
-def quick_api(targetdir,cmdopt):
-    target_dir=targetdir
-    res=os.popen("cd %s;./build/internal/bin/test_quick_api"%(target_dir),"r")
-    out=res.read()
-    print(out)
-    assert "0.2763 - \"n02123045" in out
-"""
-def test_dev(targetdir,cmdopt):
-    target_dir=targetdir
-    res=os.popen("cd %s;./build/internal/bin/test_dev"%(target_dir),"r")
-    out=res.read()
-    print(out)
-    assert "0.2763 - \"n02123045" in out
-
-def test_two_dev(targetdir,cmdopt):
-    target_dir=targetdir
-    res=os.popen("cd %s;./build/internal/bin/test_two_dev"%(target_dir),"r")
-    out=res.read()
-    print(out)
-    assert "0.2763 - \"n02123045" in out
-"""
-def test_two_sqz(targetdir,cmdopt):
-    target_dir=targetdir
-    res=os.popen("cd %s;./build/internal/bin/test_two_sqz"%(target_dir),"r")
-    out=res.read()
-    print(out)
-    assert "0.2763 - \"n02123045" in out
-
 def get_node(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s;./build/internal/bin/test_get_node"%(target_dir),"r")
     out=res.read()
     print(out)
     assert "0.2763 - \"n02123045" in out
-"""
+
 def test_mxnet_mobilenet(targetdir,cmdopt):
     target_dir=targetdir
     res=os.popen("cd %s; ./build/tests/bin/test_mxnet_mobilenet"%(target_dir),"r")
