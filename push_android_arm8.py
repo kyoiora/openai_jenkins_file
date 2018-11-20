@@ -16,6 +16,7 @@ def push(ip_addr):
     #pdb.set_trace()
     a.device=ip_addr
     a.root()
+
     res=a.shell("ls -al %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     res=a.shell("ls | grep -v models | xargs rm -rf %s"%(TARGET_DIR_ON_BOARD+'android_pack/'))
     print res
