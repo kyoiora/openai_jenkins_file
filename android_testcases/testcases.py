@@ -2,6 +2,7 @@
 import argparse
 import pdb
 import sys
+import re
 import prettytable as pt
 from adb_wrapper.adb_wrapper.adb_wrapper import AdbWrapper
 TARGET_DIR_ON_BOARD='/data/local/tmp/'
