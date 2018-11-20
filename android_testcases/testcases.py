@@ -178,7 +178,7 @@ def mssd(android_ip):
     a.device=android_ip
 
 
-    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,target_dir))
+    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./MSSD "%(target_dir,target_dir,test_dir))
     print(res[0])
     arr=res[0].splitlines()
     for char in arr:
@@ -242,7 +242,7 @@ def yolov2(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./YOLOV2 "%(target_dir,target_dir,target_dir))
+    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./YOLOV2 "%(target_dir,target_dir,test_dir))
     print(res[0])
     arr=res[0].splitlines()
     for char in arr:
@@ -306,7 +306,7 @@ def faster_rcnn(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./FASTER_RCNN"%(target_dir,target_dir,target_dir))
+    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./FASTER_RCNN"%(target_dir,target_dir,test_dir))
     print(res[0])
     arr=res[0].splitlines()
     for char in arr:
@@ -356,7 +356,7 @@ def mtcnn(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./MTCNN"%(target_dir,target_dir,target_dir))
+    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./MTCNN"%(target_dir,target_dir,test_dir))
     print(res[0])
     arr=res[0].splitlines()
     for char in arr:
@@ -432,7 +432,7 @@ def lighten_cnn(android_ip):
     #pdb.set_trace()
     a.device=android_ip
 
-    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./LIGHTEN_CNN"%(target_dir,target_dir,target_dir))
+    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s; %s./LIGHTEN_CNN"%(target_dir,target_dir,test_dir))
     print(res[0])
     arr=res[0].splitlines()
     for char in arr:
@@ -443,7 +443,6 @@ def lighten_cnn(android_ip):
     a=re.findall(r"\d+\.?\d*", arr[Number])
     x0=float(a[0])
     assert(x0>=0.00001),"car x0 less than 0.00001"
-
 
 # Performance test for RK3399
 squeezenet_FP32_1xA72=0.0
