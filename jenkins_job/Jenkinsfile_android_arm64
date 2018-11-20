@@ -15,6 +15,7 @@ node('firefly_android'){
         stage('Git Pull'){
         
             sh '''#!/bin/bash
+                    git checkout master
                     git pull
 
             '''

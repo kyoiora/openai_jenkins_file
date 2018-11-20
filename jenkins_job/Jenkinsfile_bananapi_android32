@@ -15,7 +15,9 @@ node('bananapi_Android'){
         stage('Git Pull'){
         
             sh '''#!/bin/bash
-                   git pull
+
+                    git checkout master
+                    git pull
 
             '''
           

@@ -14,7 +14,8 @@ node('tinkerboard_linux'){
             sh "pwd"
             sh "hostname"
             sh '''#!/bin/bash
-                git pull
+                    git checkout master
+                    git pull
 
             '''
         }
