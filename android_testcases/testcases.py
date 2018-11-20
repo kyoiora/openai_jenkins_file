@@ -445,33 +445,6 @@ def lighten_cnn(android_ip):
     assert(x0>=0.00001),"car x0 less than 0.00001"
 
 
-def caffe_wrapper_sqz(android_ip):
-    target_dir=TARGET_DIR_ON_BOARD+'android_pack'
-	test_dir=target_dir+"/build/caffe_wrapper/cpp_classification"
-
-    a = AdbWrapper() # Auto Find adb in system PATH or Environment
-    a.connect(android_ip)
-    #pdb.set_trace()
-    a.device=android_ip
-
-    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s;./classification %s/models/sqz.prototxt %s/models/squeezenet_v1.1.caffemodel %s/imagenet_mean.binaryproto %s/models/synset_words.txt %s/tests/images/cat.jpg"%(test_dir,test_dir,target_dir,target_dir,target_dir,target_dir,target_dir))
-    print(res[0])
-    assert "0.2763 - \"n02123045" in out
-
-def caffe_wrapper_mobilenet(android_ip):
-    target_dir=TARGET_DIR_ON_BOARD+'android_pack'
-	test_dir=target_dir+"/build/caffe_wrapper/cpp_classification"
-
-    a = AdbWrapper() # Auto Find adb in system PATH or Environment
-    a.connect(android_ip)
-    #pdb.set_trace()
-    a.device=android_ip
-
-    res=a.shell("cd %s;export LD_LIBRARY_PATH=%s;./classification_mobilenet %s/models/mobilenet_deploy.prototxt %s/models/mobilenet.caffemodel %s/imagenet_mean.binaryproto %s/models/synset_words.txt %s/tests/images/cat.jpg"%(test_dir,test_dir,target_dir,target_dir,target_dir,target_dir,target_dir))
-    print(res[0])
-    assert "8.5976 - \"n02123159" in out
-
-
 # Performance test for RK3399
 squeezenet_FP32_1xA72=0.0
 squeezenet_Int8_1xA72=0.0
